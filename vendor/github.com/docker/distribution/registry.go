@@ -4,7 +4,6 @@ import (
 	"context"
 
 	"github.com/docker/distribution/reference"
-	distribution "github.com/docker/docker/distribution/encode"
 )
 
 // Scope defines the set of items that match a namespace.
@@ -113,7 +112,7 @@ type Repository interface {
 	// Tags returns a reference to this repositories tag service
 	Tags(ctx context.Context) TagService
 
-	Recipe(ctx context.Context) distribution.RecipeService
+	Recipe(ctx context.Context) RecipeService
 }
 
 // TODO(stevvooe): Must add close methods to all these. May want to change the

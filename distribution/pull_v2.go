@@ -13,6 +13,7 @@ import (
 
 	"github.com/containerd/containerd/platforms"
 	"github.com/docker/distribution"
+	"github.com/docker/distribution/encode"
 	"github.com/docker/distribution/manifest/manifestlist"
 	"github.com/docker/distribution/manifest/ocischema"
 	"github.com/docker/distribution/manifest/schema1"
@@ -153,6 +154,11 @@ func (ld *v2LayerDescriptor) ID() string {
 	return stringid.TruncateID(ld.digest.String())
 }
 
+func (ld *v2LayerDescriptor) GetRecipe(ctx context.Context, tag digest.Digest) (encode.Recipe, error) {
+	recipeService := ld.repo.Recipe(ctx)
+	return recipeService.Get(ctx, tag)
+}
+
 func (ld *v2LayerDescriptor) DiffID() (layer.DiffID, error) {
 	if ld.diffID != "" {
 		return ld.diffID, nil
@@ -167,6 +173,10 @@ func (ld *v2LayerDescriptor) Download(ctx context.Context, progressOutput progre
 		err    error
 		offset int64
 	)
+
+	//Nikhil: Add code to fetch recipe here
+	recipe, _ := ld.GetRecipe(ctx, ld.digest)
+	fmt.Println(recipe)
 
 	if ld.tmpFile == nil {
 		ld.tmpFile, err = createDownloadFile()

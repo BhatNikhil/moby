@@ -2,6 +2,8 @@ package distribution // import "github.com/docker/docker/distribution"
 
 import (
 	"context"
+	"crypto/sha256"
+	"encoding/hex"
 	"encoding/json"
 	"fmt"
 	"io"
@@ -22,6 +24,7 @@ import (
 	"github.com/docker/distribution/registry/api/errcode"
 	"github.com/docker/distribution/registry/client/auth"
 	"github.com/docker/distribution/registry/client/transport"
+	encodeService "github.com/docker/docker/distribution/encode"
 	"github.com/docker/docker/distribution/metadata"
 	"github.com/docker/docker/distribution/xfer"
 	"github.com/docker/docker/image"
@@ -63,7 +66,8 @@ type v2Puller struct {
 	repo              distribution.Repository
 	// confirmedV2 is set to true if we confirm we're talking to a v2
 	// registry. This is used to limit fallbacks to the v1 protocol.
-	confirmedV2 bool
+	confirmedV2   bool
+	encodeService encodeService.Service
 }
 
 func (p *v2Puller) Pull(ctx context.Context, ref reference.Named, platform *specs.Platform) (err error) {
@@ -144,6 +148,7 @@ type v2LayerDescriptor struct {
 	tmpFile           *os.File
 	verifier          digest.Verifier
 	src               distribution.Descriptor
+	encodeService     encodeService.Service
 }
 
 func (ld *v2LayerDescriptor) Key() string {
@@ -177,6 +182,20 @@ func (ld *v2LayerDescriptor) Download(ctx context.Context, progressOutput progre
 	//Nikhil: Add code to fetch recipe here
 	recipe, _ := ld.GetRecipe(ctx, ld.digest)
 	fmt.Println(recipe)
+
+	declaration, _ := ld.encodeService.GetDeclaration(ctx, recipe)
+	fmt.Println(declaration.String())
+
+	blocks := ld.repo.Blocks(ctx)
+	blockResponse, blockLength, checksum, _ := blocks.Exchange(ctx, ld.digest, declaration)
+
+	block, _ := ld.encodeService.AssembleBlob(ctx, recipe, blockResponse, declaration, blockLength)
+
+	destinationChecksum := sha256.Sum256(block)
+
+	if checksum == hex.EncodeToString(destinationChecksum[:]) {
+		fmt.Println("Checksum matched. Congratulations!!")
+	}
 
 	if ld.tmpFile == nil {
 		ld.tmpFile, err = createDownloadFile()
@@ -591,6 +610,7 @@ func (p *v2Puller) pullSchema2Layers(ctx context.Context, target distribution.De
 			repoInfo:          p.repoInfo,
 			V2MetadataService: p.V2MetadataService,
 			src:               d,
+			encodeService:     p.encodeService,
 		}
 
 		descriptors = append(descriptors, layerDescriptor)

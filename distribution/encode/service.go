@@ -2,6 +2,7 @@ package encode
 
 import (
 	"context"
+	"fmt"
 
 	"github.com/docker/distribution/encode"
 )
@@ -40,6 +41,11 @@ func (s *Service) InsertEncoding(ctx context.Context, encodingHash string, byteS
 // AssembleBlob will assemble the blob using the recipe and the byte streams
 func (s *Service) AssembleBlob(ctx context.Context, r encode.Recipe, b encode.BlockResponse, d encode.Declaration, lengthOfByteStream int) ([]byte, error) {
 	blockResponse := make([]byte, lengthOfByteStream)
+
+	fmt.Println("Length of byte stream: ", lengthOfByteStream)
+	fmt.Println("Length of recipe: ", len(r.Recipe))
+	fmt.Println("Length of declaration: ", len(d.Encodings))
+
 	for i, val := range d.Encodings {
 		key := r.Recipe[i]
 
@@ -49,7 +55,16 @@ func (s *Service) AssembleBlob(ctx context.Context, r encode.Recipe, b encode.Bl
 		} else {
 			block = b.Blocks[i]
 		}
-		copy(blockResponse[i*encode.ShiftOfWindow:i*encode.ShiftOfWindow+len(block)], block)
+		startIndex := i * encode.ShiftOfWindow
+		endIndex := i*encode.ShiftOfWindow + len(block)
+
+		fmt.Println("=================================")
+		fmt.Println("Got block of length: ", len(block))
+		fmt.Println("Start index: ", startIndex)
+		fmt.Println("End index: ", endIndex)
+		fmt.Println("=================================")
+
+		copy(blockResponse[startIndex:endIndex], block)
 	}
 
 	return blockResponse, nil

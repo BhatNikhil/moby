@@ -179,18 +179,21 @@ func (ld *v2LayerDescriptor) Download(ctx context.Context, progressOutput progre
 		offset int64
 	)
 
+	fmt.Println("Repo:", ld.repo)
+	fmt.Println("Repo Info:", ld.repoInfo)
+
 	//Nikhil: Add code to fetch recipe here
 	recipe, _ := ld.GetRecipe(ctx, ld.digest)
-	fmt.Println(recipe)
+	fmt.Println("Length of Recipe: ", len(recipe.Recipe))
 
 	declaration, _ := ld.encodeService.GetDeclaration(ctx, recipe)
-	fmt.Println(declaration.String())
+	fmt.Println("Length of Declaration: ", len(declaration.String()))
 
 	blocks := ld.repo.Blocks(ctx)
 	blockResponse, blockLength, checksum, _ := blocks.Exchange(ctx, ld.digest, declaration)
+	fmt.Println("Blocks: ", blockResponse.Blocks)
 
 	block, _ := ld.encodeService.AssembleBlob(ctx, recipe, blockResponse, declaration, blockLength)
-
 	destinationChecksum := sha256.Sum256(block)
 
 	if checksum == hex.EncodeToString(destinationChecksum[:]) {

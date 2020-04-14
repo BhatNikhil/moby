@@ -42,9 +42,11 @@ func (s *Service) InsertEncoding(ctx context.Context, encodingHash string, byteS
 func (s *Service) AssembleBlob(ctx context.Context, r encode.Recipe, b encode.BlockResponse, d encode.Declaration, lengthOfByteStream int) ([]byte, error) {
 	blockResponse := make([]byte, lengthOfByteStream)
 
-	fmt.Println("Length of byte stream: ", lengthOfByteStream)
-	fmt.Println("Length of recipe: ", len(r.Recipe))
-	fmt.Println("Length of declaration: ", len(d.Encodings))
+	if Debug == true {
+		fmt.Println("Length of byte stream: ", lengthOfByteStream)
+		fmt.Println("Length of recipe: ", len(r.Recipe))
+		fmt.Println("Length of declaration: ", len(d.Encodings))
+	}
 
 	for i, val := range d.Encodings {
 		key := r.Recipe[i]
@@ -55,14 +57,19 @@ func (s *Service) AssembleBlob(ctx context.Context, r encode.Recipe, b encode.Bl
 		} else {
 			block = b.Blocks[i]
 		}
-		startIndex := i * encode.ShiftOfWindow
-		endIndex := i*encode.ShiftOfWindow + len(block)
+		endIndex := i*encode.ShiftOfWindow + encode.SizeOfWindow
+		if endIndex > lengthOfByteStream {
+			endIndex = lengthOfByteStream
+		}
+		startIndex := endIndex - len(block)
 
-		fmt.Println("=================================")
-		fmt.Println("Got block of length: ", len(block))
-		fmt.Println("Start index: ", startIndex)
-		fmt.Println("End index: ", endIndex)
-		fmt.Println("=================================")
+		if Debug == true {
+			fmt.Println("=================================")
+			fmt.Println("Got block of length: ", len(block))
+			fmt.Println("Start index: ", startIndex)
+			fmt.Println("End index: ", endIndex)
+			fmt.Println("=================================")
+		}
 
 		copy(blockResponse[startIndex:endIndex], block)
 	}

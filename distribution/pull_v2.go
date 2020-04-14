@@ -179,25 +179,27 @@ func (ld *v2LayerDescriptor) Download(ctx context.Context, progressOutput progre
 		offset int64
 	)
 
-	fmt.Println("Repo:", ld.repo)
-	fmt.Println("Repo Info:", ld.repoInfo)
-
 	//Nikhil: Add code to fetch recipe here
 	recipe, _ := ld.GetRecipe(ctx, ld.digest)
-	fmt.Println("Length of Recipe: ", len(recipe.Recipe))
-
 	declaration, _ := ld.encodeService.GetDeclaration(ctx, recipe)
-	fmt.Println("Length of Declaration: ", len(declaration.String()))
 
 	blocks := ld.repo.Blocks(ctx)
 	blockResponse, blockLength, checksum, _ := blocks.Exchange(ctx, ld.digest, declaration)
-	fmt.Println("Blocks: ", blockResponse.Blocks)
+	if encodeService.Debug == true {
+		fmt.Println("Length of Recipe: ", len(recipe.Recipe))
+		fmt.Println("Length of Declaration: ", len(declaration.String()))
+		fmt.Println("Blocks: ", blockResponse.Blocks)
+	}
 
 	block, _ := ld.encodeService.AssembleBlob(ctx, recipe, blockResponse, declaration, blockLength)
 	destinationChecksum := sha256.Sum256(block)
 
+	fmt.Println("For layer-->", ld.digest)
+	fmt.Println("With length of recipe-->", len(recipe.Recipe))
 	if checksum == hex.EncodeToString(destinationChecksum[:]) {
 		fmt.Println("Checksum matched. Congratulations!!")
+	} else {
+		fmt.Println("Checkum not matched. Go check youself.")
 	}
 
 	if ld.tmpFile == nil {

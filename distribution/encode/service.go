@@ -33,14 +33,15 @@ func (s *Service) GetDeclaration(ctx context.Context, recipe encode.Recipe) (enc
 	return declaration, nil
 }
 
-// InsertEncoding will insert the encoding in the backend data store
-func (s *Service) InsertMissingEncodings(ctx context.Context,recipe encode.Recipe, d encode.Declaration, byteStream []byte) error {
-	for i, exists := range(d.Encodings){
-		if exists := false{
-			startIndex, endIndex := encode.BlockIndices(i, len(blob))
-			s.db.InsertEncoding(ctx, recipe[i], byteStream[startIndex:endIndex])
+// InsertMissingEncodings will insert the encoding in the backend data store
+func (s *Service) InsertMissingEncodings(ctx context.Context, recipe encode.Recipe, d encode.Declaration, byteStream []byte) error {
+	for i, exists := range d.Encodings {
+		if exists == false {
+			startIndex, endIndex := encode.BlockIndices(i, len(byteStream))
+			s.db.InsertEncoding(ctx, recipe.Recipe[i], byteStream[startIndex:endIndex])
 		}
 	}
+	return nil
 }
 
 // AssembleBlob will assemble the blob using the recipe and the byte streams
@@ -59,10 +60,11 @@ func (s *Service) AssembleBlob(ctx context.Context, r encode.Recipe, b encode.Bl
 		var block []byte
 		if val == true {
 			block, _ = s.db.GetEncoding(ctx, key)
+			fmt.Println("Block fetched from db:", key)
 		} else {
 			block = b.Blocks[i]
 		}
-		
+
 		_, endIndex := encode.BlockIndices(i, lengthOfByteStream)
 		startIndex := endIndex - len(block)
 

@@ -311,10 +311,12 @@ func (ld *v2LayerDescriptor) Download(ctx context.Context, progressOutput progre
 
 	logrus.Debugf("Downloaded %s to tempfile %s", ld.ID(), tmpFile.Name())
 
-	_, err = tmpFile.Seek(0, io.SeekStart)
-	tmpFileBytes, _ := ioutil.ReadAll(tmpFile)
-	chckSm := sha256.Sum256(tmpFileBytes)
-	fmt.Println("Tmp file checksum:", hex.EncodeToString(chckSm[:]))
+	if encode.Debug {
+		_, err = tmpFile.Seek(0, io.SeekStart)
+		tmpFileBytes, _ := ioutil.ReadAll(tmpFile)
+		chckSm := sha256.Sum256(tmpFileBytes)
+		fmt.Println("Tmp file checksum:", hex.EncodeToString(chckSm[:]))
+	}
 
 	_, err = tmpFile.Seek(0, io.SeekStart)
 	if err != nil {

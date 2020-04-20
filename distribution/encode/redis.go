@@ -28,7 +28,11 @@ func getDBIdentifier(encodingHash string) string {
 
 // IsEncodingAvailable will check if encoding is present inside the db
 func (r *RedisDB) IsEncodingAvailable(ctx context.Context, encodingHash string) (bool, error) {
-	return false, nil
+	conn := r.pool.Get()
+	defer conn.Close()
+
+	key := getDBIdentifier(encodingHash)
+	return redis.Bool(conn.Do("EXISTS", key))
 }
 
 // GetEncoding will get the encoding from the db
@@ -59,10 +63,9 @@ func (r *RedisDB) InsertEncoding(ctx context.Context, encodingHash string, byteS
 	defer conn.Close()
 
 	key := getDBIdentifier(encodingHash)
-	ok, err := conn.Do("PUT", key, byteStream)
-
-	if ok != "OK" {
-		return fmt.Errorf("Not Okay")
+	_, err := conn.Do("SET", key, byteStream)
+	if err != nil {
+		fmt.Println(err)
 	}
 	return err
 }

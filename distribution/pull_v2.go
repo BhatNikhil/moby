@@ -1,6 +1,7 @@
 package distribution // import "github.com/docker/docker/distribution"
 
 import (
+	"bytes"
 	"context"
 	"crypto/sha256"
 	"encoding/hex"
@@ -192,6 +193,7 @@ func (ld *v2LayerDescriptor) Download(ctx context.Context, progressOutput progre
 	}
 
 	block, _ := ld.encodeService.AssembleBlob(ctx, recipe, blockResponse, declaration, blockLength)
+	ld.encodeService.InsertMissingEncodings(ctx, recipe, declaration, block)
 	destinationChecksum := sha256.Sum256(block)
 
 	fmt.Println("For layer-->", ld.digest)
@@ -228,11 +230,12 @@ func (ld *v2LayerDescriptor) Download(ctx context.Context, progressOutput progre
 
 	tmpFile := ld.tmpFile
 
-	layerDownload, err := ld.open(ctx)
-	if err != nil {
-		logrus.Errorf("Error initiating layer download: %v", err)
-		return nil, 0, retryOnError(err)
-	}
+	layerDownload := bytes.NewReader(block)
+
+	// if err != nil {
+	// 	logrus.Errorf("Error initiating layer download: %v", err)
+	// 	return nil, 0, retryOnError(err)
+	// }
 
 	if offset != 0 {
 		_, err := layerDownload.Seek(offset, io.SeekStart)
@@ -267,7 +270,7 @@ func (ld *v2LayerDescriptor) Download(ctx context.Context, progressOutput progre
 		}
 	}
 
-	reader := progress.NewProgressReader(ioutils.NewCancelReadCloser(ctx, layerDownload), progressOutput, size-offset, ld.ID(), "Downloading")
+	reader := progress.NewProgressReader(ioutils.NewCancelReadCloser(ctx, ioutil.NopCloser(layerDownload)), progressOutput, size-offset, ld.ID(), "Downloading")
 	defer reader.Close()
 
 	if ld.verifier == nil {
@@ -275,6 +278,7 @@ func (ld *v2LayerDescriptor) Download(ctx context.Context, progressOutput progre
 	}
 
 	_, err = io.Copy(tmpFile, io.TeeReader(reader, ld.verifier))
+
 	if err != nil {
 		if err == transport.ErrWrongCodeForByteRange {
 			if err := ld.truncateDownloadFile(); err != nil {
@@ -306,6 +310,11 @@ func (ld *v2LayerDescriptor) Download(ctx context.Context, progressOutput progre
 	progress.Update(progressOutput, ld.ID(), "Download complete")
 
 	logrus.Debugf("Downloaded %s to tempfile %s", ld.ID(), tmpFile.Name())
+
+	_, err = tmpFile.Seek(0, io.SeekStart)
+	tmpFileBytes, _ := ioutil.ReadAll(tmpFile)
+	chckSm := sha256.Sum256(tmpFileBytes)
+	fmt.Println("Tmp file checksum:", hex.EncodeToString(chckSm[:]))
 
 	_, err = tmpFile.Seek(0, io.SeekStart)
 	if err != nil {

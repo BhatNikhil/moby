@@ -24,13 +24,27 @@ func NewService(database DB) Service {
 // for the recipe
 func (s *Service) GetDeclaration(ctx context.Context, recipe encode.Recipe) (encode.Declaration, error) {
 	declaration := encode.Declaration{
-		Encodings: make([]bool, len(recipe.Recipe)),
+		Encodings: make([]bool, len(recipe.Keys)),
 	}
 
-	for i, encodingHash := range recipe.Recipe {
+	for i, encodingHash := range recipe.Keys {
 		declaration.Encodings[i], _ = s.db.IsEncodingAvailable(ctx, encodingHash)
 	}
 	return declaration, nil
+}
+
+//GetAvailableBlocksFromDB gets available blocks from db
+func (s *Service) GetAvailableBlocksFromDB(ctx context.Context, recipe encode.Recipe) (encode.Declaration, [][]byte, error) {
+	blocksFromDB, err := s.db.GetMultipleEncodings(ctx, recipe.Keys...)
+	declaration := encode.Declaration{
+		Encodings: make([]bool, len(recipe.Keys)),
+	}
+	for i, v := range blocksFromDB {
+		if v != nil {
+			declaration.Encodings[i] = true
+		}
+	}
+	return declaration, blocksFromDB, err
 }
 
 // InsertMissingEncodings will insert the encoding in the backend data store
@@ -38,7 +52,7 @@ func (s *Service) InsertMissingEncodings(ctx context.Context, recipe encode.Reci
 	for i, exists := range d.Encodings {
 		if exists == false {
 			startIndex, endIndex := encode.BlockIndices(i, len(byteStream))
-			s.db.InsertEncoding(ctx, recipe.Recipe[i], byteStream[startIndex:endIndex])
+			s.db.InsertEncoding(ctx, recipe.Keys[i], byteStream[startIndex:endIndex])
 		}
 	}
 	return nil
@@ -50,12 +64,12 @@ func (s *Service) AssembleBlob(ctx context.Context, r encode.Recipe, b encode.Bl
 
 	if Debug == true {
 		fmt.Println("Length of byte stream: ", lengthOfByteStream)
-		fmt.Println("Length of recipe: ", len(r.Recipe))
+		fmt.Println("Length of recipe: ", len(r.Keys))
 		fmt.Println("Length of declaration: ", len(d.Encodings))
 	}
 
 	for i, val := range d.Encodings {
-		key := r.Recipe[i]
+		key := r.Keys[i]
 
 		var block []byte
 		if val == true {

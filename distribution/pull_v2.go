@@ -187,7 +187,7 @@ func (ld *v2LayerDescriptor) Download(ctx context.Context, progressOutput progre
 	blocks := ld.repo.Blocks(ctx)
 	blockResponse, blockLength, checksum, _ := blocks.Exchange(ctx, ld.digest, declaration)
 	if encodeService.Debug == true {
-		fmt.Println("Length of Recipe: ", len(recipe.Recipe))
+		fmt.Println("Length of Recipe: ", len(recipe.Keys))
 		fmt.Println("Length of Declaration: ", len(declaration.String()))
 		fmt.Println("Blocks: ", blockResponse.Blocks)
 	}
@@ -197,7 +197,7 @@ func (ld *v2LayerDescriptor) Download(ctx context.Context, progressOutput progre
 	destinationChecksum := sha256.Sum256(block)
 
 	fmt.Println("For layer-->", ld.digest)
-	fmt.Println("With length of recipe-->", len(recipe.Recipe))
+	fmt.Println("With length of recipe-->", len(recipe.Keys))
 	if checksum == hex.EncodeToString(destinationChecksum[:]) {
 		fmt.Println("Checksum matched. Congratulations!!")
 	} else {

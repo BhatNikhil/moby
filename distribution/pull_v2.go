@@ -182,7 +182,7 @@ func (ld *v2LayerDescriptor) Download(ctx context.Context, progressOutput progre
 
 	//Nikhil: Add code to fetch recipe here
 	recipe, _ := ld.GetRecipe(ctx, ld.digest)
-	declaration, _ := ld.encodeService.GetDeclaration(ctx, recipe)
+	declaration, blocksFromDB, _ := ld.encodeService.GetAvailableBlocksFromDB(ctx, recipe)
 
 	blocks := ld.repo.Blocks(ctx)
 	blockResponse, blockLength, checksum, _ := blocks.Exchange(ctx, ld.digest, declaration)
@@ -192,9 +192,9 @@ func (ld *v2LayerDescriptor) Download(ctx context.Context, progressOutput progre
 		fmt.Println("Blocks: ", blockResponse.Blocks)
 	}
 
-	block, _ := ld.encodeService.AssembleBlob(ctx, recipe, blockResponse, declaration, blockLength)
-	ld.encodeService.InsertMissingEncodings(ctx, recipe, declaration, block)
-	destinationChecksum := sha256.Sum256(block)
+	blob, _ := ld.encodeService.AssembleBlob(ctx, recipe, blockResponse, blocksFromDB, blockLength)
+	ld.encodeService.InsertMissingEncodings(ctx, recipe, declaration, blob)
+	destinationChecksum := sha256.Sum256(blob)
 
 	fmt.Println("For layer-->", ld.digest)
 	fmt.Println("With length of recipe-->", len(recipe.Keys))
@@ -230,7 +230,7 @@ func (ld *v2LayerDescriptor) Download(ctx context.Context, progressOutput progre
 
 	tmpFile := ld.tmpFile
 
-	layerDownload := bytes.NewReader(block)
+	layerDownload := bytes.NewReader(blob)
 
 	// if err != nil {
 	// 	logrus.Errorf("Error initiating layer download: %v", err)

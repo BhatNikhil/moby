@@ -33,16 +33,14 @@ func (s *Service) GetDeclaration(ctx context.Context, recipe encode.Recipe) (enc
 	return declaration, nil
 }
 
-//GetAvailableBlocksFromDB gets available blocks from db
+//GetAvailableBlocksFromDB gets available blocks from db and constructs a declaration
 func (s *Service) GetAvailableBlocksFromDB(ctx context.Context, recipe encode.Recipe) (encode.Declaration, [][]byte, error) {
 	blocksFromDB, err := s.db.GetMultipleEncodings(ctx, recipe.Keys...)
 	declaration := encode.Declaration{
 		Encodings: make([]bool, len(recipe.Keys)),
 	}
 	for i, v := range blocksFromDB {
-		if v != nil {
-			declaration.Encodings[i] = true
-		}
+		declaration.Encodings[i] = (v != nil)
 	}
 	return declaration, blocksFromDB, err
 }
@@ -59,24 +57,24 @@ func (s *Service) InsertMissingEncodings(ctx context.Context, recipe encode.Reci
 }
 
 // AssembleBlob will assemble the blob using the recipe and the byte streams
-func (s *Service) AssembleBlob(ctx context.Context, r encode.Recipe, b encode.BlockResponse, d encode.Declaration, lengthOfByteStream int) ([]byte, error) {
+func (s *Service) AssembleBlob(ctx context.Context, r encode.Recipe, b encode.BlockResponse, dbBlocks [][]byte, lengthOfByteStream int) ([]byte, error) {
 	blockResponse := make([]byte, lengthOfByteStream)
 
 	if Debug == true {
 		fmt.Println("Length of byte stream: ", lengthOfByteStream)
 		fmt.Println("Length of recipe: ", len(r.Keys))
-		fmt.Println("Length of declaration: ", len(d.Encodings))
+		fmt.Println("Length of Blocks from DB: ", len(dbBlocks))
 	}
 
-	for i, val := range d.Encodings {
+	for i, val := range dbBlocks {
 		key := r.Keys[i]
 
 		var block []byte
-		if val == true {
-			block, _ = s.db.GetEncoding(ctx, key)
-			fmt.Println("Block fetched from db:", key)
-		} else {
+		if val == nil {
 			block = b.Blocks[i]
+		} else {
+			block = val
+			fmt.Println("Block fetched from db:", key)
 		}
 
 		_, endIndex := encode.BlockIndices(i, lengthOfByteStream)

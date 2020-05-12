@@ -57,11 +57,11 @@ func (r *RedisDB) GetMultipleEncodings(ctx context.Context, encodingHashList ...
 	conn := r.pool.Get()
 	defer conn.Close()
 
-	dbKeys := make([]string, len(encodingHashList))
+	dbKeys := make([]interface{}, len(encodingHashList))
 	for i := range encodingHashList {
 		dbKeys[i] = getDBIdentifier(encodingHashList[i])
 	}
-	rawBlocksFromDB, err := redis.Values(conn.Do("MGET", dbKeys))
+	rawBlocksFromDB, err := redis.Values(conn.Do("MGET", dbKeys...))
 
 	blocksFromDB := make([][]byte, len(dbKeys))
 	for i, rawEncoding := range rawBlocksFromDB {
@@ -82,6 +82,27 @@ func (r *RedisDB) InsertEncoding(ctx context.Context, encodingHash string, byteS
 
 	key := getDBIdentifier(encodingHash)
 	_, err := conn.Do("SET", key, byteStream)
+	if err != nil {
+		fmt.Println(err)
+	}
+	return err
+}
+
+// InsertEncodings will insert a collection of encodings in the db
+func (r *RedisDB) InsertEncodings(ctx context.Context, keys []string, blocks [][]byte) error {
+	conn := r.pool.Get()
+	defer conn.Close()
+
+	if len(keys) == 0 {
+		return nil
+	}
+	values := make([]interface{}, 2*len(keys))
+	for i := range keys {
+		values[2*i] = getDBIdentifier(keys[i])
+		values[2*i+1] = blocks[i]
+	}
+
+	_, err := conn.Do("MSET", values...)
 	if err != nil {
 		fmt.Println(err)
 	}

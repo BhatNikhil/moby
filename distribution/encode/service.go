@@ -47,12 +47,19 @@ func (s *Service) GetAvailableBlocksFromDB(ctx context.Context, recipe encode.Re
 
 // InsertMissingEncodings will insert the encoding in the backend data store
 func (s *Service) InsertMissingEncodings(ctx context.Context, recipe encode.Recipe, d encode.Declaration, byteStream []byte) error {
+	var keys []string
+	var blocks [][]byte
+
 	for i, exists := range d.Encodings {
 		if exists == false {
 			startIndex, endIndex := encode.BlockIndices(i, len(byteStream))
-			s.db.InsertEncoding(ctx, recipe.Keys[i], byteStream[startIndex:endIndex])
+			keys = append(keys, recipe.Keys[i])
+			blocks = append(blocks, byteStream[startIndex:endIndex])
 		}
 	}
+
+	s.db.InsertEncodings(ctx, keys, blocks)
+
 	return nil
 }
 

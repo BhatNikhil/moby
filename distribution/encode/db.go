@@ -13,6 +13,9 @@ type DB interface {
 	//InsertEncoding will insert the encoding in the db
 	InsertEncoding(ctx context.Context, encodingHash string, byteStream []byte) error
 
+	//InsertEncodings will insert a list of encodings in the db
+	InsertEncodings(ctx context.Context, encodings []string, blocks [][]byte) error
+
 	//GetMultipleEncodings will get a list of encodings corresponding to the list provided
 	GetMultipleEncodings(ctx context.Context, encodingHashList ...string) ([][]byte, error)
 }

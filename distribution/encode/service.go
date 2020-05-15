@@ -81,7 +81,9 @@ func (s *Service) AssembleBlob(ctx context.Context, r encode.Recipe, b encode.Bl
 			block = b.Blocks[i]
 		} else {
 			block = val
-			fmt.Println("Block fetched from db:", key)
+			if Debug == true {
+				fmt.Println("Block fetched from db:", key)
+			}
 		}
 
 		_, endIndex := encode.BlockIndices(i, lengthOfByteStream)

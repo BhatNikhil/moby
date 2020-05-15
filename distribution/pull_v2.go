@@ -193,15 +193,21 @@ func (ld *v2LayerDescriptor) Download(ctx context.Context, progressOutput progre
 	}
 
 	blob, _ := ld.encodeService.AssembleBlob(ctx, recipe, blockResponse, blocksFromDB, blockLength)
-	ld.encodeService.InsertMissingEncodings(ctx, recipe, declaration, blob)
+
+	go func() {
+		ld.encodeService.InsertMissingEncodings(ctx, recipe, declaration, blob)
+	}()
+
 	destinationChecksum := sha256.Sum256(blob)
 
-	fmt.Println("For layer-->", ld.digest)
-	fmt.Println("With length of recipe-->", len(recipe.Keys))
-	if checksum == hex.EncodeToString(destinationChecksum[:]) {
-		fmt.Println("Checksum matched. Congratulations!!")
-	} else {
-		fmt.Println("Checkum not matched. Go check youself.")
+	if encodeService.Debug == true {
+		fmt.Println("For layer-->", ld.digest)
+		fmt.Println("With length of recipe-->", len(recipe.Keys))
+		if checksum == hex.EncodeToString(destinationChecksum[:]) {
+			fmt.Println("Checksum matched. Congratulations!!")
+		} else {
+			fmt.Println("Checkum not matched. Go check youself.")
+		}
 	}
 
 	if ld.tmpFile == nil {

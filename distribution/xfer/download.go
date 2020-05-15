@@ -107,6 +107,8 @@ type DownloadDescriptorWithRegistered interface {
 // registered in the appropriate order.  The caller must call the returned
 // release function once it is done with the returned RootFS object.
 func (ldm *LayerDownloadManager) Download(ctx context.Context, initialRootFS image.RootFS, os string, layers []DownloadDescriptor, progressOutput progress.Output) (image.RootFS, func(), error) {
+	start := time.Now()
+
 	var (
 		topLayer       layer.Layer
 		topDownload    *downloadTransfer
@@ -225,6 +227,8 @@ func (ldm *LayerDownloadManager) Download(ctx context.Context, initialRootFS ima
 		rootFS.DiffIDs = append([]layer.DiffID{l.DiffID()}, rootFS.DiffIDs...)
 		l = l.Parent()
 	}
+
+	fmt.Println("Downloaded image in time: ", time.Since(start))
 	return rootFS, func() { topDownload.Transfer.Release(watcher) }, err
 }
 
@@ -345,6 +349,7 @@ func (ldm *LayerDownloadManager) makeDownloadFunc(descriptor DownloadDescriptor,
 			reader := progress.NewProgressReader(ioutils.NewCancelReadCloser(d.Transfer.Context(), downloadReader), progressOutput, size, descriptor.ID(), "Extracting")
 			defer reader.Close()
 
+			//Nikhil: Decompress layer
 			inflatedLayerData, err := archive.DecompressStream(reader)
 			if err != nil {
 				d.err = fmt.Errorf("could not get decompression stream: %v", err)

@@ -13,6 +13,7 @@ import (
 	"os"
 	"runtime"
 	"strings"
+	"time"
 
 	"github.com/containerd/containerd/platforms"
 	"github.com/docker/distribution"
@@ -175,6 +176,8 @@ func (ld *v2LayerDescriptor) DiffID() (layer.DiffID, error) {
 func (ld *v2LayerDescriptor) Download(ctx context.Context, progressOutput progress.Output) (io.ReadCloser, int64, error) {
 	logrus.Debugf("pulling blob %q", ld.digest)
 
+	start := time.Now()
+
 	var (
 		err    error
 		offset int64
@@ -314,6 +317,7 @@ func (ld *v2LayerDescriptor) Download(ctx context.Context, progressOutput progre
 	}
 
 	progress.Update(progressOutput, ld.ID(), "Download complete")
+	fmt.Println("Pulled layer in:", time.Since(start))
 
 	logrus.Debugf("Downloaded %s to tempfile %s", ld.ID(), tmpFile.Name())
 

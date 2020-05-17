@@ -1,7 +1,10 @@
 package distribution // import "github.com/docker/docker/distribution"
 
 import (
+	"bytes"
 	"context"
+	"crypto/sha256"
+	"encoding/hex"
 	"encoding/json"
 	"fmt"
 	"io"
@@ -14,6 +17,7 @@ import (
 
 	"github.com/containerd/containerd/platforms"
 	"github.com/docker/distribution"
+	"github.com/docker/distribution/encode"
 	"github.com/docker/distribution/manifest/manifestlist"
 	"github.com/docker/distribution/manifest/ocischema"
 	"github.com/docker/distribution/manifest/schema1"
@@ -22,6 +26,7 @@ import (
 	"github.com/docker/distribution/registry/api/errcode"
 	"github.com/docker/distribution/registry/client/auth"
 	"github.com/docker/distribution/registry/client/transport"
+	encodeService "github.com/docker/docker/distribution/encode"
 	"github.com/docker/docker/distribution/metadata"
 	"github.com/docker/docker/distribution/xfer"
 	"github.com/docker/docker/image"
@@ -63,7 +68,8 @@ type v2Puller struct {
 	repo              distribution.Repository
 	// confirmedV2 is set to true if we confirm we're talking to a v2
 	// registry. This is used to limit fallbacks to the v1 protocol.
-	confirmedV2 bool
+	confirmedV2   bool
+	encodeService encodeService.Service
 }
 
 func (p *v2Puller) Pull(ctx context.Context, ref reference.Named, platform *specs.Platform) (err error) {
@@ -144,6 +150,7 @@ type v2LayerDescriptor struct {
 	tmpFile           *os.File
 	verifier          digest.Verifier
 	src               distribution.Descriptor
+	encodeService     encodeService.Service
 }
 
 func (ld *v2LayerDescriptor) Key() string {
@@ -152,6 +159,11 @@ func (ld *v2LayerDescriptor) Key() string {
 
 func (ld *v2LayerDescriptor) ID() string {
 	return stringid.TruncateID(ld.digest.String())
+}
+
+func (ld *v2LayerDescriptor) GetRecipe(ctx context.Context, tag digest.Digest) (encode.Recipe, error) {
+	recipeService := ld.repo.Recipe(ctx)
+	return recipeService.Get(ctx, tag)
 }
 
 func (ld *v2LayerDescriptor) DiffID() (layer.DiffID, error) {
@@ -168,6 +180,36 @@ func (ld *v2LayerDescriptor) Download(ctx context.Context, progressOutput progre
 		err    error
 		offset int64
 	)
+
+	//Nikhil: Add code to fetch recipe here
+	recipe, _ := ld.GetRecipe(ctx, ld.digest)
+	declaration, blocksFromDB, _ := ld.encodeService.GetAvailableBlocksFromDB(ctx, recipe)
+
+	blocks := ld.repo.Blocks(ctx)
+	blockResponse, blockLength, checksum, _ := blocks.Exchange(ctx, ld.digest, declaration)
+	if encodeService.Debug == true {
+		fmt.Println("Length of Recipe: ", len(recipe.Keys))
+		fmt.Println("Length of Declaration: ", len(declaration.String()))
+		fmt.Println("Blocks: ", blockResponse.Blocks)
+	}
+
+	blob, _ := ld.encodeService.AssembleBlob(ctx, recipe, blockResponse, blocksFromDB, blockLength)
+
+	go func() {
+		ld.encodeService.InsertMissingEncodings(ctx, recipe, declaration, blob)
+	}()
+
+	destinationChecksum := sha256.Sum256(blob)
+
+	if encodeService.Debug == true {
+		fmt.Println("For layer-->", ld.digest)
+		fmt.Println("With length of recipe-->", len(recipe.Keys))
+		if checksum == hex.EncodeToString(destinationChecksum[:]) {
+			fmt.Println("Checksum matched. Congratulations!!")
+		} else {
+			fmt.Println("Checkum not matched. Go check youself.")
+		}
+	}
 
 	if ld.tmpFile == nil {
 		ld.tmpFile, err = createDownloadFile()
@@ -195,11 +237,12 @@ func (ld *v2LayerDescriptor) Download(ctx context.Context, progressOutput progre
 
 	tmpFile := ld.tmpFile
 
-	layerDownload, err := ld.open(ctx)
-	if err != nil {
-		logrus.Errorf("Error initiating layer download: %v", err)
-		return nil, 0, retryOnError(err)
-	}
+	layerDownload := bytes.NewReader(blob)
+
+	// if err != nil {
+	// 	logrus.Errorf("Error initiating layer download: %v", err)
+	// 	return nil, 0, retryOnError(err)
+	// }
 
 	if offset != 0 {
 		_, err := layerDownload.Seek(offset, io.SeekStart)
@@ -234,7 +277,7 @@ func (ld *v2LayerDescriptor) Download(ctx context.Context, progressOutput progre
 		}
 	}
 
-	reader := progress.NewProgressReader(ioutils.NewCancelReadCloser(ctx, layerDownload), progressOutput, size-offset, ld.ID(), "Downloading")
+	reader := progress.NewProgressReader(ioutils.NewCancelReadCloser(ctx, ioutil.NopCloser(layerDownload)), progressOutput, size-offset, ld.ID(), "Downloading")
 	defer reader.Close()
 
 	if ld.verifier == nil {
@@ -242,6 +285,7 @@ func (ld *v2LayerDescriptor) Download(ctx context.Context, progressOutput progre
 	}
 
 	_, err = io.Copy(tmpFile, io.TeeReader(reader, ld.verifier))
+
 	if err != nil {
 		if err == transport.ErrWrongCodeForByteRange {
 			if err := ld.truncateDownloadFile(); err != nil {
@@ -272,8 +316,16 @@ func (ld *v2LayerDescriptor) Download(ctx context.Context, progressOutput progre
 
 	fmt.Printf("%s --->\t Time to download the layer: %s\n", time.Now(), time.Since(start))
 	progress.Update(progressOutput, ld.ID(), "Download complete")
+	fmt.Println("Pulled layer in:", time.Since(start))
 
 	logrus.Debugf("Downloaded %s to tempfile %s", ld.ID(), tmpFile.Name())
+
+	if encode.Debug {
+		_, err = tmpFile.Seek(0, io.SeekStart)
+		tmpFileBytes, _ := ioutil.ReadAll(tmpFile)
+		chckSm := sha256.Sum256(tmpFileBytes)
+		fmt.Println("Tmp file checksum:", hex.EncodeToString(chckSm[:]))
+	}
 
 	_, err = tmpFile.Seek(0, io.SeekStart)
 	if err != nil {
@@ -583,6 +635,7 @@ func (p *v2Puller) pullSchema2Layers(ctx context.Context, target distribution.De
 			repoInfo:          p.repoInfo,
 			V2MetadataService: p.V2MetadataService,
 			src:               d,
+			encodeService:     p.encodeService,
 		}
 
 		descriptors = append(descriptors, layerDescriptor)

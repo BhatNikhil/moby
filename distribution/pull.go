@@ -6,6 +6,7 @@ import (
 
 	"github.com/docker/distribution/reference"
 	"github.com/docker/docker/api"
+	"github.com/docker/docker/distribution/encode"
 	"github.com/docker/docker/distribution/metadata"
 	"github.com/docker/docker/pkg/progress"
 	refstore "github.com/docker/docker/reference"
@@ -30,6 +31,8 @@ type Puller interface {
 // through to the underlying puller implementation for use during the actual
 // pull operation.
 func newPuller(endpoint registry.APIEndpoint, repoInfo *registry.RepositoryInfo, imagePullConfig *ImagePullConfig) (Puller, error) {
+	redisDB := encode.NewRedisDB()
+
 	switch endpoint.Version {
 	case registry.APIVersion2:
 		return &v2Puller{
@@ -37,6 +40,7 @@ func newPuller(endpoint registry.APIEndpoint, repoInfo *registry.RepositoryInfo,
 			endpoint:          endpoint,
 			config:            imagePullConfig,
 			repoInfo:          repoInfo,
+			encodeService:     encode.NewService(&redisDB),
 		}, nil
 	case registry.APIVersion1:
 		return nil, fmt.Errorf("protocol version %d no longer supported. Please contact admins of registry %s", endpoint.Version, endpoint.URL)

@@ -183,6 +183,7 @@ func wrapReadCloser(readBuf io.ReadCloser, cancel context.CancelFunc) io.ReadClo
 
 // DecompressStream decompresses the archive and returns a ReaderCloser with the decompressed archive.
 func DecompressStream(archive io.Reader) (io.ReadCloser, error) {
+	//Nikhil: Decompress layer
 	p := pools.BufioReader32KPool
 	buf := p.Get(archive)
 	bs, err := buf.Peek(10)

@@ -2,10 +2,8 @@ package xfer // import "github.com/docker/docker/distribution/xfer"
 
 import (
 	"context"
-	"fmt"
 	"runtime"
 	"sync"
-	"time"
 
 	"github.com/docker/docker/pkg/progress"
 )
@@ -131,7 +129,7 @@ func (t *transfer) Broadcast(masterProgressChan <-chan progress.Progress) {
 		}
 		t.mu.Unlock()
 		if !ok {
-			fmt.Printf("%s --->\t  Closing running status of channel.\n", time.Now())
+			//fmt.Printf("%s --->\t  Closing running status of channel.\n", time.Now())
 			close(t.running)
 			return
 		}

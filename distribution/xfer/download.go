@@ -9,12 +9,14 @@ import (
 	"time"
 
 	"github.com/docker/distribution"
+	"github.com/docker/distribution/encode"
 	"github.com/docker/docker/image"
 	"github.com/docker/docker/layer"
 	"github.com/docker/docker/pkg/archive"
 	"github.com/docker/docker/pkg/ioutils"
 	"github.com/docker/docker/pkg/progress"
 	"github.com/docker/docker/pkg/system"
+	"github.com/opencontainers/go-digest"
 	"github.com/sirupsen/logrus"
 )
 
@@ -87,6 +89,10 @@ type DownloadDescriptor interface {
 	// descriptor and will not call Download again or read from the reader
 	// that Download returned.
 	Close()
+
+	Repo() distribution.Repository
+
+	SetRecipe(recipe encode.Recipe)
 }
 
 // DownloadDescriptorWithRegistered is a DownloadDescriptor that has an
@@ -128,6 +134,18 @@ func (ldm *LayerDownloadManager) Download(ctx context.Context, initialRootFS ima
 		return image.RootFS{}, nil, system.ErrNotSupportedOperatingSystem
 	}
 
+	var recipes map[digest.Digest]encode.Recipe
+	if len(layers) != 0 {
+		recipeService := layers[0].Repo().Recipe(ctx)
+
+		digests := make([]digest.Digest, len(layers))
+		for i, layer := range layers {
+			digests[i] = digest.Digest(layer.Key()[3:])
+		}
+		recipes, _ = recipeService.MGet(ctx, digests)
+	}
+	fmt.Printf("Current time:  %s, Prefetch of recipes done.\n", time.Now())
+
 	rootFS := initialRootFS
 	for _, descriptor := range layers {
 		key := descriptor.Key()
@@ -159,6 +177,8 @@ func (ldm *LayerDownloadManager) Download(ctx context.Context, initialRootFS ima
 				}
 			}
 		}
+
+		descriptor.SetRecipe(recipes[digest.Digest(key[3:])])
 
 		// Does this layer have the same data as a previous layer in
 		// the stack? If so, avoid downloading it more than once.
@@ -328,7 +348,7 @@ func (ldm *LayerDownloadManager) makeDownloadFunc(descriptor DownloadDescriptor,
 
 				}
 			}
-			fmt.Printf("%s --->\t Reporting from makeDownloadFunc. Time to download content: %s\n", time.Now(), time.Since(startTime))
+			//fmt.Printf("%s --->\t Reporting from makeDownloadFunc. Time to download content: %s\n", time.Now(), time.Since(startTime))
 			close(inactive)
 
 			if parentDownload != nil {
@@ -395,7 +415,7 @@ func (ldm *LayerDownloadManager) makeDownloadFunc(descriptor DownloadDescriptor,
 				}
 			}()
 
-			fmt.Printf("%s --->\t Reporting from makeDownloadFunc. Time to finish downloadFunc %s.\n", time.Now(), time.Since(startTime))
+			//fmt.Printf("%s --->\t Reporting from makeDownloadFunc. Time to finish downloadFunc %s.\n", time.Now(), time.Since(startTime))
 		}()
 
 		return d

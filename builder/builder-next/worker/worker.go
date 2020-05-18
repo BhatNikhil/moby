@@ -14,6 +14,8 @@ import (
 	"github.com/containerd/containerd/images"
 	"github.com/containerd/containerd/platforms"
 	"github.com/containerd/containerd/rootfs"
+	d2 "github.com/docker/distribution"
+	"github.com/docker/distribution/encode"
 	"github.com/docker/docker/distribution"
 	distmetadata "github.com/docker/docker/distribution/metadata"
 	"github.com/docker/docker/distribution/xfer"
@@ -399,8 +401,14 @@ type layerDescriptor struct {
 	pctx context.Context
 }
 
+func (ld *layerDescriptor) SetRecipe(recipe encode.Recipe) {}
+
 func (ld *layerDescriptor) Key() string {
 	return "v2:" + ld.desc.Digest.String()
+}
+
+func (ld *layerDescriptor) Repo() d2.Repository {
+	return nil
 }
 
 func (ld *layerDescriptor) ID() string {

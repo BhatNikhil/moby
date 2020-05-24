@@ -2,6 +2,8 @@ package encode
 
 import (
 	"context"
+	"crypto/sha256"
+	"encoding/hex"
 	"fmt"
 
 	"github.com/docker/distribution/encode"
@@ -19,42 +21,18 @@ func NewService(database DB) Service {
 	}
 }
 
-// GetDeclaration will get the 'declaration' which indicates which
-// encodings reffered by the recipe are already held by the service
-// for the recipe
-func (s *Service) GetDeclaration(ctx context.Context, recipe encode.Recipe) (encode.Declaration, error) {
-	declaration := encode.Declaration{
-		Encodings: make([]bool, len(recipe.Keys)),
-	}
-
-	for i, encodingHash := range recipe.Keys {
-		declaration.Encodings[i], _ = s.db.IsEncodingAvailable(ctx, encodingHash)
-	}
-	return declaration, nil
-}
-
-//GetAvailableBlocksFromDB gets available blocks from db and constructs a declaration
-func (s *Service) GetAvailableBlocksFromDB(ctx context.Context, recipe encode.Recipe) (encode.Declaration, [][]byte, error) {
-	blocksFromDB, err := s.db.GetMultipleEncodings(ctx, recipe.Keys...)
-	declaration := encode.Declaration{
-		Encodings: make([]bool, len(recipe.Keys)),
-	}
-	for i, v := range blocksFromDB {
-		declaration.Encodings[i] = (v != nil)
-	}
-	return declaration, blocksFromDB, err
-}
-
 // InsertMissingEncodings will insert the encoding in the backend data store
-func (s *Service) InsertMissingEncodings(ctx context.Context, recipe encode.Recipe, d encode.Declaration, byteStream []byte) error {
+func (s *Service) InsertMissingEncodings(ctx context.Context, blockKeysInDB []string, byteStream []byte) error {
 	var keys []string
 	var blocks [][]byte
 
-	for i, exists := range d.Encodings {
-		if exists == false {
+	for i, blockKey := range blockKeysInDB {
+		if blockKey == "0" { // block key not in db
 			startIndex, endIndex := encode.BlockIndices(i, len(byteStream))
-			keys = append(keys, recipe.Keys[i])
-			blocks = append(blocks, byteStream[startIndex:endIndex])
+			block := byteStream[startIndex:endIndex]
+			keyAsBytes := sha256.Sum256(block)
+			keys = append(keys, hex.EncodeToString(keyAsBytes[:]))
+			blocks = append(blocks, block)
 		}
 	}
 
@@ -64,30 +42,30 @@ func (s *Service) InsertMissingEncodings(ctx context.Context, recipe encode.Reci
 }
 
 // AssembleBlob will assemble the blob using the recipe and the byte streams
-func (s *Service) AssembleBlob(ctx context.Context, r encode.Recipe, b encode.BlockResponse, dbBlocks [][]byte, lengthOfByteStream int) ([]byte, error) {
+func (s *Service) AssembleBlob(ctx context.Context, b encode.BlockResponse, blockKeys []string, lengthOfByteStream int) ([]byte, error) {
 	blockResponse := make([]byte, lengthOfByteStream)
 
 	if Debug == true {
 		fmt.Println("Length of byte stream: ", lengthOfByteStream)
-		fmt.Println("Length of recipe: ", len(r.Keys))
-		fmt.Println("Length of Blocks from DB: ", len(dbBlocks))
 	}
 
-	for i, val := range dbBlocks {
-		key := r.Keys[i]
+	var blockKeysFromDB []string
+	for _, v := range blockKeys {
+		if v != "0" {
+			blockKeysFromDB = append(blockKeysFromDB, v)
+		}
+	}
+	blocksFromDB, _ := s.db.GetMultipleEncodings(ctx, blockKeysFromDB...)
 
+	for i, val := range b.Blocks {
 		var block []byte
-		if val == nil {
+		if val != nil {
 			block = b.Blocks[i]
 		} else {
-			block = val
-			if Debug == true {
-				fmt.Println("Block fetched from db:", key)
-			}
+			block, _ = blocksFromDB[blockKeys[i]]
 		}
 
-		_, endIndex := encode.BlockIndices(i, lengthOfByteStream)
-		startIndex := endIndex - len(block)
+		startIndex, endIndex := encode.BlockIndices(i, lengthOfByteStream)
 
 		if Debug == true {
 			fmt.Println("=================================")
@@ -96,7 +74,6 @@ func (s *Service) AssembleBlob(ctx context.Context, r encode.Recipe, b encode.Bl
 			fmt.Println("End index: ", endIndex)
 			fmt.Println("=================================")
 		}
-
 		copy(blockResponse[startIndex:endIndex], block)
 	}
 

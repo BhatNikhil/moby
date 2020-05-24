@@ -19,8 +19,6 @@ import (
 	"github.com/containerd/containerd/remotes"
 	"github.com/containerd/containerd/remotes/docker"
 	"github.com/containerd/containerd/remotes/docker/schema1"
-	d2 "github.com/docker/distribution"
-	"github.com/docker/distribution/encode"
 	distreference "github.com/docker/distribution/reference"
 	"github.com/docker/docker/distribution"
 	"github.com/docker/docker/distribution/metadata"
@@ -603,14 +601,6 @@ type layerDescriptor struct {
 
 func (ld *layerDescriptor) Key() string {
 	return "v2:" + ld.desc.Digest.String()
-}
-
-func (ld *layerDescriptor) SetRecipe(recipe encode.Recipe) {
-
-}
-
-func (ld *layerDescriptor) Repo() d2.Repository {
-	return nil
 }
 
 func (ld *layerDescriptor) ID() string {

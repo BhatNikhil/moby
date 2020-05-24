@@ -53,7 +53,7 @@ func (r *RedisDB) GetEncoding(ctx context.Context, encodingHash string) ([]byte,
 }
 
 // GetMultipleEncodings will get the list of encodings from the db
-func (r *RedisDB) GetMultipleEncodings(ctx context.Context, encodingHashList ...string) ([][]byte, error) {
+func (r *RedisDB) GetMultipleEncodings(ctx context.Context, encodingHashList ...string) (map[string][]byte, error) {
 	conn := r.pool.Get()
 	defer conn.Close()
 
@@ -63,13 +63,13 @@ func (r *RedisDB) GetMultipleEncodings(ctx context.Context, encodingHashList ...
 	}
 	rawBlocksFromDB, err := redis.Values(conn.Do("MGET", dbKeys...))
 
-	blocksFromDB := make([][]byte, len(dbKeys))
+	blocksFromDB := make(map[string][]byte, len(encodingHashList))
 	for i, rawEncoding := range rawBlocksFromDB {
 		switch encoding := rawEncoding.(type) {
 		case []byte:
-			blocksFromDB[i] = encoding
+			blocksFromDB[encodingHashList[i]] = encoding
 		default:
-			blocksFromDB[i] = nil
+			blocksFromDB[encodingHashList[i]] = nil
 		}
 	}
 	return blocksFromDB, err

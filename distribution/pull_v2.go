@@ -151,20 +151,10 @@ type v2LayerDescriptor struct {
 	verifier          digest.Verifier
 	src               distribution.Descriptor
 	encodeService     encodeService.Service
-	recipe            encode.Recipe
-}
-
-func (ld *v2LayerDescriptor) SetRecipe(recipe encode.Recipe) {
-	ld.recipe = recipe
 }
 
 func (ld *v2LayerDescriptor) Key() string {
 	return "v2:" + ld.digest.String()
-}
-
-//Needs a better place
-func (ld *v2LayerDescriptor) Repo() distribution.Repository {
-	return ld.repo
 }
 
 func (ld *v2LayerDescriptor) ID() string {
@@ -186,37 +176,29 @@ func (ld *v2LayerDescriptor) DiffID() (layer.DiffID, error) {
 func (ld *v2LayerDescriptor) Download(ctx context.Context, progressOutput progress.Output) (io.ReadCloser, int64, error) {
 	logrus.Debugf("pulling blob %q", ld.digest)
 	start := time.Now()
+	fmt.Printf("%s --->\t Start of download the layer with id %s.\n", start, ld.digest)
+
 	var (
 		err    error
 		offset int64
 	)
 
-	//Nikhil: Add code to fetch recipe here
-	// if ld.recipe == nil {
-	// 	fmt.Println("Prefetch of recipe failed")
-	// 	ld.recipe, _ = ld.GetRecipe(ctx, ld.digest)
-	// }
-	declaration, blocksFromDB, _ := ld.encodeService.GetAvailableBlocksFromDB(ctx, ld.recipe)
-
 	blocks := ld.repo.Blocks(ctx)
-	blockResponse, blockLength, checksum, _ := blocks.Exchange(ctx, ld.digest, declaration)
+	blockResponse, blockKeys, blockLength, checksum, _ := blocks.Exchange(ctx, ld.digest)
 	if encodeService.Debug == true {
-		fmt.Println("Length of Recipe: ", len(ld.recipe.Keys))
-		fmt.Println("Length of Declaration: ", len(declaration.String()))
 		fmt.Println("Blocks: ", blockResponse.Blocks)
 	}
 
-	blob, _ := ld.encodeService.AssembleBlob(ctx, ld.recipe, blockResponse, blocksFromDB, blockLength)
+	blob, _ := ld.encodeService.AssembleBlob(ctx, blockResponse, blockKeys, blockLength)
 
 	go func() {
-		ld.encodeService.InsertMissingEncodings(ctx, ld.recipe, declaration, blob)
+		ld.encodeService.InsertMissingEncodings(ctx, blockKeys, blob)
 	}()
 
 	destinationChecksum := sha256.Sum256(blob)
 
 	if encodeService.Debug == true {
 		fmt.Println("For layer-->", ld.digest)
-		fmt.Println("With length of recipe-->", len(ld.recipe.Keys))
 		if checksum == hex.EncodeToString(destinationChecksum[:]) {
 			fmt.Println("Checksum matched. Congratulations!!")
 		} else {
@@ -327,7 +309,7 @@ func (ld *v2LayerDescriptor) Download(ctx context.Context, progressOutput progre
 		return nil, 0, xfer.DoNotRetry{Err: err}
 	}
 
-	fmt.Printf("%s --->\t Time to download the layer: %s\n", time.Now(), time.Since(start))
+	fmt.Printf("%s --->\t Time to download the layer with id %s is : %s\n", ld.digest, time.Now(), time.Since(start))
 	progress.Update(progressOutput, ld.ID(), "Download complete")
 	//fmt.Println("Pulled layer in:", time.Since(start))
 

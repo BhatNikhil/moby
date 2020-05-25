@@ -309,7 +309,7 @@ func (ld *v2LayerDescriptor) Download(ctx context.Context, progressOutput progre
 		return nil, 0, xfer.DoNotRetry{Err: err}
 	}
 
-	fmt.Printf("%s --->\t Time to download the layer with id %s is : %s\n", ld.digest, time.Now(), time.Since(start))
+	fmt.Printf("%s --->\t Time to download the layer with id %s is : %s.\n", time.Now(), ld.digest, time.Since(start))
 	progress.Update(progressOutput, ld.ID(), "Download complete")
 	//fmt.Println("Pulled layer in:", time.Since(start))
 

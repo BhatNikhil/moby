@@ -57,22 +57,36 @@ func (r *RedisDB) GetMultipleEncodings(ctx context.Context, encodingHashList ...
 	conn := r.pool.Get()
 	defer conn.Close()
 
-	dbKeys := make([]interface{}, len(encodingHashList))
-	for i := range encodingHashList {
-		dbKeys[i] = getDBIdentifier(encodingHashList[i])
-	}
-	rawBlocksFromDB, err := redis.Values(conn.Do("MGET", dbKeys...))
-
+	//fmt.Println("LEn of encodings:", len(encodingHashList))
 	blocksFromDB := make(map[string][]byte, len(encodingHashList))
-	for i, rawEncoding := range rawBlocksFromDB {
-		switch encoding := rawEncoding.(type) {
-		case []byte:
-			blocksFromDB[encodingHashList[i]] = encoding
-		default:
-			blocksFromDB[encodingHashList[i]] = nil
+	BatchSize := 5000
+	for i := 0; i < len(encodingHashList); i = i + BatchSize {
+		startIndex := i
+		endIndex := i + BatchSize
+		if endIndex > len(encodingHashList) {
+			endIndex = len(encodingHashList)
+		}
+		//fmt.Println("Start iNdex:", startIndex)
+		//fmt.Println("End iNdex:", endIndex)
+
+		batchKeys := encodingHashList[startIndex:endIndex]
+		dbKeys := make([]interface{}, len(batchKeys))
+		for j := range batchKeys {
+			dbKeys[j] = getDBIdentifier(batchKeys[j])
+		}
+		rawBlocksFromDB, _ := redis.Values(conn.Do("MGET", dbKeys...))
+
+		for k, rawEncoding := range rawBlocksFromDB {
+			switch encoding := rawEncoding.(type) {
+			case []byte:
+				blocksFromDB[batchKeys[k]] = encoding
+			default:
+				blocksFromDB[batchKeys[k]] = nil
+			}
 		}
 	}
-	return blocksFromDB, err
+
+	return blocksFromDB, nil
 }
 
 // InsertEncoding will insert the encoding in the db

@@ -185,11 +185,15 @@ func (ld *v2LayerDescriptor) Download(ctx context.Context, progressOutput progre
 
 	blocks := ld.repo.Blocks(ctx)
 	blockResponse, blockKeys, blockLength, checksum, _ := blocks.Exchange(ctx, ld.digest)
+	encode.PerfLog(fmt.Sprintf("Time to fetch remote layer %s is %s", ld.digest, time.Since(start)))
+
 	if encodeService.Debug == true {
 		fmt.Println("Blocks: ", blockResponse.Blocks)
 	}
 
+	assemble := time.Now()
 	blob, _ := ld.encodeService.AssembleBlob(ctx, blockResponse, blockKeys, blockLength)
+	encode.PerfLog(fmt.Sprintf("Time to assembele remote layer %s is %s", ld.digest, time.Since(assemble)))
 
 	go func() {
 		ld.encodeService.InsertMissingEncodings(ctx, blockKeys, blob)

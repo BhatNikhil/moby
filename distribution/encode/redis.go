@@ -5,7 +5,9 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"time"
 
+	"github.com/docker/distribution/encode"
 	"github.com/garyburd/redigo/redis"
 )
 
@@ -57,6 +59,8 @@ func (r *RedisDB) GetMultipleEncodings(ctx context.Context, encodingHashList ...
 	conn := r.pool.Get()
 	defer conn.Close()
 
+	now := time.Now()
+
 	//fmt.Println("LEn of encodings:", len(encodingHashList))
 	blocksFromDB := make(map[string][]byte, len(encodingHashList))
 	BatchSize := 5000
@@ -85,6 +89,7 @@ func (r *RedisDB) GetMultipleEncodings(ctx context.Context, encodingHashList ...
 			}
 		}
 	}
+	encode.PerfLog(fmt.Sprintf("Time to MGET all encodings is %s", time.Since(now)))
 
 	return blocksFromDB, nil
 }

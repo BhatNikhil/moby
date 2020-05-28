@@ -1,466 +1,597 @@
-time="2020-05-23T21:47:19.335959359-05:00" level=info msg="Starting up"
-time="2020-05-23T21:47:19.336062823-05:00" level=warning msg="Running experimental build"
-time="2020-05-23T21:47:19.337124774-05:00" level=warning msg="insecure registry https://csce-6snvrz2.cs.tamu.edu:5000 should not contain 'https://' and 'https://' has been removed from the insecure registry config"
-time="2020-05-23T21:47:19.338163500-05:00" level=info msg="parsed scheme: \"unix\"" module=grpc
-time="2020-05-23T21:47:19.338183319-05:00" level=info msg="scheme \"unix\" not registered, fallback to default scheme" module=grpc
-time="2020-05-23T21:47:19.338212308-05:00" level=info msg="ccResolverWrapper: sending update to cc: {[{unix:///run/containerd/containerd.sock 0  <nil>}] <nil>}" module=grpc
-time="2020-05-23T21:47:19.338230237-05:00" level=info msg="ClientConn switching balancer to \"pick_first\"" module=grpc
-time="2020-05-23T21:47:19.339279630-05:00" level=info msg="parsed scheme: \"unix\"" module=grpc
-time="2020-05-23T21:47:19.339308624-05:00" level=info msg="scheme \"unix\" not registered, fallback to default scheme" module=grpc
-time="2020-05-23T21:47:19.339330958-05:00" level=info msg="ccResolverWrapper: sending update to cc: {[{unix:///run/containerd/containerd.sock 0  <nil>}] <nil>}" module=grpc
-time="2020-05-23T21:47:19.339521933-05:00" level=info msg="ClientConn switching balancer to \"pick_first\"" module=grpc
-time="2020-05-23T21:47:20.117693402-05:00" level=info msg="[graphdriver] using prior storage driver: overlay2"
-time="2020-05-23T21:47:20.484377441-05:00" level=warning msg="Your kernel does not support swap memory limit"
-time="2020-05-23T21:47:20.484450232-05:00" level=warning msg="Your kernel does not support cgroup rt period"
-time="2020-05-23T21:47:20.484477328-05:00" level=warning msg="Your kernel does not support cgroup rt runtime"
-time="2020-05-23T21:47:20.484958454-05:00" level=info msg="Loading containers: start."
-time="2020-05-23T21:47:20.485331727-05:00" level=error msg="Failed to load container 9e7e0893e9cbe4f2c56fcd1424d563cdeb2963ec18fdb45dd52ea2c01e69ed98: open /var/lib/docker/containers/9e7e0893e9cbe4f2c56fcd1424d563cdeb2963ec18fdb45dd52ea2c01e69ed98/config.v2.json: no such file or directory"
-time="2020-05-23T21:47:20.487573653-05:00" level=error msg="Failed to load container mount 846aaa1cb26d5a2cc9afab5db03e7c3d95f8002106399af55f887d1bd62dad7f: mount does not exist"
-time="2020-05-23T21:47:20.487571275-05:00" level=error msg="Failed to load container mount 6a4a5b196c05a41bcd733216a950035182b6e306e2d1a9e3fab64e47c99bf7f6: mount does not exist"
-time="2020-05-23T21:47:20.487587933-05:00" level=error msg="Failed to load container mount 2e89045391abb0713f5f925bf53ddc8e39f30684eac20b6f5a2646ea455a5bc6: mount does not exist"
-time="2020-05-23T21:47:21.788355359-05:00" level=info msg="Default bridge (docker0) is assigned with an IP address 172.17.0.0/16. Daemon option --bip can be used to set a preferred IP address"
-time="2020-05-23T21:47:22.228334117-05:00" level=info msg="Loading containers: done."
-time="2020-05-23T21:47:22.472993912-05:00" level=info msg="Docker daemon" commit=417824a graphdriver(s)=overlay2 version=dev
-time="2020-05-23T21:47:22.486508687-05:00" level=info msg="parsed scheme: \"\"" module=grpc
-time="2020-05-23T21:47:22.486532330-05:00" level=info msg="scheme \"\" not registered, fallback to default scheme" module=grpc
-time="2020-05-23T21:47:22.486655461-05:00" level=info msg="ccResolverWrapper: sending update to cc: {[{128.194.130.177:2377 0  <nil>}] <nil>}" module=grpc
-time="2020-05-23T21:47:22.486668763-05:00" level=info msg="ClientConn switching balancer to \"pick_first\"" module=grpc
-time="2020-05-23T21:47:22.486686526-05:00" level=info msg="manager selected by agent for new session: {m8gjzw2te2rchaqv7mext736x 128.194.130.177:2377}" module=node/agent node.id=x0my91xx39v97yot531mxzv19
-time="2020-05-23T21:47:22.486900672-05:00" level=info msg="waiting 0s before registering session" module=node/agent node.id=x0my91xx39v97yot531mxzv19
-time="2020-05-23T21:47:22.872311124-05:00" level=info msg="Initializing Libnetwork Agent Listen-Addr=0.0.0.0 Local-addr=128.194.130.157 Adv-addr=128.194.130.157 Data-addr= Remote-addr-list=[128.194.130.177] MTU=1500"
-time="2020-05-23T21:47:22.872342207-05:00" level=info msg="initialized VXLAN UDP port to 4789 "
-time="2020-05-23T21:47:22.872582119-05:00" level=info msg="New memberlist node - Node:singularity4.cs.tamu.edu will use memberlist nodeID:ed0189bfcd3b with config:&{NodeID:ed0189bfcd3b Hostname:singularity4.cs.tamu.edu BindAddr:0.0.0.0 AdvertiseAddr:128.194.130.157 BindPort:0 Keys:[[28 89 101 146 250 160 60 37 208 60 240 36 39 203 124 163] [109 127 197 75 226 156 29 196 167 175 23 165 196 24 231 22] [62 129 8 88 223 227 17 16 245 40 179 204 138 213 91 67]] PacketBufferSize:1400 reapEntryInterval:1800000000000 reapNetworkInterval:1825000000000 StatsPrintPeriod:5m0s HealthPrintPeriod:1m0s}"
-time="2020-05-23T21:47:22.872394286-05:00" level=info msg="Daemon has completed initialization"
-time="2020-05-23T21:47:22.873790682-05:00" level=info msg="Node ed0189bfcd3b/128.194.130.157, joined gossip cluster"
-time="2020-05-23T21:47:22.873957338-05:00" level=info msg="Node ed0189bfcd3b/128.194.130.157, added to nodes list"
-time="2020-05-23T21:47:22.874753314-05:00" level=info msg="The new bootstrap node list is:[128.194.130.177]"
-time="2020-05-23T21:47:22.877185560-05:00" level=info msg="Node 4f40b233f677/128.194.130.177, joined gossip cluster"
-time="2020-05-23T21:47:22.877225976-05:00" level=info msg="Node 4f40b233f677/128.194.130.177, added to nodes list"
-time="2020-05-23T21:47:23.089573053-05:00" level=info msg="API listen on /var/run/docker.sock"
-time="2020-05-23T21:48:08.153224966-05:00" level=info msg="initialized VXLAN UDP port to 4789 "
-time="2020-05-23T21:48:10.217794396-05:00" level=warning msg="Error getting v2 registry: Get https://csce-6snvrz2.cs.tamu.edu:5000/v2/: http: server gave HTTP response to HTTPS client"
-time="2020-05-23T21:48:10.217929986-05:00" level=info msg="Attempting next endpoint for pull after error: Get https://csce-6snvrz2.cs.tamu.edu:5000/v2/: http: server gave HTTP response to HTTPS client"
-Current time:  2020-05-23 21:48:10.239947626 -0500 CDT m=+50.922862258, Starting the download of the layers.
-2020-05-23 21:48:11.667374157 -0500 CDT m=+52.350288907 --->	  Waiting for top download.
-2020-05-23 21:48:11.691545642 -0500 CDT m=+52.374460201 --->	 Time to download the layer: 24.086171ms
-2020-05-23 21:48:11.692244815 -0500 CDT m=+52.375159378 --->	 Time to download the layer: 24.805094ms
-time="2020-05-23T21:48:12.795511195-05:00" level=error msg="filesystem layer verification failed for digest sha256:583a11b419b094e1655bfba1e45cfdf9df8b9aea815ae3ca27be147198d47237"
-time="2020-05-23T21:48:12.795540945-05:00" level=error msg="Download failed after 1 attempts: filesystem layer verification failed for digest sha256:583a11b419b094e1655bfba1e45cfdf9df8b9aea815ae3ca27be147198d47237"
-2020-05-23 21:48:12.79641367 -0500 CDT m=+53.479328170 --->	  Top download downlaoded.
-time="2020-05-23T21:48:12.796442420-05:00" level=info msg="Attempting next endpoint for pull after error: filesystem layer verification failed for digest sha256:583a11b419b094e1655bfba1e45cfdf9df8b9aea815ae3ca27be147198d47237"
-time="2020-05-23T21:48:12.796475479-05:00" level=error msg="pulling image failed" error="filesystem layer verification failed for digest sha256:583a11b419b094e1655bfba1e45cfdf9df8b9aea815ae3ca27be147198d47237" module=node/agent/taskmanager node.id=x0my91xx39v97yot531mxzv19 service.id=a5luql6oayhzvz2glptxvuayu task.id=sx5ci60ptb8n80haqg3fpzb5h
-time="2020-05-23T21:48:12.797114096-05:00" level=error msg="fatal task error" error="No such image: csce-6snvrz2.cs.tamu.edu:5000/bignode:latest" module=node/agent/taskmanager node.id=x0my91xx39v97yot531mxzv19 service.id=a5luql6oayhzvz2glptxvuayu task.id=sx5ci60ptb8n80haqg3fpzb5h
-time="2020-05-23T21:48:12.799199474-05:00" level=info msg="Layer sha256:3fac95d1200db957bdf5ed28d530c8b48d20fcec4df5bd8af45b24923d86f2ff cleaned up"
-time="2020-05-23T21:48:13.068266303-05:00" level=info msg="initialized VXLAN UDP port to 4789 "
-time="2020-05-23T21:48:13.191224934-05:00" level=info msg="initialized VXLAN UDP port to 4789 "
-time="2020-05-23T21:48:13.728474782-05:00" level=warning msg="Error getting v2 registry: Get https://csce-6snvrz2.cs.tamu.edu:5000/v2/: http: server gave HTTP response to HTTPS client"
-time="2020-05-23T21:48:13.728569801-05:00" level=info msg="Attempting next endpoint for pull after error: Get https://csce-6snvrz2.cs.tamu.edu:5000/v2/: http: server gave HTTP response to HTTPS client"
-Current time:  2020-05-23 21:48:13.747064279 -0500 CDT m=+54.429978998, Starting the download of the layers.
-2020-05-23 21:48:14.848180147 -0500 CDT m=+55.531094834 --->	  Waiting for top download.
-2020-05-23 21:48:14.868824933 -0500 CDT m=+55.551739593 --->	 Time to download the layer: 19.71689ms
-2020-05-23 21:48:14.868840931 -0500 CDT m=+55.551755621 --->	 Time to download the layer: 20.574659ms
-2020-05-23 21:48:15.894193301 -0500 CDT m=+56.577107834 --->	 Time to download the layer: 1.025287306s
-2020-05-23 21:48:16.142112254 -0500 CDT m=+56.825026769 --->	 Time to download the layer: 1.293077403s
-2020-05-23 21:48:16.142135968 -0500 CDT m=+56.825050455 --->	  Wait for parent download lasted for: 922ns
-2020-05-23 21:48:17.83201195 -0500 CDT m=+58.514926872 --->	  Wait for parent download lasted for: 2.963131226s
-2020-05-23 21:48:18.251720659 -0500 CDT m=+58.934635412 --->	  Wait for parent download lasted for: 2.357505601s
-2020-05-23 21:48:19.151252938 -0500 CDT m=+59.834167685 --->	  Top download downlaoded.
-2020-05-23 21:48:19.151334045 -0500 CDT m=+59.834248822 --->	  Downlaoded image in time: 5.404192387s
-time="2020-05-23T21:48:38.489632726-05:00" level=warning msg="failed to deactivate service binding for container bignode.1.sx5ci60ptb8n80haqg3fpzb5h" error="No such container: bignode.1.sx5ci60ptb8n80haqg3fpzb5h" module=node/agent node.id=x0my91xx39v97yot531mxzv19
-time="2020-05-23T21:48:51.440030647-05:00" level=info msg="Container c9a955c2385fdc8555fb89894596b4f645899f7045b96a1a9f71e1e38f93f99c failed to exit within 10 seconds of signal 15 - using the force"
-time="2020-05-23T21:48:51.560122938-05:00" level=info msg="ignoring event" module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
-time="2020-05-23T21:48:51.560522745-05:00" level=warning msg="rmServiceBinding aa3a1ab6a5cf2dd56f4ce60852da474e1f6c6befae4c039e10a9595d7cde1060 possible transient state ok:false entries:0 set:false "
-time="2020-05-23T21:48:53.388104775-05:00" level=warning msg="Error (Unable to complete atomic operation, key modified) deleting object [endpoint mvn3wrk1uf4jf0wubu0fayhnh b0f22f316cd35585b564cf84f327af1e50c9eeed4f63e71a51b163c365ad4461], retrying...."
-time="2020-05-23T21:48:53.947132133-05:00" level=info msg="initialized VXLAN UDP port to 4789 "
-time="2020-05-23T21:52:22.874483275-05:00" level=info msg="NetworkDB stats singularity4.cs.tamu.edu(ed0189bfcd3b) - netID:pj52d1c4x7eu0yni960aj7tog leaving:false netPeers:2 entries:8 Queue qLen:0 netMsg/s:0"
-time="2020-05-23T21:52:22.874650285-05:00" level=info msg="NetworkDB stats singularity4.cs.tamu.edu(ed0189bfcd3b) - netID:mvn3wrk1uf4jf0wubu0fayhnh leaving:true netPeers:1 entries:3 Queue qLen:0 netMsg/s:0"
-time="2020-05-23T21:57:23.074304496-05:00" level=info msg="NetworkDB stats singularity4.cs.tamu.edu(ed0189bfcd3b) - netID:pj52d1c4x7eu0yni960aj7tog leaving:false netPeers:2 entries:8 Queue qLen:0 netMsg/s:0"
-time="2020-05-23T21:57:23.074445599-05:00" level=info msg="NetworkDB stats singularity4.cs.tamu.edu(ed0189bfcd3b) - netID:mvn3wrk1uf4jf0wubu0fayhnh leaving:true netPeers:1 entries:3 Queue qLen:0 netMsg/s:0"
-time="2020-05-23T22:02:23.274221754-05:00" level=info msg="NetworkDB stats singularity4.cs.tamu.edu(ed0189bfcd3b) - netID:mvn3wrk1uf4jf0wubu0fayhnh leaving:true netPeers:1 entries:3 Queue qLen:0 netMsg/s:0"
-time="2020-05-23T22:02:23.274387069-05:00" level=info msg="NetworkDB stats singularity4.cs.tamu.edu(ed0189bfcd3b) - netID:pj52d1c4x7eu0yni960aj7tog leaving:false netPeers:2 entries:8 Queue qLen:0 netMsg/s:0"
-time="2020-05-23T22:04:06.482472860-05:00" level=info msg="initialized VXLAN UDP port to 4789 "
-time="2020-05-23T22:04:08.524088481-05:00" level=warning msg="Error getting v2 registry: Get https://csce-6snvrz2.cs.tamu.edu:5000/v2/: http: server gave HTTP response to HTTPS client"
-time="2020-05-23T22:04:08.524191981-05:00" level=info msg="Attempting next endpoint for pull after error: Get https://csce-6snvrz2.cs.tamu.edu:5000/v2/: http: server gave HTTP response to HTTPS client"
-Current time:  2020-05-23 22:04:08.544383511 -0500 CDT m=+1009.227298235, Starting the download of the layers.
-2020-05-23 22:04:10.260264043 -0500 CDT m=+1010.943178768 --->	  Waiting for top download.
-2020-05-23 22:04:10.274562834 -0500 CDT m=+1010.957477365 --->	 Time to download the layer: 14.285256ms
-2020-05-23 22:04:10.274729758 -0500 CDT m=+1010.957644276 --->	 Time to download the layer: 14.387939ms
-2020-05-23 22:04:10.770547316 -0500 CDT m=+1011.453461850 --->	  Wait for parent download lasted for: 495.80539ms
-2020-05-23 22:04:11.232595926 -0500 CDT m=+1011.915510698 --->	  Top download downlaoded.
-2020-05-23 22:04:11.232700648 -0500 CDT m=+1011.915615405 --->	  Downlaoded image in time: 2.688237202s
-time="2020-05-23T22:04:50.797676011-05:00" level=info msg="Container c20b1a028c81a20dd9788e116dd2c82e799731a40372d457a29a1ee02db7eab2 failed to exit within 10 seconds of signal 15 - using the force"
-time="2020-05-23T22:04:50.998224348-05:00" level=info msg="ignoring event" module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
-time="2020-05-23T22:04:50.999586449-05:00" level=warning msg="rmServiceBinding 7137150356faee1459d3eff71270ed4f1ca3ecfcd3073afd96fa8eada9f1057f possible transient state ok:false entries:0 set:false "
-time="2020-05-23T22:04:53.501591862-05:00" level=warning msg="Error (Unable to complete atomic operation, key modified) deleting object [endpoint mvn3wrk1uf4jf0wubu0fayhnh 32283fd968dec5bcd304a1aaacfab84efb128d2c0f03ed80b63dcd06e8117aea], retrying...."
-time="2020-05-23T22:04:53.725300776-05:00" level=info msg="initialized VXLAN UDP port to 4789 "
-time="2020-05-23T22:07:23.474465575-05:00" level=info msg="NetworkDB stats singularity4.cs.tamu.edu(ed0189bfcd3b) - netID:mvn3wrk1uf4jf0wubu0fayhnh leaving:true netPeers:1 entries:6 Queue qLen:0 netMsg/s:0"
-time="2020-05-23T22:07:23.474664598-05:00" level=info msg="NetworkDB stats singularity4.cs.tamu.edu(ed0189bfcd3b) - netID:pj52d1c4x7eu0yni960aj7tog leaving:false netPeers:2 entries:8 Queue qLen:0 netMsg/s:0"
-time="2020-05-23T22:08:14.124919449-05:00" level=info msg="initialized VXLAN UDP port to 4789 "
-time="2020-05-23T22:08:16.126027020-05:00" level=warning msg="Error getting v2 registry: Get https://csce-6snvrz2.cs.tamu.edu:5000/v2/: http: server gave HTTP response to HTTPS client"
-time="2020-05-23T22:08:16.126111874-05:00" level=info msg="Attempting next endpoint for pull after error: Get https://csce-6snvrz2.cs.tamu.edu:5000/v2/: http: server gave HTTP response to HTTPS client"
-Current time:  2020-05-23 22:08:16.144704236 -0500 CDT m=+1256.827618955, Starting the download of the layers.
-2020-05-23 22:08:16.145116759 -0500 CDT m=+1256.828031521 --->	  Waiting for top download.
-2020-05-23 22:08:16.581181063 -0500 CDT m=+1257.264095595 --->	 Time to download the layer: 436.00071ms
-2020-05-23 22:08:16.599981882 -0500 CDT m=+1257.282896377 --->	 Time to download the layer: 18.773414ms
-2020-05-23 22:08:16.61621186 -0500 CDT m=+1257.299126366 --->	 Time to download the layer: 470.470772ms
-2020-05-23 22:08:16.66082824 -0500 CDT m=+1257.343742733 --->	 Time to download the layer: 44.575646ms
-2020-05-23 22:08:16.672939394 -0500 CDT m=+1257.355853929 --->	 Time to download the layer: 12.090375ms
-2020-05-23 22:08:16.676770072 -0500 CDT m=+1257.359684595 --->	 Time to download the layer: 3.807322ms
-2020-05-23 22:08:16.67980314 -0500 CDT m=+1257.362717657 --->	 Time to download the layer: 3.013888ms
-2020-05-23 22:08:16.807318472 -0500 CDT m=+1257.490233052 --->	 Time to download the layer: 127.500274ms
-2020-05-23 22:08:16.815173563 -0500 CDT m=+1257.498088118 --->	 Time to download the layer: 7.005855ms
-2020-05-23 22:08:16.823428973 -0500 CDT m=+1257.506343587 --->	 Time to download the layer: 8.191561ms
-2020-05-23 22:08:16.830667075 -0500 CDT m=+1257.513581580 --->	 Time to download the layer: 7.182436ms
-2020-05-23 22:08:16.83800963 -0500 CDT m=+1257.520924196 --->	 Time to download the layer: 7.306238ms
-2020-05-23 22:08:16.855733912 -0500 CDT m=+1257.538648419 --->	 Time to download the layer: 255.724512ms
-2020-05-23 22:08:18.187935026 -0500 CDT m=+1258.870849537 --->	 Time to download the layer: 2.042949897s
-2020-05-23 22:08:18.187959799 -0500 CDT m=+1258.870874286 --->	  Wait for parent download lasted for: 808ns
-2020-05-23 22:08:19.330368216 -0500 CDT m=+1260.013282942 --->	  Wait for parent download lasted for: 2.749164048s
-2020-05-23 22:08:19.725662172 -0500 CDT m=+1260.408576900 --->	  Wait for parent download lasted for: 3.12565667s
-2020-05-23 22:08:20.153934389 -0500 CDT m=+1260.836849115 --->	  Wait for parent download lasted for: 3.29818422s
-2020-05-23 22:08:23.004061212 -0500 CDT m=+1263.686975940 --->	  Wait for parent download lasted for: 6.343215449s
-2020-05-23 22:08:23.456486681 -0500 CDT m=+1264.139401406 --->	  Wait for parent download lasted for: 6.783527153s
-2020-05-23 22:08:23.876020146 -0500 CDT m=+1264.558934870 --->	  Wait for parent download lasted for: 7.199233369s
-2020-05-23 22:08:24.272096579 -0500 CDT m=+1264.955011304 --->	  Wait for parent download lasted for: 7.592280687s
-2020-05-23 22:08:24.691596203 -0500 CDT m=+1265.374510929 --->	  Wait for parent download lasted for: 7.883439523s
-2020-05-23 22:08:25.086205035 -0500 CDT m=+1265.769119763 --->	  Wait for parent download lasted for: 8.270975297s
-2020-05-23 22:08:25.522906574 -0500 CDT m=+1266.205821303 --->	  Wait for parent download lasted for: 8.699429057s
-2020-05-23 22:08:25.959687567 -0500 CDT m=+1266.642602293 --->	  Wait for parent download lasted for: 9.128989797s
-2020-05-23 22:08:26.395793363 -0500 CDT m=+1267.078708080 --->	  Wait for parent download lasted for: 9.557759553s
-2020-05-23 22:08:26.841090221 -0500 CDT m=+1267.524004875 --->	  Top download downlaoded.
-2020-05-23 22:08:26.841174731 -0500 CDT m=+1267.524089504 --->	  Downlaoded image in time: 10.696388439s
-time="2020-05-23T22:08:57.466929633-05:00" level=info msg="Container 9d2840b4bb7f2c537dd0a242c7499270a7dc7ff2c3af91b82e868c7d7691c8f5 failed to exit within 10 seconds of signal 15 - using the force"
-time="2020-05-23T22:08:57.515357885-05:00" level=error msg="stream copy error: reading from a closed fifo"
-time="2020-05-23T22:08:57.515371675-05:00" level=error msg="stream copy error: reading from a closed fifo"
-time="2020-05-23T22:08:57.531912106-05:00" level=warning msg="Health check for container 9d2840b4bb7f2c537dd0a242c7499270a7dc7ff2c3af91b82e868c7d7691c8f5 error: OCI runtime exec failed: exec failed: cannot exec a container that has stopped: unknown"
-time="2020-05-23T22:08:57.790117837-05:00" level=info msg="ignoring event" module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
-time="2020-05-23T22:08:57.790638045-05:00" level=warning msg="rmServiceBinding 856d5f96dc10fc34c38e6179a6d514f8d7a5d8d51cd09a576b5c426776772c33 possible transient state ok:false entries:0 set:false "
-time="2020-05-23T22:08:59.670749110-05:00" level=warning msg="Error (Unable to complete atomic operation, key modified) deleting object [endpoint mvn3wrk1uf4jf0wubu0fayhnh d18197d19530a7294cac853d2e033a37e5bc8b95daab700a5b84698fedb2a4e5], retrying...."
-time="2020-05-23T22:09:00.471460243-05:00" level=info msg="initialized VXLAN UDP port to 4789 "
-time="2020-05-23T22:11:05.649311456-05:00" level=error msg="Handler for GET /v1.39/images/json returned error: syntax error in pattern"
-time="2020-05-23T22:12:23.674316976-05:00" level=info msg="NetworkDB stats singularity4.cs.tamu.edu(ed0189bfcd3b) - netID:pj52d1c4x7eu0yni960aj7tog leaving:false netPeers:2 entries:8 Queue qLen:0 netMsg/s:0"
-time="2020-05-23T22:12:23.674455917-05:00" level=info msg="NetworkDB stats singularity4.cs.tamu.edu(ed0189bfcd3b) - netID:mvn3wrk1uf4jf0wubu0fayhnh leaving:true netPeers:1 entries:9 Queue qLen:0 netMsg/s:0"
-time="2020-05-23T22:14:53.210157246-05:00" level=info msg="initialized VXLAN UDP port to 4789 "
-time="2020-05-23T22:14:55.471471360-05:00" level=warning msg="Error getting v2 registry: Get https://csce-6snvrz2.cs.tamu.edu:5000/v2/: http: server gave HTTP response to HTTPS client"
-time="2020-05-23T22:14:55.471514869-05:00" level=info msg="Attempting next endpoint for pull after error: Get https://csce-6snvrz2.cs.tamu.edu:5000/v2/: http: server gave HTTP response to HTTPS client"
-Current time:  2020-05-23 22:14:55.487082539 -0500 CDT m=+1656.169997143, Starting the download of the layers.
-2020-05-23 22:14:55.487323246 -0500 CDT m=+1656.170237851 --->	  Waiting for top download.
-2020-05-23 22:14:55.638112758 -0500 CDT m=+1656.321027266 --->	 Time to download the layer: 150.369554ms
-2020-05-23 22:14:55.739581727 -0500 CDT m=+1656.422496223 --->	 Time to download the layer: 101.441943ms
-2020-05-23 22:14:55.795715295 -0500 CDT m=+1656.478629794 --->	 Time to download the layer: 308.170623ms
-2020-05-23 22:14:55.800357863 -0500 CDT m=+1656.483272368 --->	 Time to download the layer: 4.592899ms
-2020-05-23 22:14:55.803998775 -0500 CDT m=+1656.486913273 --->	 Time to download the layer: 3.59523ms
-2020-05-23 22:14:55.808237428 -0500 CDT m=+1656.491151917 --->	 Time to download the layer: 4.219764ms
-2020-05-23 22:14:55.811640487 -0500 CDT m=+1656.494554991 --->	 Time to download the layer: 3.383907ms
-2020-05-23 22:14:55.820328099 -0500 CDT m=+1656.503242595 --->	 Time to download the layer: 8.669253ms
-2020-05-23 22:14:55.823501681 -0500 CDT m=+1656.506416180 --->	 Time to download the layer: 3.152427ms
-2020-05-23 22:14:55.826658046 -0500 CDT m=+1656.509572547 --->	 Time to download the layer: 3.135041ms
-2020-05-23 22:14:55.831332409 -0500 CDT m=+1656.514246933 --->	 Time to download the layer: 4.655152ms
-2020-05-23 22:14:55.834709317 -0500 CDT m=+1656.517623837 --->	 Time to download the layer: 3.355068ms
-2020-05-23 22:14:55.97825194 -0500 CDT m=+1656.661166450 --->	 Time to download the layer: 238.647962ms
-2020-05-23 22:14:57.302587759 -0500 CDT m=+1657.985502274 --->	 Time to download the layer: 1.81493291s
-2020-05-23 22:14:57.302852636 -0500 CDT m=+1657.985767123 --->	  Wait for parent download lasted for: 982ns
-2020-05-23 22:14:58.312031434 -0500 CDT m=+1658.994946160 --->	  Wait for parent download lasted for: 2.673895331s
-2020-05-23 22:14:58.732587658 -0500 CDT m=+1659.415502418 --->	  Wait for parent download lasted for: 2.9929869s
-2020-05-23 22:14:59.143494417 -0500 CDT m=+1659.826409143 --->	  Wait for parent download lasted for: 3.163218642s
-2020-05-23 22:15:02.752176299 -0500 CDT m=+1663.435090999 --->	  Wait for parent download lasted for: 6.951776899s
-2020-05-23 22:15:03.213219604 -0500 CDT m=+1663.896134331 --->	  Wait for parent download lasted for: 7.409205064s
-2020-05-23 22:15:03.658309238 -0500 CDT m=+1664.341223965 --->	  Wait for parent download lasted for: 7.850055944s
-2020-05-23 22:15:04.103340587 -0500 CDT m=+1664.786255314 --->	  Wait for parent download lasted for: 8.291684762s
-2020-05-23 22:15:04.581870409 -0500 CDT m=+1665.264785138 --->	  Wait for parent download lasted for: 8.761524427s
-2020-05-23 22:15:04.984872174 -0500 CDT m=+1665.667786902 --->	  Wait for parent download lasted for: 9.161352449s
-2020-05-23 22:15:05.379732451 -0500 CDT m=+1666.062647176 --->	  Wait for parent download lasted for: 9.553058434s
-2020-05-23 22:15:05.833405441 -0500 CDT m=+1666.516320143 --->	  Wait for parent download lasted for: 10.002055233s
-2020-05-23 22:15:06.253164348 -0500 CDT m=+1666.936079097 --->	  Wait for parent download lasted for: 10.418434424s
-2020-05-23 22:15:06.706269436 -0500 CDT m=+1667.389184177 --->	  Top download downlaoded.
-2020-05-23 22:15:06.706373836 -0500 CDT m=+1667.389288593 --->	  Downlaoded image in time: 11.219240721s
-time="2020-05-23T22:15:36.686164570-05:00" level=info msg="Container 2182043423fb6ec001f4d4d8a4eaa39e8ff1e321d76cd52d97060a97334bb017 failed to exit within 10 seconds of signal 15 - using the force"
-time="2020-05-23T22:15:36.827012255-05:00" level=info msg="ignoring event" module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
-time="2020-05-23T22:15:36.827429341-05:00" level=warning msg="rmServiceBinding 303094b97d202629baddfe57d51a51143c8bced2ade419b13d3b3d39d5c72c90 possible transient state ok:false entries:0 set:false "
-time="2020-05-23T22:15:39.000419471-05:00" level=warning msg="Error (Unable to complete atomic operation, key modified) deleting object [endpoint mvn3wrk1uf4jf0wubu0fayhnh e2363e5da1d66352dd20477c5863ec2947a981833b90421e80eed0270f7a5e2f], retrying...."
-time="2020-05-23T22:15:39.437046827-05:00" level=info msg="initialized VXLAN UDP port to 4789 "
-time="2020-05-23T22:17:23.874476011-05:00" level=info msg="NetworkDB stats singularity4.cs.tamu.edu(ed0189bfcd3b) - netID:pj52d1c4x7eu0yni960aj7tog leaving:false netPeers:2 entries:8 Queue qLen:0 netMsg/s:0"
-time="2020-05-23T22:17:23.874651694-05:00" level=info msg="NetworkDB stats singularity4.cs.tamu.edu(ed0189bfcd3b) - netID:mvn3wrk1uf4jf0wubu0fayhnh leaving:true netPeers:1 entries:12 Queue qLen:0 netMsg/s:0"
-time="2020-05-23T22:20:07.236406718-05:00" level=info msg="initialized VXLAN UDP port to 4789 "
-time="2020-05-23T22:20:09.236966508-05:00" level=warning msg="Error getting v2 registry: Get https://csce-6snvrz2.cs.tamu.edu:5000/v2/: http: server gave HTTP response to HTTPS client"
-time="2020-05-23T22:20:09.237048360-05:00" level=info msg="Attempting next endpoint for pull after error: Get https://csce-6snvrz2.cs.tamu.edu:5000/v2/: http: server gave HTTP response to HTTPS client"
-Current time:  2020-05-23 22:20:09.257419355 -0500 CDT m=+1969.940334133, Starting the download of the layers.
-2020-05-23 22:20:09.257811888 -0500 CDT m=+1969.940726493 --->	  Waiting for top download.
-2020-05-23 22:20:09.508059902 -0500 CDT m=+1970.190974420 --->	 Time to download the layer: 249.969804ms
-2020-05-23 22:20:09.513684407 -0500 CDT m=+1970.196598951 --->	 Time to download the layer: 5.596225ms
-2020-05-23 22:20:09.54507661 -0500 CDT m=+1970.227991117 --->	 Time to download the layer: 287.373963ms
-2020-05-23 22:20:09.549745727 -0500 CDT m=+1970.232660226 --->	 Time to download the layer: 4.619644ms
-2020-05-23 22:20:09.553571491 -0500 CDT m=+1970.236486002 --->	 Time to download the layer: 3.803232ms
-2020-05-23 22:20:09.556914547 -0500 CDT m=+1970.239829035 --->	 Time to download the layer: 3.322336ms
-2020-05-23 22:20:09.559797131 -0500 CDT m=+1970.242711669 --->	 Time to download the layer: 2.863122ms
-2020-05-23 22:20:19.705711541 -0500 CDT m=+1980.388626276 --->	  Wait for parent download lasted for: 8.241415465s
-2020-05-23 22:20:20.980175894 -0500 CDT m=+1981.663090621 --->	  Wait for parent download lasted for: 11.210349458s
-2020-05-23 22:20:21.492304693 -0500 CDT m=+1982.175219422 --->	  Wait for parent download lasted for: 9.973507261s
-2020-05-23 22:20:22.314271737 -0500 CDT m=+1982.997186475 --->	  Top download downlaoded.
-2020-05-23 22:20:22.31436123 -0500 CDT m=+1982.997275954 --->	  Downlaoded image in time: 13.056860909s
-time="2020-05-23T22:20:50.516906079-05:00" level=info msg="Container 2396f78c63e8c92388f98fbde34eb818eba374ed3552e231a5cfb9e415b4ef49 failed to exit within 10 seconds of signal 15 - using the force"
-time="2020-05-23T22:20:50.643256974-05:00" level=info msg="ignoring event" module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
-time="2020-05-23T22:20:50.643818213-05:00" level=warning msg="rmServiceBinding 6c706cc2ce6606c3a6ee2f32827664845703078e63092de065c0edbfe54c4c31 possible transient state ok:false entries:0 set:false "
-time="2020-05-23T22:20:52.515192587-05:00" level=warning msg="Error (Unable to complete atomic operation, key modified) deleting object [endpoint mvn3wrk1uf4jf0wubu0fayhnh f484619cbc463a6aec75f1b0eb6a9763eed8debf5ff2275bf041d7d059e9b8d9], retrying...."
-time="2020-05-23T22:20:52.791564190-05:00" level=info msg="initialized VXLAN UDP port to 4789 "
-time="2020-05-23T22:21:09.246610405-05:00" level=info msg="parsed scheme: \"\"" module=grpc
-time="2020-05-23T22:21:09.246671544-05:00" level=info msg="scheme \"\" not registered, fallback to default scheme" module=grpc
-time="2020-05-23T22:21:09.246691269-05:00" level=info msg="ccResolverWrapper: sending update to cc: {[{ 0  <nil>}] <nil>}" module=grpc
-time="2020-05-23T22:21:09.246703024-05:00" level=info msg="ClientConn switching balancer to \"pick_first\"" module=grpc
-Current time:  2020-05-23 22:21:12.231174783 -0500 CDT m=+2032.914089420, Starting the download of the layers.
-2020-05-23 22:21:12.231270298 -0500 CDT m=+2032.914184846 --->	  Waiting for top download.
-2020-05-23 22:21:13.353297232 -0500 CDT m=+2034.036211967 --->	  Top download downlaoded.
-2020-05-23 22:21:13.353379223 -0500 CDT m=+2034.036294002 --->	  Downlaoded image in time: 1.12214106s
-Current time:  2020-05-23 22:21:16.674756344 -0500 CDT m=+2037.357670949, Starting the download of the layers.
-2020-05-23 22:21:16.674846285 -0500 CDT m=+2037.357760850 --->	  Waiting for top download.
-Current time:  2020-05-23 22:21:16.756503763 -0500 CDT m=+2037.439418317, Starting the download of the layers.
-2020-05-23 22:21:16.756638492 -0500 CDT m=+2037.439553043 --->	  Waiting for top download.
-2020-05-23 22:21:18.252210805 -0500 CDT m=+2038.935125385 --->	  Top download downlaoded.
-2020-05-23 22:21:18.252240328 -0500 CDT m=+2038.935154926 --->	  Downlaoded image in time: 1.577427027s
-2020-05-23 22:21:24.107939682 -0500 CDT m=+2044.790854407 --->	  Wait for parent download lasted for: 7.018744318s
-2020-05-23 22:21:24.911143361 -0500 CDT m=+2045.594058090 --->	  Wait for parent download lasted for: 7.709759855s
-2020-05-23 22:21:25.399942558 -0500 CDT m=+2046.082857283 --->	  Wait for parent download lasted for: 8.168220622s
-2020-05-23 22:21:26.793844406 -0500 CDT m=+2047.476759134 --->	  Wait for parent download lasted for: 9.504558576s
-2020-05-23 22:21:28.233728389 -0500 CDT m=+2048.916643116 --->	  Wait for parent download lasted for: 10.919481808s
-2020-05-23 22:21:30.647523615 -0500 CDT m=+2051.330438314 --->	  Wait for parent download lasted for: 13.257954791s
-2020-05-23 22:21:31.067160367 -0500 CDT m=+2051.750075053 --->	  Top download downlaoded.
-2020-05-23 22:21:31.067226299 -0500 CDT m=+2051.750141001 --->	  Downlaoded image in time: 14.31067232s
-time="2020-05-23T22:22:24.074262544-05:00" level=info msg="NetworkDB stats singularity4.cs.tamu.edu(ed0189bfcd3b) - netID:pj52d1c4x7eu0yni960aj7tog leaving:false netPeers:2 entries:8 Queue qLen:0 netMsg/s:0"
-time="2020-05-23T22:22:24.074420377-05:00" level=info msg="NetworkDB stats singularity4.cs.tamu.edu(ed0189bfcd3b) - netID:mvn3wrk1uf4jf0wubu0fayhnh leaving:true netPeers:1 entries:12 Queue qLen:0 netMsg/s:0"
-time="2020-05-23T22:25:58.210225407-05:00" level=error msg="failed to kill runc 8cbc5yjm4xxbtdy5smu163hhy: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:25:58.210225432-05:00" level=error msg="failed to kill runc 3xcc6hhak4zuffzqswwt6co52: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:25:58.279814572-05:00" level=error msg="failed to kill runc u4ao6789ww56fbkl1sa87d856: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:25:58.279977130-05:00" level=error msg="failed to kill runc jgl7es0j5l44oan70jtbcili5: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:25:58.330829811-05:00" level=error msg="failed to kill runc 3xcc6hhak4zuffzqswwt6co52: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:25:58.335130052-05:00" level=error msg="failed to kill runc 8cbc5yjm4xxbtdy5smu163hhy: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:25:58.494564845-05:00" level=error msg="failed to kill runc jgl7es0j5l44oan70jtbcili5: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:25:58.494580014-05:00" level=error msg="failed to kill runc u4ao6789ww56fbkl1sa87d856: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:25:58.539428553-05:00" level=error msg="failed to kill runc 3xcc6hhak4zuffzqswwt6co52: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:25:58.539427725-05:00" level=error msg="failed to kill runc 8cbc5yjm4xxbtdy5smu163hhy: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:25:58.672986273-05:00" level=error msg="failed to kill runc 3xcc6hhak4zuffzqswwt6co52: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:25:58.673146914-05:00" level=error msg="failed to kill runc u4ao6789ww56fbkl1sa87d856: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:25:58.673527982-05:00" level=error msg="failed to kill runc jgl7es0j5l44oan70jtbcili5: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:25:58.689600749-05:00" level=error msg="failed to kill runc 8cbc5yjm4xxbtdy5smu163hhy: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:25:58.972982818-05:00" level=error msg="failed to kill runc u4ao6789ww56fbkl1sa87d856: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:25:59.035254638-05:00" level=error msg="failed to kill runc 3xcc6hhak4zuffzqswwt6co52: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:25:59.073976246-05:00" level=error msg="failed to kill runc jgl7es0j5l44oan70jtbcili5: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:25:59.073975539-05:00" level=error msg="failed to kill runc 8cbc5yjm4xxbtdy5smu163hhy: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:25:59.164946723-05:00" level=error msg="failed to kill runc u4ao6789ww56fbkl1sa87d856: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:25:59.217730078-05:00" level=error msg="failed to kill runc jgl7es0j5l44oan70jtbcili5: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:25:59.220266008-05:00" level=error msg="failed to kill runc 8cbc5yjm4xxbtdy5smu163hhy: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:25:59.220277945-05:00" level=error msg="failed to kill runc 3xcc6hhak4zuffzqswwt6co52: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:25:59.301652865-05:00" level=error msg="failed to kill runc u4ao6789ww56fbkl1sa87d856: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:25:59.352789494-05:00" level=error msg="failed to kill runc jgl7es0j5l44oan70jtbcili5: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:25:59.393666286-05:00" level=error msg="failed to kill runc 3xcc6hhak4zuffzqswwt6co52: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:25:59.394182734-05:00" level=error msg="failed to kill runc 8cbc5yjm4xxbtdy5smu163hhy: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:25:59.486334611-05:00" level=error msg="failed to kill runc u4ao6789ww56fbkl1sa87d856: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:25:59.536000617-05:00" level=error msg="failed to kill runc jgl7es0j5l44oan70jtbcili5: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:25:59.577073386-05:00" level=error msg="failed to kill runc 3xcc6hhak4zuffzqswwt6co52: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:25:59.578010792-05:00" level=error msg="failed to kill runc 8cbc5yjm4xxbtdy5smu163hhy: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:25:59.745066342-05:00" level=error msg="failed to kill runc u4ao6789ww56fbkl1sa87d856: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:25:59.792597766-05:00" level=error msg="failed to kill runc 3xcc6hhak4zuffzqswwt6co52: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:25:59.792670613-05:00" level=error msg="failed to kill runc jgl7es0j5l44oan70jtbcili5: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:25:59.793222418-05:00" level=error msg="failed to kill runc 8cbc5yjm4xxbtdy5smu163hhy: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:25:59.876786798-05:00" level=error msg="failed to kill runc u4ao6789ww56fbkl1sa87d856: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:25:59.932782655-05:00" level=error msg="failed to kill runc jgl7es0j5l44oan70jtbcili5: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:25:59.996627984-05:00" level=error msg="failed to kill runc 8cbc5yjm4xxbtdy5smu163hhy: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:00.000992137-05:00" level=error msg="failed to kill runc 3xcc6hhak4zuffzqswwt6co52: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:00.036017996-05:00" level=error msg="failed to kill runc u4ao6789ww56fbkl1sa87d856: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:00.093598283-05:00" level=error msg="failed to kill runc jgl7es0j5l44oan70jtbcili5: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:00.144480378-05:00" level=error msg="failed to kill runc 3xcc6hhak4zuffzqswwt6co52: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:00.144525070-05:00" level=error msg="failed to kill runc 8cbc5yjm4xxbtdy5smu163hhy: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:00.215107569-05:00" level=error msg="failed to kill runc u4ao6789ww56fbkl1sa87d856: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:00.253688503-05:00" level=error msg="failed to kill runc 3xcc6hhak4zuffzqswwt6co52: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:00.253896556-05:00" level=error msg="failed to kill runc 8cbc5yjm4xxbtdy5smu163hhy: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:00.257695034-05:00" level=error msg="failed to kill runc jgl7es0j5l44oan70jtbcili5: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:00.403941832-05:00" level=error msg="failed to kill runc u4ao6789ww56fbkl1sa87d856: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:00.403986765-05:00" level=error msg="failed to kill runc 8cbc5yjm4xxbtdy5smu163hhy: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:00.405275470-05:00" level=error msg="failed to kill runc 3xcc6hhak4zuffzqswwt6co52: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:00.420514575-05:00" level=error msg="failed to kill runc jgl7es0j5l44oan70jtbcili5: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:00.604901873-05:00" level=error msg="failed to kill runc 8cbc5yjm4xxbtdy5smu163hhy: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:00.606236325-05:00" level=error msg="failed to kill runc u4ao6789ww56fbkl1sa87d856: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:00.621095786-05:00" level=error msg="failed to kill runc 3xcc6hhak4zuffzqswwt6co52: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:00.623942560-05:00" level=error msg="failed to kill runc jgl7es0j5l44oan70jtbcili5: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:00.746766636-05:00" level=error msg="failed to kill runc 8cbc5yjm4xxbtdy5smu163hhy: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:00.746891090-05:00" level=error msg="failed to kill runc jgl7es0j5l44oan70jtbcili5: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:00.747283137-05:00" level=error msg="failed to kill runc 3xcc6hhak4zuffzqswwt6co52: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:00.747288244-05:00" level=error msg="failed to kill runc u4ao6789ww56fbkl1sa87d856: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:00.889467195-05:00" level=error msg="failed to kill runc 3xcc6hhak4zuffzqswwt6co52: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:00.889487108-05:00" level=error msg="failed to kill runc 8cbc5yjm4xxbtdy5smu163hhy: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:00.931307097-05:00" level=error msg="failed to kill runc u4ao6789ww56fbkl1sa87d856: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:00.931441167-05:00" level=error msg="failed to kill runc jgl7es0j5l44oan70jtbcili5: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:01.023381210-05:00" level=error msg="failed to kill runc 8cbc5yjm4xxbtdy5smu163hhy: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:01.023406655-05:00" level=error msg="failed to kill runc 3xcc6hhak4zuffzqswwt6co52: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:01.073023474-05:00" level=error msg="failed to kill runc jgl7es0j5l44oan70jtbcili5: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:01.073133184-05:00" level=error msg="failed to kill runc u4ao6789ww56fbkl1sa87d856: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:01.139977268-05:00" level=error msg="failed to kill runc 3xcc6hhak4zuffzqswwt6co52: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:01.140224630-05:00" level=error msg="failed to kill runc 8cbc5yjm4xxbtdy5smu163hhy: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:01.181913827-05:00" level=error msg="failed to kill runc jgl7es0j5l44oan70jtbcili5: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:01.182011013-05:00" level=error msg="failed to kill runc u4ao6789ww56fbkl1sa87d856: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:01.332574544-05:00" level=error msg="failed to kill runc 3xcc6hhak4zuffzqswwt6co52: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:01.332673389-05:00" level=error msg="failed to kill runc 8cbc5yjm4xxbtdy5smu163hhy: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:01.398993083-05:00" level=error msg="failed to kill runc u4ao6789ww56fbkl1sa87d856: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:01.443449715-05:00" level=error msg="failed to kill runc jgl7es0j5l44oan70jtbcili5: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:01.493580572-05:00" level=error msg="failed to kill runc 3xcc6hhak4zuffzqswwt6co52: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:01.493593056-05:00" level=error msg="failed to kill runc 8cbc5yjm4xxbtdy5smu163hhy: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:01.532852575-05:00" level=error msg="failed to kill runc u4ao6789ww56fbkl1sa87d856: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:01.613981843-05:00" level=error msg="failed to kill runc jgl7es0j5l44oan70jtbcili5: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:01.660505026-05:00" level=error msg="failed to kill runc 8cbc5yjm4xxbtdy5smu163hhy: runc did not terminate successfully: container \"8cbc5yjm4xxbtdy5smu163hhy\" does not exist\n"
-time="2020-05-23T22:26:01.660790750-05:00" level=error msg="failed to kill runc 3xcc6hhak4zuffzqswwt6co52: runc did not terminate successfully: container \"3xcc6hhak4zuffzqswwt6co52\" does not exist\n"
-time="2020-05-23T22:26:01.661468354-05:00" level=error msg="failed to kill runc u4ao6789ww56fbkl1sa87d856: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:01.777025287-05:00" level=error msg="failed to kill runc jgl7es0j5l44oan70jtbcili5: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:01.842338868-05:00" level=error msg="failed to kill runc u4ao6789ww56fbkl1sa87d856: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:01.844854652-05:00" level=error msg="failed to kill runc 8cbc5yjm4xxbtdy5smu163hhy: runc did not terminate successfully: container \"8cbc5yjm4xxbtdy5smu163hhy\" does not exist\n"
-time="2020-05-23T22:26:01.959362999-05:00" level=error msg="failed to kill runc 8cbc5yjm4xxbtdy5smu163hhy: runc did not terminate successfully: container \"8cbc5yjm4xxbtdy5smu163hhy\" does not exist\n"
-time="2020-05-23T22:26:01.959432992-05:00" level=error msg="failed to kill runc jgl7es0j5l44oan70jtbcili5: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:01.959928117-05:00" level=error msg="failed to kill runc u4ao6789ww56fbkl1sa87d856: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:02.117435361-05:00" level=error msg="failed to kill runc jgl7es0j5l44oan70jtbcili5: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:02.119173433-05:00" level=error msg="failed to kill runc 8cbc5yjm4xxbtdy5smu163hhy: runc did not terminate successfully: container \"8cbc5yjm4xxbtdy5smu163hhy\" does not exist\n"
-time="2020-05-23T22:26:02.126156713-05:00" level=error msg="failed to kill runc u4ao6789ww56fbkl1sa87d856: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:02.244016315-05:00" level=error msg="failed to kill runc 8cbc5yjm4xxbtdy5smu163hhy: runc did not terminate successfully: container \"8cbc5yjm4xxbtdy5smu163hhy\" does not exist\n"
-time="2020-05-23T22:26:02.244016331-05:00" level=error msg="failed to kill runc jgl7es0j5l44oan70jtbcili5: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:02.277952421-05:00" level=error msg="failed to kill runc u4ao6789ww56fbkl1sa87d856: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:02.427494360-05:00" level=error msg="failed to kill runc jgl7es0j5l44oan70jtbcili5: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:02.427549783-05:00" level=error msg="failed to kill runc 8cbc5yjm4xxbtdy5smu163hhy: runc did not terminate successfully: container \"8cbc5yjm4xxbtdy5smu163hhy\" does not exist\n"
-time="2020-05-23T22:26:02.435814977-05:00" level=error msg="failed to kill runc u4ao6789ww56fbkl1sa87d856: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:02.619765117-05:00" level=error msg="failed to kill runc 8cbc5yjm4xxbtdy5smu163hhy: runc did not terminate successfully: container \"8cbc5yjm4xxbtdy5smu163hhy\" does not exist\n"
-time="2020-05-23T22:26:02.619812149-05:00" level=error msg="failed to kill runc jgl7es0j5l44oan70jtbcili5: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:02.620585487-05:00" level=error msg="failed to kill runc u4ao6789ww56fbkl1sa87d856: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:02.786653828-05:00" level=error msg="failed to kill runc 8cbc5yjm4xxbtdy5smu163hhy: runc did not terminate successfully: container \"8cbc5yjm4xxbtdy5smu163hhy\" does not exist\n"
-time="2020-05-23T22:26:02.786684522-05:00" level=error msg="failed to kill runc jgl7es0j5l44oan70jtbcili5: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:02.802857945-05:00" level=error msg="failed to kill runc u4ao6789ww56fbkl1sa87d856: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:03.005137732-05:00" level=error msg="failed to kill runc jgl7es0j5l44oan70jtbcili5: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:03.005155894-05:00" level=error msg="failed to kill runc 8cbc5yjm4xxbtdy5smu163hhy: runc did not terminate successfully: container \"8cbc5yjm4xxbtdy5smu163hhy\" does not exist\n"
-time="2020-05-23T22:26:03.020009386-05:00" level=error msg="failed to kill runc u4ao6789ww56fbkl1sa87d856: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:03.145950297-05:00" level=error msg="failed to kill runc 8cbc5yjm4xxbtdy5smu163hhy: runc did not terminate successfully: container \"8cbc5yjm4xxbtdy5smu163hhy\" does not exist\n"
-time="2020-05-23T22:26:03.154677461-05:00" level=error msg="failed to kill runc jgl7es0j5l44oan70jtbcili5: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:03.162791412-05:00" level=error msg="failed to kill runc u4ao6789ww56fbkl1sa87d856: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:03.288100305-05:00" level=error msg="failed to kill runc 8cbc5yjm4xxbtdy5smu163hhy: runc did not terminate successfully: container \"8cbc5yjm4xxbtdy5smu163hhy\" does not exist\n"
-time="2020-05-23T22:26:03.295639933-05:00" level=error msg="failed to kill runc jgl7es0j5l44oan70jtbcili5: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:03.319583585-05:00" level=error msg="failed to kill runc u4ao6789ww56fbkl1sa87d856: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:03.495236245-05:00" level=error msg="failed to kill runc 8cbc5yjm4xxbtdy5smu163hhy: runc did not terminate successfully: container \"8cbc5yjm4xxbtdy5smu163hhy\" does not exist\n"
-time="2020-05-23T22:26:03.513959447-05:00" level=error msg="failed to kill runc u4ao6789ww56fbkl1sa87d856: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:03.514014954-05:00" level=error msg="failed to kill runc jgl7es0j5l44oan70jtbcili5: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:03.647819052-05:00" level=error msg="failed to kill runc 8cbc5yjm4xxbtdy5smu163hhy: runc did not terminate successfully: container \"8cbc5yjm4xxbtdy5smu163hhy\" does not exist\n"
-time="2020-05-23T22:26:03.706041602-05:00" level=error msg="failed to kill runc u4ao6789ww56fbkl1sa87d856: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:03.706532437-05:00" level=error msg="failed to kill runc jgl7es0j5l44oan70jtbcili5: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:03.825774204-05:00" level=error msg="failed to kill runc 8cbc5yjm4xxbtdy5smu163hhy: runc did not terminate successfully: container \"8cbc5yjm4xxbtdy5smu163hhy\" does not exist\n"
-time="2020-05-23T22:26:03.857080681-05:00" level=error msg="failed to kill runc u4ao6789ww56fbkl1sa87d856: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:03.857089802-05:00" level=error msg="failed to kill runc jgl7es0j5l44oan70jtbcili5: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:03.965459431-05:00" level=error msg="failed to kill runc 8cbc5yjm4xxbtdy5smu163hhy: runc did not terminate successfully: container \"8cbc5yjm4xxbtdy5smu163hhy\" does not exist\n"
-time="2020-05-23T22:26:04.016016187-05:00" level=error msg="failed to kill runc u4ao6789ww56fbkl1sa87d856: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:04.017323026-05:00" level=error msg="failed to kill runc jgl7es0j5l44oan70jtbcili5: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:04.200650648-05:00" level=error msg="failed to kill runc u4ao6789ww56fbkl1sa87d856: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:04.200651271-05:00" level=error msg="failed to kill runc 8cbc5yjm4xxbtdy5smu163hhy: runc did not terminate successfully: container \"8cbc5yjm4xxbtdy5smu163hhy\" does not exist\n"
-time="2020-05-23T22:26:04.208916304-05:00" level=error msg="failed to kill runc jgl7es0j5l44oan70jtbcili5: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:04.378881234-05:00" level=error msg="failed to kill runc jgl7es0j5l44oan70jtbcili5: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:04.379012780-05:00" level=error msg="failed to kill runc u4ao6789ww56fbkl1sa87d856: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:04.554043068-05:00" level=error msg="failed to kill runc u4ao6789ww56fbkl1sa87d856: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:04.554178707-05:00" level=error msg="failed to kill runc jgl7es0j5l44oan70jtbcili5: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:04.738260870-05:00" level=error msg="failed to kill runc jgl7es0j5l44oan70jtbcili5: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:04.738374235-05:00" level=error msg="failed to kill runc u4ao6789ww56fbkl1sa87d856: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:04.867308597-05:00" level=error msg="failed to kill runc u4ao6789ww56fbkl1sa87d856: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:04.869596889-05:00" level=error msg="failed to kill runc jgl7es0j5l44oan70jtbcili5: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:04.996123400-05:00" level=error msg="failed to kill runc u4ao6789ww56fbkl1sa87d856: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:05.162984727-05:00" level=error msg="failed to kill runc u4ao6789ww56fbkl1sa87d856: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:05.330717143-05:00" level=error msg="failed to kill runc u4ao6789ww56fbkl1sa87d856: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:05.480932190-05:00" level=error msg="failed to kill runc u4ao6789ww56fbkl1sa87d856: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:05.621507003-05:00" level=error msg="failed to kill runc u4ao6789ww56fbkl1sa87d856: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:05.740134871-05:00" level=error msg="failed to kill runc u4ao6789ww56fbkl1sa87d856: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:05.880347514-05:00" level=error msg="failed to kill runc u4ao6789ww56fbkl1sa87d856: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:06.008802458-05:00" level=error msg="failed to kill runc u4ao6789ww56fbkl1sa87d856: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:06.142018406-05:00" level=error msg="failed to kill runc u4ao6789ww56fbkl1sa87d856: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:06.288673023-05:00" level=error msg="failed to kill runc u4ao6789ww56fbkl1sa87d856: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:06.400853806-05:00" level=error msg="failed to kill runc u4ao6789ww56fbkl1sa87d856: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:07.303736358-05:00" level=error msg="failed to kill runc u4ao6789ww56fbkl1sa87d856: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:07.714031617-05:00" level=error msg="failed to kill runc u4ao6789ww56fbkl1sa87d856: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:07.891318012-05:00" level=error msg="failed to kill runc u4ao6789ww56fbkl1sa87d856: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:08.130438240-05:00" level=error msg="failed to kill runc u4ao6789ww56fbkl1sa87d856: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:08.280907677-05:00" level=error msg="failed to kill runc u4ao6789ww56fbkl1sa87d856: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:08.447556938-05:00" level=error msg="failed to kill runc u4ao6789ww56fbkl1sa87d856: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:08.564577302-05:00" level=error msg="failed to kill runc u4ao6789ww56fbkl1sa87d856: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:08.908715854-05:00" level=error msg="failed to kill runc u4ao6789ww56fbkl1sa87d856: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:09.272826872-05:00" level=error msg="failed to kill runc u4ao6789ww56fbkl1sa87d856: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:09.384857215-05:00" level=error msg="failed to kill runc u4ao6789ww56fbkl1sa87d856: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:09.548057874-05:00" level=error msg="failed to kill runc u4ao6789ww56fbkl1sa87d856: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:09.694279906-05:00" level=error msg="failed to kill runc u4ao6789ww56fbkl1sa87d856: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:09.819782412-05:00" level=error msg="failed to kill runc u4ao6789ww56fbkl1sa87d856: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:09.981660313-05:00" level=error msg="failed to kill runc u4ao6789ww56fbkl1sa87d856: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:10.123336823-05:00" level=error msg="failed to kill runc u4ao6789ww56fbkl1sa87d856: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:10.339418594-05:00" level=error msg="failed to kill runc u4ao6789ww56fbkl1sa87d856: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:10.480508384-05:00" level=error msg="failed to kill runc u4ao6789ww56fbkl1sa87d856: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:10.632004184-05:00" level=error msg="failed to kill runc u4ao6789ww56fbkl1sa87d856: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:10.839730020-05:00" level=error msg="failed to kill runc u4ao6789ww56fbkl1sa87d856: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:10.973005182-05:00" level=error msg="failed to kill runc u4ao6789ww56fbkl1sa87d856: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:11.099141470-05:00" level=error msg="failed to kill runc u4ao6789ww56fbkl1sa87d856: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:11.274998001-05:00" level=error msg="failed to kill runc u4ao6789ww56fbkl1sa87d856: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:16.885897748-05:00" level=error msg="failed to kill runc pl5pbo3w6kyfbaqw57cm5gh1v: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:16.997086764-05:00" level=error msg="failed to kill runc pl5pbo3w6kyfbaqw57cm5gh1v: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:17.151483428-05:00" level=error msg="failed to kill runc pl5pbo3w6kyfbaqw57cm5gh1v: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:17.301246836-05:00" level=error msg="failed to kill runc pl5pbo3w6kyfbaqw57cm5gh1v: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:17.431647887-05:00" level=error msg="failed to kill runc pl5pbo3w6kyfbaqw57cm5gh1v: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:17.576104671-05:00" level=error msg="failed to kill runc pl5pbo3w6kyfbaqw57cm5gh1v: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:17.726164586-05:00" level=error msg="failed to kill runc pl5pbo3w6kyfbaqw57cm5gh1v: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:17.841618464-05:00" level=error msg="failed to kill runc pl5pbo3w6kyfbaqw57cm5gh1v: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:18.003425386-05:00" level=error msg="failed to kill runc pl5pbo3w6kyfbaqw57cm5gh1v: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:18.126845824-05:00" level=error msg="failed to kill runc pl5pbo3w6kyfbaqw57cm5gh1v: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:18.277270908-05:00" level=error msg="failed to kill runc pl5pbo3w6kyfbaqw57cm5gh1v: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:18.469916963-05:00" level=error msg="failed to kill runc pl5pbo3w6kyfbaqw57cm5gh1v: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:18.577903598-05:00" level=error msg="failed to kill runc pl5pbo3w6kyfbaqw57cm5gh1v: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:18.784964647-05:00" level=error msg="failed to kill runc pl5pbo3w6kyfbaqw57cm5gh1v: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:18.896349205-05:00" level=error msg="failed to kill runc pl5pbo3w6kyfbaqw57cm5gh1v: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:19.063344380-05:00" level=error msg="failed to kill runc pl5pbo3w6kyfbaqw57cm5gh1v: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:19.206469425-05:00" level=error msg="failed to kill runc pl5pbo3w6kyfbaqw57cm5gh1v: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:19.335196436-05:00" level=error msg="failed to kill runc pl5pbo3w6kyfbaqw57cm5gh1v: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:19.465618304-05:00" level=error msg="failed to kill runc pl5pbo3w6kyfbaqw57cm5gh1v: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:19.610613711-05:00" level=error msg="failed to kill runc pl5pbo3w6kyfbaqw57cm5gh1v: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:19.802194891-05:00" level=error msg="failed to kill runc pl5pbo3w6kyfbaqw57cm5gh1v: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:26.306549708-05:00" level=error msg="failed to kill runc spgt2w5r02dq02207q17gqgq0: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:26.463540235-05:00" level=error msg="failed to kill runc spgt2w5r02dq02207q17gqgq0: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:26.615732773-05:00" level=error msg="failed to kill runc spgt2w5r02dq02207q17gqgq0: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:26.780300294-05:00" level=error msg="failed to kill runc spgt2w5r02dq02207q17gqgq0: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:26.917389282-05:00" level=error msg="failed to kill runc spgt2w5r02dq02207q17gqgq0: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:27.055453739-05:00" level=error msg="failed to kill runc spgt2w5r02dq02207q17gqgq0: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:27.197251574-05:00" level=error msg="failed to kill runc spgt2w5r02dq02207q17gqgq0: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:27.314232095-05:00" level=error msg="failed to kill runc spgt2w5r02dq02207q17gqgq0: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:27.447676445-05:00" level=error msg="failed to kill runc spgt2w5r02dq02207q17gqgq0: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:27.662381122-05:00" level=error msg="failed to kill runc spgt2w5r02dq02207q17gqgq0: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:27.797727439-05:00" level=error msg="failed to kill runc spgt2w5r02dq02207q17gqgq0: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:27.964310497-05:00" level=error msg="failed to kill runc spgt2w5r02dq02207q17gqgq0: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:28.113343186-05:00" level=error msg="failed to kill runc spgt2w5r02dq02207q17gqgq0: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:28.272716514-05:00" level=error msg="failed to kill runc spgt2w5r02dq02207q17gqgq0: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:28.422451218-05:00" level=error msg="failed to kill runc spgt2w5r02dq02207q17gqgq0: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:28.547795671-05:00" level=error msg="failed to kill runc spgt2w5r02dq02207q17gqgq0: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:28.706530477-05:00" level=error msg="failed to kill runc spgt2w5r02dq02207q17gqgq0: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:28.839605840-05:00" level=error msg="failed to kill runc spgt2w5r02dq02207q17gqgq0: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:28.983204832-05:00" level=error msg="failed to kill runc spgt2w5r02dq02207q17gqgq0: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:29.164768498-05:00" level=error msg="failed to kill runc spgt2w5r02dq02207q17gqgq0: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:29.314531015-05:00" level=error msg="failed to kill runc spgt2w5r02dq02207q17gqgq0: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:29.467575016-05:00" level=error msg="failed to kill runc spgt2w5r02dq02207q17gqgq0: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:32.057635245-05:00" level=error msg="failed to kill runc i9hd3okl5cx3zls5u1tur4yqy: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:32.206527116-05:00" level=error msg="failed to kill runc i9hd3okl5cx3zls5u1tur4yqy: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:32.428657329-05:00" level=error msg="failed to kill runc i9hd3okl5cx3zls5u1tur4yqy: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:32.595630319-05:00" level=error msg="failed to kill runc i9hd3okl5cx3zls5u1tur4yqy: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:32.756098188-05:00" level=error msg="failed to kill runc i9hd3okl5cx3zls5u1tur4yqy: runc did not terminate successfully: container not running\n"
-time="2020-05-23T22:26:32.907968303-05:00" level=error msg="failed to kill runc i9hd3okl5cx3zls5u1tur4yqy: runc did not terminate successfully: container not running\n"
-time="2020-05-24T03:26:34Z" level=error msg="fatal error: rpc error: code = Unknown desc = failed to build LLB: executor failed running [/bin/sh -c PREFIX=/build ./install.sh $INSTALL_BINARY_NAME]: runc did not terminate successfully"
-panic: rpc error: code = Unknown desc = failed to build LLB: executor failed running [/bin/sh -c PREFIX=/build ./install.sh $INSTALL_BINARY_NAME]: runc did not terminate successfully
-
-goroutine 1 [running]:
-main.main()
-	/src/frontend/dockerfile/cmd/dockerfile-frontend/main.go:26 +0x34f
-time="2020-05-23T22:27:24.274306842-05:00" level=info msg="NetworkDB stats singularity4.cs.tamu.edu(ed0189bfcd3b) - netID:pj52d1c4x7eu0yni960aj7tog leaving:false netPeers:2 entries:8 Queue qLen:0 netMsg/s:0"
-time="2020-05-23T22:27:24.274437451-05:00" level=info msg="NetworkDB stats singularity4.cs.tamu.edu(ed0189bfcd3b) - netID:mvn3wrk1uf4jf0wubu0fayhnh leaving:true netPeers:1 entries:12 Queue qLen:0 netMsg/s:0"
-time="2020-05-23T22:28:05.048772353-05:00" level=warning msg="grpc: addrConn.createTransport failed to connect to { 0  <nil>}. Err :connection error: desc = \"transport: Error while dialing only one connection allowed\". Reconnecting..." module=grpc
-time="2020-05-23T22:28:05.122800300-05:00" level=info msg="Got signal to reload configuration, reloading from: /etc/docker/daemon.json"
-time="2020-05-23T22:28:05.123236442-05:00" level=warning msg="insecure registry https://csce-6snvrz2.cs.tamu.edu:5000 should not contain 'https://' and 'https://' has been removed from the insecure registry config"
-time="2020-05-23T22:28:05.123619664-05:00" level=info msg="Reloaded configuration: {\"mtu\":1500,\"pidfile\":\"/var/run/docker.pid\",\"data-root\":\"/var/lib/docker\",\"exec-root\":\"/var/run/docker\",\"group\":\"docker\",\"deprecated-key-path\":\"/etc/docker/key.json\",\"max-concurrent-downloads\":3,\"max-concurrent-uploads\":5,\"max-download-attempts\":5,\"shutdown-timeout\":15,\"hosts\":[\"unix:///var/run/docker.sock\"],\"log-level\":\"info\",\"swarm-default-advertise-addr\":\"\",\"swarm-raft-heartbeat-tick\":0,\"swarm-raft-election-tick\":0,\"metrics-addr\":\"\",\"log-driver\":\"json-file\",\"ip\":\"0.0.0.0\",\"icc\":true,\"iptables\":true,\"ip-forward\":true,\"ip-masq\":true,\"userland-proxy\":true,\"default-address-pools\":{},\"network-control-plane-mtu\":1500,\"insecure-registries\":[\"https://csce-6snvrz2.cs.tamu.edu:5000\"],\"experimental\":true,\"containerd\":\"/run/containerd/containerd.sock\",\"builder\":{\"GC\":{},\"Entitlements\":{}},\"containerd-namespace\":\"moby\",\"containerd-plugin-namespace\":\"plugins.moby\",\"runtimes\":{\"runc\":{\"path\":\"runc\"}},\"default-runtime\":\"runc\",\"oom-score-adjust\":-500,\"default-shm-size\":67108864,\"default-ipc-mode\":\"private\",\"default-cgroupns-mode\":\"host\",\"resolv-conf\":\"/etc/resolv.conf\"}"
-time="2020-05-23T22:28:05.151408229-05:00" level=info msg="Got signal to reload configuration, reloading from: /etc/docker/daemon.json"
-time="2020-05-23T22:28:05.151536576-05:00" level=warning msg="insecure registry https://csce-6snvrz2.cs.tamu.edu:5000 should not contain 'https://' and 'https://' has been removed from the insecure registry config"
-time="2020-05-23T22:28:05.151598081-05:00" level=info msg="Reloaded configuration: {\"mtu\":1500,\"pidfile\":\"/var/run/docker.pid\",\"data-root\":\"/var/lib/docker\",\"exec-root\":\"/var/run/docker\",\"group\":\"docker\",\"deprecated-key-path\":\"/etc/docker/key.json\",\"max-concurrent-downloads\":3,\"max-concurrent-uploads\":5,\"max-download-attempts\":5,\"shutdown-timeout\":15,\"hosts\":[\"unix:///var/run/docker.sock\"],\"log-level\":\"info\",\"swarm-default-advertise-addr\":\"\",\"swarm-raft-heartbeat-tick\":0,\"swarm-raft-election-tick\":0,\"metrics-addr\":\"\",\"log-driver\":\"json-file\",\"ip\":\"0.0.0.0\",\"icc\":true,\"iptables\":true,\"ip-forward\":true,\"ip-masq\":true,\"userland-proxy\":true,\"default-address-pools\":{},\"network-control-plane-mtu\":1500,\"insecure-registries\":[\"https://csce-6snvrz2.cs.tamu.edu:5000\"],\"experimental\":true,\"containerd\":\"/run/containerd/containerd.sock\",\"builder\":{\"GC\":{},\"Entitlements\":{}},\"containerd-namespace\":\"moby\",\"containerd-plugin-namespace\":\"plugins.moby\",\"runtimes\":{\"runc\":{\"path\":\"runc\"}},\"default-runtime\":\"runc\",\"oom-score-adjust\":-500,\"default-shm-size\":67108864,\"default-ipc-mode\":\"private\",\"default-cgroupns-mode\":\"host\",\"resolv-conf\":\"/etc/resolv.conf\"}"
-time="2020-05-23T22:32:24.474415045-05:00" level=info msg="NetworkDB stats singularity4.cs.tamu.edu(ed0189bfcd3b) - netID:mvn3wrk1uf4jf0wubu0fayhnh leaving:true netPeers:1 entries:12 Queue qLen:0 netMsg/s:0"
-time="2020-05-23T22:32:24.474618304-05:00" level=info msg="NetworkDB stats singularity4.cs.tamu.edu(ed0189bfcd3b) - netID:pj52d1c4x7eu0yni960aj7tog leaving:false netPeers:2 entries:8 Queue qLen:0 netMsg/s:0"
-time="2020-05-23T22:36:53.911773009-05:00" level=info msg="parsed scheme: \"\"" module=grpc
-time="2020-05-23T22:36:53.911819565-05:00" level=info msg="scheme \"\" not registered, fallback to default scheme" module=grpc
-time="2020-05-23T22:36:53.911834761-05:00" level=info msg="ccResolverWrapper: sending update to cc: {[{ 0  <nil>}] <nil>}" module=grpc
-time="2020-05-23T22:36:53.911842699-05:00" level=info msg="ClientConn switching balancer to \"pick_first\"" module=grpc
+time="2020-05-27T22:19:22.864336446-05:00" level=info msg="Starting up"
+time="2020-05-27T22:19:22.864429933-05:00" level=warning msg="Running experimental build"
+time="2020-05-27T22:19:22.866463906-05:00" level=info msg="libcontainerd: started new containerd process" pid=8618
+time="2020-05-27T22:19:22.866503800-05:00" level=info msg="parsed scheme: \"unix\"" module=grpc
+time="2020-05-27T22:19:22.866513416-05:00" level=info msg="scheme \"unix\" not registered, fallback to default scheme" module=grpc
+time="2020-05-27T22:19:22.866534725-05:00" level=info msg="ccResolverWrapper: sending update to cc: {[{unix:///var/run/docker/containerd/containerd.sock 0  <nil>}] <nil>}" module=grpc
+time="2020-05-27T22:19:22.866546592-05:00" level=info msg="ClientConn switching balancer to \"pick_first\"" module=grpc
+time="2020-05-27T22:19:22.876286075-05:00" level=info msg="starting containerd" revision=7ad184331fa3e55e52b890ea95e65ba581ae3429 version=v1.2.13 
+time="2020-05-27T22:19:22.876509101-05:00" level=info msg="loading plugin "io.containerd.content.v1.content"..." type=io.containerd.content.v1 
+time="2020-05-27T22:19:22.876526892-05:00" level=info msg="loading plugin "io.containerd.snapshotter.v1.btrfs"..." type=io.containerd.snapshotter.v1 
+time="2020-05-27T22:19:22.876682709-05:00" level=warning msg="failed to load plugin io.containerd.snapshotter.v1.btrfs" error="path /var/lib/docker/containerd/daemon/io.containerd.snapshotter.v1.btrfs must be a btrfs filesystem to be used with the btrfs snapshotter" 
+time="2020-05-27T22:19:22.876691861-05:00" level=info msg="loading plugin "io.containerd.snapshotter.v1.aufs"..." type=io.containerd.snapshotter.v1 
+time="2020-05-27T22:19:22.880041026-05:00" level=info msg="loading plugin "io.containerd.snapshotter.v1.native"..." type=io.containerd.snapshotter.v1 
+time="2020-05-27T22:19:22.880063485-05:00" level=info msg="loading plugin "io.containerd.snapshotter.v1.overlayfs"..." type=io.containerd.snapshotter.v1 
+time="2020-05-27T22:19:22.880128126-05:00" level=info msg="loading plugin "io.containerd.snapshotter.v1.zfs"..." type=io.containerd.snapshotter.v1 
+time="2020-05-27T22:19:22.880298658-05:00" level=info msg="skip loading plugin "io.containerd.snapshotter.v1.zfs"..." type=io.containerd.snapshotter.v1 
+time="2020-05-27T22:19:22.880307665-05:00" level=info msg="loading plugin "io.containerd.metadata.v1.bolt"..." type=io.containerd.metadata.v1 
+time="2020-05-27T22:19:22.880318904-05:00" level=warning msg="could not use snapshotter zfs in metadata plugin" error="path /var/lib/docker/containerd/daemon/io.containerd.snapshotter.v1.zfs must be a zfs filesystem to be used with the zfs snapshotter: skip plugin" 
+time="2020-05-27T22:19:22.880324507-05:00" level=warning msg="could not use snapshotter btrfs in metadata plugin" error="path /var/lib/docker/containerd/daemon/io.containerd.snapshotter.v1.btrfs must be a btrfs filesystem to be used with the btrfs snapshotter" 
+time="2020-05-27T22:19:22.880394259-05:00" level=info msg="loading plugin "io.containerd.differ.v1.walking"..." type=io.containerd.differ.v1 
+time="2020-05-27T22:19:22.880407771-05:00" level=info msg="loading plugin "io.containerd.gc.v1.scheduler"..." type=io.containerd.gc.v1 
+time="2020-05-27T22:19:22.880426318-05:00" level=info msg="loading plugin "io.containerd.service.v1.containers-service"..." type=io.containerd.service.v1 
+time="2020-05-27T22:19:22.880435503-05:00" level=info msg="loading plugin "io.containerd.service.v1.content-service"..." type=io.containerd.service.v1 
+time="2020-05-27T22:19:22.880443395-05:00" level=info msg="loading plugin "io.containerd.service.v1.diff-service"..." type=io.containerd.service.v1 
+time="2020-05-27T22:19:22.880454978-05:00" level=info msg="loading plugin "io.containerd.service.v1.images-service"..." type=io.containerd.service.v1 
+time="2020-05-27T22:19:22.880463556-05:00" level=info msg="loading plugin "io.containerd.service.v1.leases-service"..." type=io.containerd.service.v1 
+time="2020-05-27T22:19:22.880471401-05:00" level=info msg="loading plugin "io.containerd.service.v1.namespaces-service"..." type=io.containerd.service.v1 
+time="2020-05-27T22:19:22.880484346-05:00" level=info msg="loading plugin "io.containerd.service.v1.snapshots-service"..." type=io.containerd.service.v1 
+time="2020-05-27T22:19:22.880493750-05:00" level=info msg="loading plugin "io.containerd.runtime.v1.linux"..." type=io.containerd.runtime.v1 
+time="2020-05-27T22:19:22.880567020-05:00" level=info msg="loading plugin "io.containerd.runtime.v2.task"..." type=io.containerd.runtime.v2 
+time="2020-05-27T22:19:22.880603245-05:00" level=info msg="loading plugin "io.containerd.monitor.v1.cgroups"..." type=io.containerd.monitor.v1 
+time="2020-05-27T22:19:22.880812171-05:00" level=info msg="loading plugin "io.containerd.service.v1.tasks-service"..." type=io.containerd.service.v1 
+time="2020-05-27T22:19:22.880826831-05:00" level=info msg="loading plugin "io.containerd.internal.v1.restart"..." type=io.containerd.internal.v1 
+time="2020-05-27T22:19:22.880849661-05:00" level=info msg="loading plugin "io.containerd.grpc.v1.containers"..." type=io.containerd.grpc.v1 
+time="2020-05-27T22:19:22.880858463-05:00" level=info msg="loading plugin "io.containerd.grpc.v1.content"..." type=io.containerd.grpc.v1 
+time="2020-05-27T22:19:22.880865879-05:00" level=info msg="loading plugin "io.containerd.grpc.v1.diff"..." type=io.containerd.grpc.v1 
+time="2020-05-27T22:19:22.880872939-05:00" level=info msg="loading plugin "io.containerd.grpc.v1.events"..." type=io.containerd.grpc.v1 
+time="2020-05-27T22:19:22.880880478-05:00" level=info msg="loading plugin "io.containerd.grpc.v1.healthcheck"..." type=io.containerd.grpc.v1 
+time="2020-05-27T22:19:22.880888448-05:00" level=info msg="loading plugin "io.containerd.grpc.v1.images"..." type=io.containerd.grpc.v1 
+time="2020-05-27T22:19:22.880895709-05:00" level=info msg="loading plugin "io.containerd.grpc.v1.leases"..." type=io.containerd.grpc.v1 
+time="2020-05-27T22:19:22.880903822-05:00" level=info msg="loading plugin "io.containerd.grpc.v1.namespaces"..." type=io.containerd.grpc.v1 
+time="2020-05-27T22:19:22.880911252-05:00" level=info msg="loading plugin "io.containerd.internal.v1.opt"..." type=io.containerd.internal.v1 
+time="2020-05-27T22:19:22.880931272-05:00" level=info msg="loading plugin "io.containerd.grpc.v1.snapshots"..." type=io.containerd.grpc.v1 
+time="2020-05-27T22:19:22.880940312-05:00" level=info msg="loading plugin "io.containerd.grpc.v1.tasks"..." type=io.containerd.grpc.v1 
+time="2020-05-27T22:19:22.880948007-05:00" level=info msg="loading plugin "io.containerd.grpc.v1.version"..." type=io.containerd.grpc.v1 
+time="2020-05-27T22:19:22.880956084-05:00" level=info msg="loading plugin "io.containerd.grpc.v1.introspection"..." type=io.containerd.grpc.v1 
+time="2020-05-27T22:19:22.881115514-05:00" level=info msg=serving... address="/var/run/docker/containerd/containerd-debug.sock" 
+time="2020-05-27T22:19:22.881179960-05:00" level=info msg=serving... address="/var/run/docker/containerd/containerd.sock" 
+time="2020-05-27T22:19:22.881188999-05:00" level=info msg="containerd successfully booted in 0.005258s" 
+time="2020-05-27T22:19:22.887621676-05:00" level=warning msg="insecure registry https://csce-6snvrz2.cs.tamu.edu:5000 should not contain 'https://' and 'https://' has been removed from the insecure registry config"
+time="2020-05-27T22:19:22.888398791-05:00" level=info msg="parsed scheme: \"unix\"" module=grpc
+time="2020-05-27T22:19:22.888415631-05:00" level=info msg="scheme \"unix\" not registered, fallback to default scheme" module=grpc
+time="2020-05-27T22:19:22.888429473-05:00" level=info msg="ccResolverWrapper: sending update to cc: {[{unix:///var/run/docker/containerd/containerd.sock 0  <nil>}] <nil>}" module=grpc
+time="2020-05-27T22:19:22.888438331-05:00" level=info msg="ClientConn switching balancer to \"pick_first\"" module=grpc
+time="2020-05-27T22:19:22.888784594-05:00" level=info msg="parsed scheme: \"unix\"" module=grpc
+time="2020-05-27T22:19:22.888797716-05:00" level=info msg="scheme \"unix\" not registered, fallback to default scheme" module=grpc
+time="2020-05-27T22:19:22.888808714-05:00" level=info msg="ccResolverWrapper: sending update to cc: {[{unix:///var/run/docker/containerd/containerd.sock 0  <nil>}] <nil>}" module=grpc
+time="2020-05-27T22:19:22.888822715-05:00" level=info msg="ClientConn switching balancer to \"pick_first\"" module=grpc
+time="2020-05-27T22:19:23.494917283-05:00" level=info msg="[graphdriver] using prior storage driver: overlay2"
+time="2020-05-27T22:19:23.791281880-05:00" level=warning msg="Your kernel does not support swap memory limit"
+time="2020-05-27T22:19:23.791350591-05:00" level=warning msg="Your kernel does not support cgroup rt period"
+time="2020-05-27T22:19:23.791377629-05:00" level=warning msg="Your kernel does not support cgroup rt runtime"
+time="2020-05-27T22:19:23.791817032-05:00" level=info msg="Loading containers: start."
+time="2020-05-27T22:19:25.491968894-05:00" level=info msg="Removing stale sandbox ingress_sbox (ingress-sbox)"
+time="2020-05-27T22:19:25.546300586-05:00" level=warning msg="Error (Unable to complete atomic operation, key modified) deleting object [endpoint d9f7851507bb6dd6e5961c2dd6ec9e69da1c76da3079f1bab8a808527a44bf96 8283b2596ff0b2a47465c615c72fb2e2e832d8580d8da584c70c24b39102c4ff], retrying...."
+time="2020-05-27T22:19:26.277112579-05:00" level=info msg="Removing stale sandbox lb_mvn3wrk1uf4jf0wubu0fayhnh (lb-func_functions)"
+time="2020-05-27T22:19:26.587866220-05:00" level=info msg="Default bridge (docker0) is assigned with an IP address 172.17.0.0/16. Daemon option --bip can be used to set a preferred IP address"
+time="2020-05-27T22:19:27.660021852-05:00" level=info msg="Loading containers: done."
+time="2020-05-27T22:19:27.951257643-05:00" level=info msg="Docker daemon" commit=68eb093 graphdriver(s)=overlay2 version=dev
+time="2020-05-27T22:19:27.992796899-05:00" level=info msg="parsed scheme: \"\"" module=grpc
+time="2020-05-27T22:19:27.992855155-05:00" level=info msg="scheme \"\" not registered, fallback to default scheme" module=grpc
+time="2020-05-27T22:19:27.993133076-05:00" level=info msg="ccResolverWrapper: sending update to cc: {[{128.194.130.177:2377 0  <nil>}] <nil>}" module=grpc
+time="2020-05-27T22:19:27.993175646-05:00" level=info msg="ClientConn switching balancer to \"pick_first\"" module=grpc
+time="2020-05-27T22:19:27.993218916-05:00" level=info msg="manager selected by agent for new session: {m8gjzw2te2rchaqv7mext736x 128.194.130.177:2377}" module=node/agent node.id=qpyngwz7k8mb3801oiec3ws8x
+time="2020-05-27T22:19:27.993574333-05:00" level=info msg="waiting 0s before registering session" module=node/agent node.id=qpyngwz7k8mb3801oiec3ws8x
+time="2020-05-27T22:19:29.003007841-05:00" level=info msg="initialized VXLAN UDP port to 4789 "
+time="2020-05-27T22:19:29.003084561-05:00" level=info msg="Daemon has completed initialization"
+time="2020-05-27T22:19:29.003176688-05:00" level=info msg="Initializing Libnetwork Agent Listen-Addr=0.0.0.0 Local-addr=128.194.130.157 Adv-addr=128.194.130.157 Data-addr= Remote-addr-list=[128.194.130.177] MTU=1500"
+time="2020-05-27T22:19:29.003370297-05:00" level=info msg="New memberlist node - Node:singularity4.cs.tamu.edu will use memberlist nodeID:57183d6a3446 with config:&{NodeID:57183d6a3446 Hostname:singularity4.cs.tamu.edu BindAddr:0.0.0.0 AdvertiseAddr:128.194.130.157 BindPort:0 Keys:[[122 195 230 29 64 46 123 91 131 167 133 97 203 251 228 15] [212 89 42 168 136 78 197 68 44 5 48 254 230 73 68 47] [152 45 7 7 215 110 225 58 145 247 161 232 99 5 99 185]] PacketBufferSize:1400 reapEntryInterval:1800000000000 reapNetworkInterval:1825000000000 StatsPrintPeriod:5m0s HealthPrintPeriod:1m0s}"
+time="2020-05-27T22:19:29.004427086-05:00" level=info msg="Node 57183d6a3446/128.194.130.157, joined gossip cluster"
+time="2020-05-27T22:19:29.004607004-05:00" level=info msg="Node 57183d6a3446/128.194.130.157, added to nodes list"
+time="2020-05-27T22:19:29.005933625-05:00" level=info msg="The new bootstrap node list is:[128.194.130.177]"
+time="2020-05-27T22:19:29.012760804-05:00" level=error msg="fatal task error" error="node is missing network attachments, ip addresses may be exhausted" module=node/agent/worker/taskmanager node.id=qpyngwz7k8mb3801oiec3ws8x service.id=798f5fis09dprp8f7325ixlx6 task.id=ap54b5hsvylw4299a7ftfnhql
+time="2020-05-27T22:19:29.107688331-05:00" level=info msg="Node 3e09332cec79/128.194.130.177, joined gossip cluster"
+time="2020-05-27T22:19:29.107720128-05:00" level=info msg="Node 3e09332cec79/128.194.130.177, added to nodes list"
+time="2020-05-27T22:19:29.121681903-05:00" level=info msg="API listen on /var/run/docker.sock"
+time="2020-05-27T22:19:33.445879628-05:00" level=warning msg="Error getting v2 registry: Get https://csce-6snvrz2.cs.tamu.edu:5000/v2/: http: server gave HTTP response to HTTPS client"
+time="2020-05-27T22:19:33.445973448-05:00" level=info msg="Attempting next endpoint for pull after error: Get https://csce-6snvrz2.cs.tamu.edu:5000/v2/: http: server gave HTTP response to HTTPS client"
+Current time:  2020-05-27 22:19:33.763851885 -0500 CDT m=+10.916331206, Starting the download of the layers.
+2020-05-27 22:19:33.764272516 -0500 CDT m=+10.916751623 --->	  Waiting for top download.
+2020-05-27 22:19:33.76431902 -0500 CDT m=+10.916798049 --->	 Start of download the layer with id sha256:89d9c30c1d48bac627e5c6cb0d1ed1eec28e7dbdfbcc04712e4c79c0f83faf17.
+2020-05-27 22:19:33.764558555 -0500 CDT m=+10.917037605 --->	 Start of download the layer with id sha256:cb4880ccba47d4c02e48ccface358a17b01ba6e3022717aac0c2979ddf07a809.
+2020-05-27 22:19:33.764835785 -0500 CDT m=+10.917314813 --->	 Start of download the layer with id sha256:abc31ffc07f9f6e65520ac5bf6c85a4928706600c1556fd47172130aca6f4938.
+perf. Current time: 2020-05-27 22:19:33.977194408 -0500 CDT m=+11.129673534. Log: Time to fetch remote layer sha256:89d9c30c1d48bac627e5c6cb0d1ed1eec28e7dbdfbcc04712e4c79c0f83faf17 is 212.865094ms, 
+perf. Current time: 2020-05-27 22:19:33.979299562 -0500 CDT m=+11.131778626. Log: Time to MGET all encodings is 1.379µs, 
+perf. Current time: 2020-05-27 22:19:33.979352359 -0500 CDT m=+11.131831384. Log: Time to assembele remote layer sha256:89d9c30c1d48bac627e5c6cb0d1ed1eec28e7dbdfbcc04712e4c79c0f83faf17 is 2.096259ms, 
+time="2020-05-27T22:19:34.037950823-05:00" level=error msg="filesystem layer verification failed for digest sha256:89d9c30c1d48bac627e5c6cb0d1ed1eec28e7dbdfbcc04712e4c79c0f83faf17"
+time="2020-05-27T22:19:34.038004731-05:00" level=error msg="Download failed after 1 attempts: filesystem layer verification failed for digest sha256:89d9c30c1d48bac627e5c6cb0d1ed1eec28e7dbdfbcc04712e4c79c0f83faf17"
+2020-05-27 22:19:34.038878876 -0500 CDT m=+11.191357891 --->	 Start of download the layer with id sha256:2137f333b9e3af108d14099b8669c02b4d78277ed00938a18d441b87065ac596.
+perf. Current time: 2020-05-27 22:19:34.199360913 -0500 CDT m=+11.351840035. Log: Time to fetch remote layer sha256:2137f333b9e3af108d14099b8669c02b4d78277ed00938a18d441b87065ac596 is 160.465925ms, 
+perf. Current time: 2020-05-27 22:19:34.199873037 -0500 CDT m=+11.352352145. Log: Time to MGET all encodings is 441.932µs, 
+perf. Current time: 2020-05-27 22:19:34.19992185 -0500 CDT m=+11.352400887. Log: Time to assembele remote layer sha256:2137f333b9e3af108d14099b8669c02b4d78277ed00938a18d441b87065ac596 is 499.824µs, 
+2020-05-27 22:19:34.200222423 -0500 CDT m=+11.352701535 --->	 Time to download the layer with id sha256:2137f333b9e3af108d14099b8669c02b4d78277ed00938a18d441b87065ac596 is : 161.343978ms.
+2020-05-27 22:19:34.200269412 -0500 CDT m=+11.352748437 --->	 Start of download the layer with id sha256:6a9f8bb9e1edbcf6f5dae5575f402f3ccefa84275c0466955831b48aa7bbb54c.
+perf. Current time: 2020-05-27 22:19:34.229136467 -0500 CDT m=+11.381615593. Log: Time to fetch remote layer sha256:abc31ffc07f9f6e65520ac5bf6c85a4928706600c1556fd47172130aca6f4938 is 464.288054ms, 
+perf. Current time: 2020-05-27 22:19:34.242551293 -0500 CDT m=+11.395030427. Log: Time to MGET all encodings is 12.972894ms, 
+perf. Current time: 2020-05-27 22:19:34.24313908 -0500 CDT m=+11.395618112. Log: Time to assembele remote layer sha256:abc31ffc07f9f6e65520ac5bf6c85a4928706600c1556fd47172130aca6f4938 is 13.939564ms, 
+2020-05-27 22:19:34.271237347 -0500 CDT m=+11.423716376 --->	 Time to download the layer with id sha256:abc31ffc07f9f6e65520ac5bf6c85a4928706600c1556fd47172130aca6f4938 is : 506.401808ms.
+2020-05-27 22:19:34.271314917 -0500 CDT m=+11.423793942 --->	 Start of download the layer with id sha256:c8b05837884babc043d2e1eb8b00665a38e4a67dd94f7dcbb2be1edbac7b175a.
+perf. Current time: 2020-05-27 22:19:34.428549293 -0500 CDT m=+11.581028417. Log: Time to fetch remote layer sha256:c8b05837884babc043d2e1eb8b00665a38e4a67dd94f7dcbb2be1edbac7b175a is 157.222543ms, 
+perf. Current time: 2020-05-27 22:19:34.429092611 -0500 CDT m=+11.581571733. Log: Time to MGET all encodings is 474.854µs, 
+perf. Current time: 2020-05-27 22:19:34.429144528 -0500 CDT m=+11.581623560. Log: Time to assembele remote layer sha256:c8b05837884babc043d2e1eb8b00665a38e4a67dd94f7dcbb2be1edbac7b175a is 537.649µs, 
+2020-05-27 22:19:34.429479524 -0500 CDT m=+11.581958716 --->	 Time to download the layer with id sha256:c8b05837884babc043d2e1eb8b00665a38e4a67dd94f7dcbb2be1edbac7b175a is : 158.165108ms.
+2020-05-27 22:19:34.429542701 -0500 CDT m=+11.582021737 --->	 Start of download the layer with id sha256:621300d967fb034a05efad580c7024e2c8266bb479de3718667271db515017e6.
+perf. Current time: 2020-05-27 22:19:34.589390361 -0500 CDT m=+11.741869487. Log: Time to fetch remote layer sha256:621300d967fb034a05efad580c7024e2c8266bb479de3718667271db515017e6 is 159.825403ms, 
+perf. Current time: 2020-05-27 22:19:34.589905899 -0500 CDT m=+11.742385026. Log: Time to MGET all encodings is 441.877µs, 
+perf. Current time: 2020-05-27 22:19:34.589954032 -0500 CDT m=+11.742433072. Log: Time to assembele remote layer sha256:621300d967fb034a05efad580c7024e2c8266bb479de3718667271db515017e6 is 499.336µs, 
+2020-05-27 22:19:34.590302264 -0500 CDT m=+11.742781295 --->	 Time to download the layer with id sha256:621300d967fb034a05efad580c7024e2c8266bb479de3718667271db515017e6 is : 160.76ms.
+2020-05-27 22:19:34.590360365 -0500 CDT m=+11.742839404 --->	 Start of download the layer with id sha256:6de444a12ba361bc45fbaa6789554d8fed9bdd5ad568109df824eee8d865b206.
+perf. Current time: 2020-05-27 22:19:34.652694748 -0500 CDT m=+11.805173777. Log: Time to fetch remote layer sha256:cb4880ccba47d4c02e48ccface358a17b01ba6e3022717aac0c2979ddf07a809 is 888.125559ms, 
+perf. Current time: 2020-05-27 22:19:34.72567251 -0500 CDT m=+11.878151494. Log: Time to MGET all encodings is 67.680587ms, 
+perf. Current time: 2020-05-27 22:19:34.72983245 -0500 CDT m=+11.882311415. Log: Time to assembele remote layer sha256:cb4880ccba47d4c02e48ccface358a17b01ba6e3022717aac0c2979ddf07a809 is 77.099926ms, 
+perf. Current time: 2020-05-27 22:19:34.731333695 -0500 CDT m=+11.883812685. Log: Time to fetch remote layer sha256:6a9f8bb9e1edbcf6f5dae5575f402f3ccefa84275c0466955831b48aa7bbb54c is 531.057269ms, 
+perf. Current time: 2020-05-27 22:19:34.740266666 -0500 CDT m=+11.892745653. Log: Time to MGET all encodings is 8.771142ms, 
+perf. Current time: 2020-05-27 22:19:34.741414832 -0500 CDT m=+11.893893798. Log: Time to assembele remote layer sha256:6a9f8bb9e1edbcf6f5dae5575f402f3ccefa84275c0466955831b48aa7bbb54c is 10.059303ms, 
+perf. Current time: 2020-05-27 22:19:34.784106542 -0500 CDT m=+11.936585527. Log: Time to fetch remote layer sha256:6de444a12ba361bc45fbaa6789554d8fed9bdd5ad568109df824eee8d865b206 is 193.738272ms, 
+perf. Current time: 2020-05-27 22:19:34.786901842 -0500 CDT m=+11.939380822. Log: Time to MGET all encodings is 2.638047ms, 
+perf. Current time: 2020-05-27 22:19:34.786923134 -0500 CDT m=+11.939402098. Log: Time to assembele remote layer sha256:6de444a12ba361bc45fbaa6789554d8fed9bdd5ad568109df824eee8d865b206 is 2.792756ms, 
+2020-05-27 22:19:34.787158326 -0500 CDT m=+11.939637305 --->	 Time to download the layer with id sha256:6de444a12ba361bc45fbaa6789554d8fed9bdd5ad568109df824eee8d865b206 is : 196.797998ms.
+2020-05-27 22:19:34.787172797 -0500 CDT m=+11.939651762 --->	 Start of download the layer with id sha256:f27c123b4a59218a75757283b553eb75379f806ea411b6262d0b392ce260be78.
+2020-05-27 22:19:34.789778394 -0500 CDT m=+11.942257358 --->	 Time to download the layer with id sha256:6a9f8bb9e1edbcf6f5dae5575f402f3ccefa84275c0466955831b48aa7bbb54c is : 589.508984ms.
+2020-05-27 22:19:34.78979746 -0500 CDT m=+11.942276424 --->	 Start of download the layer with id sha256:3d28998695ae48edbedb238377973bd0501e36847bdc6a8f68c6cf73653a1ea1.
+2020-05-27 22:19:34.851260149 -0500 CDT m=+12.003739116 --->	 Time to download the layer with id sha256:cb4880ccba47d4c02e48ccface358a17b01ba6e3022717aac0c2979ddf07a809 is : 1.086701567s.
+2020-05-27 22:19:34.851281567 -0500 CDT m=+12.003760532 --->	  Wait for parent download lasted for: 832ns
+2020-05-27 22:19:34.851320815 -0500 CDT m=+12.003799784 --->	 Start of download the layer with id sha256:e176669b726c95a474a313895d07c643c0f9a7377582effd9264a0233419099f.
+2020-05-27 22:19:34.853920042 -0500 CDT m=+12.006399047 --->	  Wait for parent download lasted for: 582.619058ms
+2020-05-27 22:19:34.854254064 -0500 CDT m=+12.006733078 --->	  Wait for parent download lasted for: 653.992348ms
+2020-05-27 22:19:34.854632487 -0500 CDT m=+12.007111453 --->	  Wait for parent download lasted for: 64.838311ms
+2020-05-27 22:19:34.855010047 -0500 CDT m=+12.007489049 --->	  Wait for parent download lasted for: 425.476671ms
+2020-05-27 22:19:34.85506267 -0500 CDT m=+12.007541653 --->	  Wait for parent download lasted for: 264.711423ms
+2020-05-27 22:19:34.855103277 -0500 CDT m=+12.007582249 --->	  Wait for parent download lasted for: 67.93363ms
+perf. Current time: 2020-05-27 22:19:34.945369623 -0500 CDT m=+12.097848749. Log: Time to fetch remote layer sha256:f27c123b4a59218a75757283b553eb75379f806ea411b6262d0b392ce260be78 is 158.185598ms, 
+perf. Current time: 2020-05-27 22:19:34.945543761 -0500 CDT m=+12.098022861. Log: Time to fetch remote layer sha256:3d28998695ae48edbedb238377973bd0501e36847bdc6a8f68c6cf73653a1ea1 is 155.728653ms, 
+perf. Current time: 2020-05-27 22:19:34.945901579 -0500 CDT m=+12.098380705. Log: Time to MGET all encodings is 453.309µs, 
+perf. Current time: 2020-05-27 22:19:34.945951171 -0500 CDT m=+12.098430218. Log: Time to assembele remote layer sha256:f27c123b4a59218a75757283b553eb75379f806ea411b6262d0b392ce260be78 is 512.302µs, 
+perf. Current time: 2020-05-27 22:19:34.946093872 -0500 CDT m=+12.098572993. Log: Time to MGET all encodings is 490.397µs, 
+perf. Current time: 2020-05-27 22:19:34.946144362 -0500 CDT m=+12.098623389. Log: Time to assembele remote layer sha256:3d28998695ae48edbedb238377973bd0501e36847bdc6a8f68c6cf73653a1ea1 is 549.942µs, 
+2020-05-27 22:19:34.946306406 -0500 CDT m=+12.098785514 --->	 Time to download the layer with id sha256:f27c123b4a59218a75757283b553eb75379f806ea411b6262d0b392ce260be78 is : 159.134165ms.
+2020-05-27 22:19:34.946359822 -0500 CDT m=+12.098838852 --->	  Wait for parent download lasted for: 2.292µs
+2020-05-27 22:19:34.946574543 -0500 CDT m=+12.099053751 --->	 Time to download the layer with id sha256:3d28998695ae48edbedb238377973bd0501e36847bdc6a8f68c6cf73653a1ea1 is : 156.777648ms.
+2020-05-27 22:19:34.946632825 -0500 CDT m=+12.099111855 --->	  Wait for parent download lasted for: 2.272µs
+2020-05-27 22:19:34.946575937 -0500 CDT m=+12.099055088 --->	 Start of download the layer with id sha256:dba007a372ef77d51651bf1bc39e3b4b78ae3f1394ab0636aeb53e4963158ba5.
+2020-05-27 22:19:34.947809115 -0500 CDT m=+12.100288300 --->	 Start of download the layer with id sha256:bce9664032291e77ebe155d01b7b26026fe2ceecb29a117d8c0b676f63b68d79.
+perf. Current time: 2020-05-27 22:19:35.011424412 -0500 CDT m=+12.163903549. Log: Time to fetch remote layer sha256:e176669b726c95a474a313895d07c643c0f9a7377582effd9264a0233419099f is 160.090387ms, 
+perf. Current time: 2020-05-27 22:19:35.011499721 -0500 CDT m=+12.163978793. Log: Time to MGET all encodings is 1.637µs, 
+perf. Current time: 2020-05-27 22:19:35.011527604 -0500 CDT m=+12.164006636. Log: Time to assembele remote layer sha256:e176669b726c95a474a313895d07c643c0f9a7377582effd9264a0233419099f is 33.118µs, 
+2020-05-27 22:19:35.011990844 -0500 CDT m=+12.164469874 --->	 Time to download the layer with id sha256:e176669b726c95a474a313895d07c643c0f9a7377582effd9264a0233419099f is : 160.670405ms.
+2020-05-27 22:19:35.01205166 -0500 CDT m=+12.164530686 --->	  Wait for parent download lasted for: 2.314µs
+2020-05-27 22:19:35.012196265 -0500 CDT m=+12.164675287 --->	 Start of download the layer with id sha256:e3b7c2a5717c6bc6308ac896ae8948c6b60b1a594f4b99b58bef970e8c4ce9d5.
+perf. Current time: 2020-05-27 22:19:35.108905352 -0500 CDT m=+12.261384478. Log: Time to fetch remote layer sha256:bce9664032291e77ebe155d01b7b26026fe2ceecb29a117d8c0b676f63b68d79 is 161.070674ms, 
+perf. Current time: 2020-05-27 22:19:35.108958709 -0500 CDT m=+12.261437828. Log: Time to fetch remote layer sha256:dba007a372ef77d51651bf1bc39e3b4b78ae3f1394ab0636aeb53e4963158ba5 is 162.37314ms, 
+perf. Current time: 2020-05-27 22:19:35.109449387 -0500 CDT m=+12.261928513. Log: Time to MGET all encodings is 464.789µs, 
+perf. Current time: 2020-05-27 22:19:35.109500216 -0500 CDT m=+12.261979259. Log: Time to assembele remote layer sha256:bce9664032291e77ebe155d01b7b26026fe2ceecb29a117d8c0b676f63b68d79 is 523.762µs, 
+perf. Current time: 2020-05-27 22:19:35.109662535 -0500 CDT m=+12.262141673. Log: Time to MGET all encodings is 648.151µs, 
+perf. Current time: 2020-05-27 22:19:35.109723251 -0500 CDT m=+12.262202291. Log: Time to assembele remote layer sha256:dba007a372ef77d51651bf1bc39e3b4b78ae3f1394ab0636aeb53e4963158ba5 is 717.863µs, 
+2020-05-27 22:19:35.109994237 -0500 CDT m=+12.262473262 --->	 Time to download the layer with id sha256:bce9664032291e77ebe155d01b7b26026fe2ceecb29a117d8c0b676f63b68d79 is : 162.185228ms.
+2020-05-27 22:19:35.110074234 -0500 CDT m=+12.262553263 --->	 Time to download the layer with id sha256:dba007a372ef77d51651bf1bc39e3b4b78ae3f1394ab0636aeb53e4963158ba5 is : 163.49829ms.
+2020-05-27 22:19:35.110101721 -0500 CDT m=+12.262580750 --->	  Wait for parent download lasted for: 1.242µs
+2020-05-27 22:19:35.110321904 -0500 CDT m=+12.262800933 --->	  Wait for parent download lasted for: 285.749µs
+perf. Current time: 2020-05-27 22:19:35.17303957 -0500 CDT m=+12.325518692. Log: Time to fetch remote layer sha256:e3b7c2a5717c6bc6308ac896ae8948c6b60b1a594f4b99b58bef970e8c4ce9d5 is 160.832715ms, 
+perf. Current time: 2020-05-27 22:19:35.173817526 -0500 CDT m=+12.326296631. Log: Time to MGET all encodings is 695.157µs, 
+perf. Current time: 2020-05-27 22:19:35.173867408 -0500 CDT m=+12.326346433. Log: Time to assembele remote layer sha256:e3b7c2a5717c6bc6308ac896ae8948c6b60b1a594f4b99b58bef970e8c4ce9d5 is 764.436µs, 
+2020-05-27 22:19:35.174716562 -0500 CDT m=+12.327195610 --->	 Time to download the layer with id sha256:e3b7c2a5717c6bc6308ac896ae8948c6b60b1a594f4b99b58bef970e8c4ce9d5 is : 162.520546ms.
+2020-05-27 22:19:35.174775346 -0500 CDT m=+12.327254375 --->	  Wait for parent download lasted for: 2.454µs
+2020-05-27 22:19:35.174972612 -0500 CDT m=+12.327451637 --->	  Top download downlaoded.
+time="2020-05-27T22:19:35.175102397-05:00" level=info msg="Attempting next endpoint for pull after error: filesystem layer verification failed for digest sha256:89d9c30c1d48bac627e5c6cb0d1ed1eec28e7dbdfbcc04712e4c79c0f83faf17"
+time="2020-05-27T22:19:35.175225334-05:00" level=error msg="pulling image failed" error="filesystem layer verification failed for digest sha256:89d9c30c1d48bac627e5c6cb0d1ed1eec28e7dbdfbcc04712e4c79c0f83faf17" module=node/agent/taskmanager node.id=qpyngwz7k8mb3801oiec3ws8x service.id=798f5fis09dprp8f7325ixlx6 task.id=h6zoal35bnnpfoqpt21pspf6a
+time="2020-05-27T22:19:35.177596173-05:00" level=error msg="fatal task error" error="No such image: csce-6snvrz2.cs.tamu.edu:5000/node:latest" module=node/agent/taskmanager node.id=qpyngwz7k8mb3801oiec3ws8x service.id=798f5fis09dprp8f7325ixlx6 task.id=h6zoal35bnnpfoqpt21pspf6a
+time="2020-05-27T22:19:35.378320249-05:00" level=info msg="initialized VXLAN UDP port to 4789 "
+time="2020-05-27T22:19:35.476107315-05:00" level=info msg="initialized VXLAN UDP port to 4789 "
+time="2020-05-27T22:19:35.846094739-05:00" level=warning msg="Error getting v2 registry: Get https://csce-6snvrz2.cs.tamu.edu:5000/v2/: http: server gave HTTP response to HTTPS client"
+time="2020-05-27T22:19:35.846193420-05:00" level=info msg="Attempting next endpoint for pull after error: Get https://csce-6snvrz2.cs.tamu.edu:5000/v2/: http: server gave HTTP response to HTTPS client"
+Current time:  2020-05-27 22:19:36.164275807 -0500 CDT m=+13.316754983, Starting the download of the layers.
+2020-05-27 22:19:36.164714147 -0500 CDT m=+13.317193310 --->	  Waiting for top download.
+2020-05-27 22:19:36.164763124 -0500 CDT m=+13.317242163 --->	 Start of download the layer with id sha256:89d9c30c1d48bac627e5c6cb0d1ed1eec28e7dbdfbcc04712e4c79c0f83faf17.
+2020-05-27 22:19:36.164998822 -0500 CDT m=+13.317477849 --->	 Start of download the layer with id sha256:cb4880ccba47d4c02e48ccface358a17b01ba6e3022717aac0c2979ddf07a809.
+2020-05-27 22:19:36.165086021 -0500 CDT m=+13.317565272 --->	 Start of download the layer with id sha256:abc31ffc07f9f6e65520ac5bf6c85a4928706600c1556fd47172130aca6f4938.
+perf. Current time: 2020-05-27 22:19:36.431615011 -0500 CDT m=+13.584094135. Log: Time to fetch remote layer sha256:cb4880ccba47d4c02e48ccface358a17b01ba6e3022717aac0c2979ddf07a809 is 266.603729ms, 
+perf. Current time: 2020-05-27 22:19:36.43412428 -0500 CDT m=+13.586603319. Log: Time to MGET all encodings is 1.326µs, 
+perf. Current time: 2020-05-27 22:19:36.434203582 -0500 CDT m=+13.586682614. Log: Time to assembele remote layer sha256:cb4880ccba47d4c02e48ccface358a17b01ba6e3022717aac0c2979ddf07a809 is 2.523087ms, 
+time="2020-05-27T22:19:36.584498462-05:00" level=error msg="filesystem layer verification failed for digest sha256:cb4880ccba47d4c02e48ccface358a17b01ba6e3022717aac0c2979ddf07a809"
+time="2020-05-27T22:19:36.584526691-05:00" level=error msg="Download failed after 1 attempts: filesystem layer verification failed for digest sha256:cb4880ccba47d4c02e48ccface358a17b01ba6e3022717aac0c2979ddf07a809"
+2020-05-27 22:19:36.587610721 -0500 CDT m=+13.740089696 --->	 Start of download the layer with id sha256:2137f333b9e3af108d14099b8669c02b4d78277ed00938a18d441b87065ac596.
+perf. Current time: 2020-05-27 22:19:36.627014762 -0500 CDT m=+13.779493833. Log: Time to fetch remote layer sha256:abc31ffc07f9f6e65520ac5bf6c85a4928706600c1556fd47172130aca6f4938 is 461.916664ms, 
+perf. Current time: 2020-05-27 22:19:36.637732638 -0500 CDT m=+13.790211621. Log: Time to MGET all encodings is 10.104422ms, 
+perf. Current time: 2020-05-27 22:19:36.637928532 -0500 CDT m=+13.790407497. Log: Time to assembele remote layer sha256:abc31ffc07f9f6e65520ac5bf6c85a4928706600c1556fd47172130aca6f4938 is 10.849853ms, 
+2020-05-27 22:19:36.644325966 -0500 CDT m=+13.796804931 --->	 Time to download the layer with id sha256:abc31ffc07f9f6e65520ac5bf6c85a4928706600c1556fd47172130aca6f4938 is : 479.239706ms.
+2020-05-27 22:19:36.644341677 -0500 CDT m=+13.796820641 --->	  Wait for parent download lasted for: 635ns
+2020-05-27 22:19:36.64437303 -0500 CDT m=+13.796851995 --->	 Start of download the layer with id sha256:6a9f8bb9e1edbcf6f5dae5575f402f3ccefa84275c0466955831b48aa7bbb54c.
+perf. Current time: 2020-05-27 22:19:36.692002581 -0500 CDT m=+13.844481642. Log: Time to fetch remote layer sha256:89d9c30c1d48bac627e5c6cb0d1ed1eec28e7dbdfbcc04712e4c79c0f83faf17 is 527.228797ms, 
+perf. Current time: 2020-05-27 22:19:36.715459419 -0500 CDT m=+13.867938463. Log: Time to MGET all encodings is 22.143508ms, 
+perf. Current time: 2020-05-27 22:19:36.716498038 -0500 CDT m=+13.868977044. Log: Time to assembele remote layer sha256:89d9c30c1d48bac627e5c6cb0d1ed1eec28e7dbdfbcc04712e4c79c0f83faf17 is 24.445366ms, 
+2020-05-27 22:19:36.746916158 -0500 CDT m=+13.899395131 --->	 Time to download the layer with id sha256:89d9c30c1d48bac627e5c6cb0d1ed1eec28e7dbdfbcc04712e4c79c0f83faf17 is : 582.153043ms.
+2020-05-27 22:19:36.746953552 -0500 CDT m=+13.899432523 --->	 Start of download the layer with id sha256:c8b05837884babc043d2e1eb8b00665a38e4a67dd94f7dcbb2be1edbac7b175a.
+perf. Current time: 2020-05-27 22:19:36.747407113 -0500 CDT m=+13.899886100. Log: Time to fetch remote layer sha256:2137f333b9e3af108d14099b8669c02b4d78277ed00938a18d441b87065ac596 is 159.793209ms, 
+perf. Current time: 2020-05-27 22:19:36.747846528 -0500 CDT m=+13.900325531. Log: Time to MGET all encodings is 422.007µs, 
+perf. Current time: 2020-05-27 22:19:36.747867806 -0500 CDT m=+13.900346781. Log: Time to assembele remote layer sha256:2137f333b9e3af108d14099b8669c02b4d78277ed00938a18d441b87065ac596 is 445.956µs, 
+2020-05-27 22:19:36.748004942 -0500 CDT m=+13.900483930 --->	 Time to download the layer with id sha256:2137f333b9e3af108d14099b8669c02b4d78277ed00938a18d441b87065ac596 is : 160.394376ms.
+2020-05-27 22:19:36.748019261 -0500 CDT m=+13.900498235 --->	  Wait for parent download lasted for: 787ns
+2020-05-27 22:19:36.748071612 -0500 CDT m=+13.900550625 --->	 Start of download the layer with id sha256:621300d967fb034a05efad580c7024e2c8266bb479de3718667271db515017e6.
+perf. Current time: 2020-05-27 22:19:36.90427531 -0500 CDT m=+14.056754470. Log: Time to fetch remote layer sha256:621300d967fb034a05efad580c7024e2c8266bb479de3718667271db515017e6 is 156.193279ms, 
+perf. Current time: 2020-05-27 22:19:36.904275318 -0500 CDT m=+14.056754465. Log: Time to fetch remote layer sha256:c8b05837884babc043d2e1eb8b00665a38e4a67dd94f7dcbb2be1edbac7b175a is 157.30956ms, 
+perf. Current time: 2020-05-27 22:19:36.905015069 -0500 CDT m=+14.057494192. Log: Time to MGET all encodings is 655.614µs, 
+perf. Current time: 2020-05-27 22:19:36.905075947 -0500 CDT m=+14.057554980. Log: Time to assembele remote layer sha256:621300d967fb034a05efad580c7024e2c8266bb479de3718667271db515017e6 is 728.115µs, 
+perf. Current time: 2020-05-27 22:19:36.905416597 -0500 CDT m=+14.057895730. Log: Time to MGET all encodings is 403.581µs, 
+perf. Current time: 2020-05-27 22:19:36.905466125 -0500 CDT m=+14.057945174. Log: Time to assembele remote layer sha256:c8b05837884babc043d2e1eb8b00665a38e4a67dd94f7dcbb2be1edbac7b175a is 965.304µs, 
+2020-05-27 22:19:36.905540455 -0500 CDT m=+14.058019647 --->	 Time to download the layer with id sha256:621300d967fb034a05efad580c7024e2c8266bb479de3718667271db515017e6 is : 157.469377ms.
+2020-05-27 22:19:36.905646455 -0500 CDT m=+14.058125480 --->	 Start of download the layer with id sha256:6de444a12ba361bc45fbaa6789554d8fed9bdd5ad568109df824eee8d865b206.
+2020-05-27 22:19:36.906022126 -0500 CDT m=+14.058501284 --->	 Time to download the layer with id sha256:c8b05837884babc043d2e1eb8b00665a38e4a67dd94f7dcbb2be1edbac7b175a is : 159.069018ms.
+2020-05-27 22:19:36.90608593 -0500 CDT m=+14.058564964 --->	 Start of download the layer with id sha256:f27c123b4a59218a75757283b553eb75379f806ea411b6262d0b392ce260be78.
+perf. Current time: 2020-05-27 22:19:37.071428804 -0500 CDT m=+14.223907846. Log: Time to fetch remote layer sha256:6de444a12ba361bc45fbaa6789554d8fed9bdd5ad568109df824eee8d865b206 is 165.774658ms, 
+perf. Current time: 2020-05-27 22:19:37.071748672 -0500 CDT m=+14.224227698. Log: Time to MGET all encodings is 265.023µs, 
+perf. Current time: 2020-05-27 22:19:37.071776048 -0500 CDT m=+14.224255040. Log: Time to assembele remote layer sha256:6de444a12ba361bc45fbaa6789554d8fed9bdd5ad568109df824eee8d865b206 is 307.469µs, 
+2020-05-27 22:19:37.072162974 -0500 CDT m=+14.224642012 --->	 Time to download the layer with id sha256:6de444a12ba361bc45fbaa6789554d8fed9bdd5ad568109df824eee8d865b206 is : 166.516624ms.
+2020-05-27 22:19:37.072191329 -0500 CDT m=+14.224670321 --->	 Start of download the layer with id sha256:3d28998695ae48edbedb238377973bd0501e36847bdc6a8f68c6cf73653a1ea1.
+perf. Current time: 2020-05-27 22:19:37.072813858 -0500 CDT m=+14.225292859. Log: Time to fetch remote layer sha256:f27c123b4a59218a75757283b553eb75379f806ea411b6262d0b392ce260be78 is 166.723883ms, 
+perf. Current time: 2020-05-27 22:19:37.072944292 -0500 CDT m=+14.225423281. Log: Time to MGET all encodings is 109.015µs, 
+perf. Current time: 2020-05-27 22:19:37.072963784 -0500 CDT m=+14.225442773. Log: Time to assembele remote layer sha256:f27c123b4a59218a75757283b553eb75379f806ea411b6262d0b392ce260be78 is 131.298µs, 
+2020-05-27 22:19:37.073096174 -0500 CDT m=+14.225575179 --->	 Time to download the layer with id sha256:f27c123b4a59218a75757283b553eb75379f806ea411b6262d0b392ce260be78 is : 167.010353ms.
+2020-05-27 22:19:37.073122541 -0500 CDT m=+14.225601527 --->	 Start of download the layer with id sha256:e176669b726c95a474a313895d07c643c0f9a7377582effd9264a0233419099f.
+perf. Current time: 2020-05-27 22:19:37.172727301 -0500 CDT m=+14.325206427. Log: Time to fetch remote layer sha256:6a9f8bb9e1edbcf6f5dae5575f402f3ccefa84275c0466955831b48aa7bbb54c is 528.334987ms, 
+perf. Current time: 2020-05-27 22:19:37.205438849 -0500 CDT m=+14.357917943. Log: Time to MGET all encodings is 31.698398ms, 
+perf. Current time: 2020-05-27 22:19:37.206926455 -0500 CDT m=+14.359405487. Log: Time to assembele remote layer sha256:6a9f8bb9e1edbcf6f5dae5575f402f3ccefa84275c0466955831b48aa7bbb54c is 34.123259ms, 
+perf. Current time: 2020-05-27 22:19:37.228010903 -0500 CDT m=+14.380489919. Log: Time to fetch remote layer sha256:e176669b726c95a474a313895d07c643c0f9a7377582effd9264a0233419099f is 154.883251ms, 
+perf. Current time: 2020-05-27 22:19:37.228041748 -0500 CDT m=+14.380520745. Log: Time to MGET all encodings is 719ns, 
+perf. Current time: 2020-05-27 22:19:37.228053007 -0500 CDT m=+14.380531988. Log: Time to assembele remote layer sha256:e176669b726c95a474a313895d07c643c0f9a7377582effd9264a0233419099f is 14.489µs, 
+perf. Current time: 2020-05-27 22:19:37.228188646 -0500 CDT m=+14.380667664. Log: Time to fetch remote layer sha256:3d28998695ae48edbedb238377973bd0501e36847bdc6a8f68c6cf73653a1ea1 is 155.990799ms, 
+2020-05-27 22:19:37.228237466 -0500 CDT m=+14.380716447 --->	 Time to download the layer with id sha256:e176669b726c95a474a313895d07c643c0f9a7377582effd9264a0233419099f is : 155.115089ms.
+2020-05-27 22:19:37.228259575 -0500 CDT m=+14.380738558 --->	 Start of download the layer with id sha256:dba007a372ef77d51651bf1bc39e3b4b78ae3f1394ab0636aeb53e4963158ba5.
+perf. Current time: 2020-05-27 22:19:37.22851231 -0500 CDT m=+14.380991302. Log: Time to MGET all encodings is 299.345µs, 
+perf. Current time: 2020-05-27 22:19:37.228531337 -0500 CDT m=+14.381010312. Log: Time to assembele remote layer sha256:3d28998695ae48edbedb238377973bd0501e36847bdc6a8f68c6cf73653a1ea1 is 322.549µs, 
+2020-05-27 22:19:37.228662001 -0500 CDT m=+14.381140991 --->	 Time to download the layer with id sha256:3d28998695ae48edbedb238377973bd0501e36847bdc6a8f68c6cf73653a1ea1 is : 156.470758ms.
+2020-05-27 22:19:37.228679121 -0500 CDT m=+14.381158098 --->	 Start of download the layer with id sha256:bce9664032291e77ebe155d01b7b26026fe2ceecb29a117d8c0b676f63b68d79.
+2020-05-27 22:19:37.238716718 -0500 CDT m=+14.391195691 --->	 Time to download the layer with id sha256:6a9f8bb9e1edbcf6f5dae5575f402f3ccefa84275c0466955831b48aa7bbb54c is : 594.343766ms.
+2020-05-27 22:19:37.238736175 -0500 CDT m=+14.391215150 --->	  Wait for parent download lasted for: 946ns
+2020-05-27 22:19:37.23878329 -0500 CDT m=+14.391262306 --->	 Start of download the layer with id sha256:e3b7c2a5717c6bc6308ac896ae8948c6b60b1a594f4b99b58bef970e8c4ce9d5.
+2020-05-27 22:19:37.239261043 -0500 CDT m=+14.391740058 --->	  Wait for parent download lasted for: 333.1832ms
+2020-05-27 22:19:37.23933945 -0500 CDT m=+14.391818481 --->	  Wait for parent download lasted for: 333.701754ms
+2020-05-27 22:19:37.239433841 -0500 CDT m=+14.391912849 --->	  Wait for parent download lasted for: 167.247253ms
+2020-05-27 22:19:37.239489716 -0500 CDT m=+14.391968733 --->	  Wait for parent download lasted for: 166.37152ms
+2020-05-27 22:19:37.239537838 -0500 CDT m=+14.392016833 --->	  Wait for parent download lasted for: 10.861941ms
+2020-05-27 22:19:37.239582743 -0500 CDT m=+14.392061752 --->	  Wait for parent download lasted for: 11.327255ms
+perf. Current time: 2020-05-27 22:19:37.396838737 -0500 CDT m=+14.549317824. Log: Time to fetch remote layer sha256:dba007a372ef77d51651bf1bc39e3b4b78ae3f1394ab0636aeb53e4963158ba5 is 168.567078ms, 
+perf. Current time: 2020-05-27 22:19:37.397313538 -0500 CDT m=+14.549792678. Log: Time to fetch remote layer sha256:e3b7c2a5717c6bc6308ac896ae8948c6b60b1a594f4b99b58bef970e8c4ce9d5 is 158.521026ms, 
+perf. Current time: 2020-05-27 22:19:37.397358446 -0500 CDT m=+14.549837570. Log: Time to MGET all encodings is 443.245µs, 
+perf. Current time: 2020-05-27 22:19:37.397429132 -0500 CDT m=+14.549908168. Log: Time to assembele remote layer sha256:dba007a372ef77d51651bf1bc39e3b4b78ae3f1394ab0636aeb53e4963158ba5 is 522.373µs, 
+perf. Current time: 2020-05-27 22:19:37.3976416 -0500 CDT m=+14.550120651. Log: Time to fetch remote layer sha256:bce9664032291e77ebe155d01b7b26026fe2ceecb29a117d8c0b676f63b68d79 is 168.956031ms, 
+perf. Current time: 2020-05-27 22:19:37.397918966 -0500 CDT m=+14.550398006. Log: Time to MGET all encodings is 239.686µs, 
+perf. Current time: 2020-05-27 22:19:37.397936837 -0500 CDT m=+14.550415904. Log: Time to MGET all encodings is 563.202µs, 
+perf. Current time: 2020-05-27 22:19:37.397973979 -0500 CDT m=+14.550453011. Log: Time to assembele remote layer sha256:e3b7c2a5717c6bc6308ac896ae8948c6b60b1a594f4b99b58bef970e8c4ce9d5 is 616.731µs, 
+perf. Current time: 2020-05-27 22:19:37.397954314 -0500 CDT m=+14.550433338. Log: Time to assembele remote layer sha256:bce9664032291e77ebe155d01b7b26026fe2ceecb29a117d8c0b676f63b68d79 is 279.877µs, 
+2020-05-27 22:19:37.397916497 -0500 CDT m=+14.550395673 --->	 Time to download the layer with id sha256:dba007a372ef77d51651bf1bc39e3b4b78ae3f1394ab0636aeb53e4963158ba5 is : 169.657444ms.
+2020-05-27 22:19:37.398326597 -0500 CDT m=+14.550805627 --->	  Wait for parent download lasted for: 2.91µs
+2020-05-27 22:19:37.398486848 -0500 CDT m=+14.550965919 --->	 Time to download the layer with id sha256:e3b7c2a5717c6bc6308ac896ae8948c6b60b1a594f4b99b58bef970e8c4ce9d5 is : 159.703891ms.
+2020-05-27 22:19:37.398648755 -0500 CDT m=+14.551127911 --->	 Time to download the layer with id sha256:bce9664032291e77ebe155d01b7b26026fe2ceecb29a117d8c0b676f63b68d79 is : 169.970164ms.
+2020-05-27 22:19:37.398720504 -0500 CDT m=+14.551199534 --->	  Wait for parent download lasted for: 2.45µs
+2020-05-27 22:19:37.398986296 -0500 CDT m=+14.551465325 --->	  Wait for parent download lasted for: 458.531µs
+2020-05-27 22:19:37.39958538 -0500 CDT m=+14.552064580 --->	  Top download downlaoded.
+time="2020-05-27T22:19:37.399685025-05:00" level=info msg="Attempting next endpoint for pull after error: filesystem layer verification failed for digest sha256:cb4880ccba47d4c02e48ccface358a17b01ba6e3022717aac0c2979ddf07a809"
+time="2020-05-27T22:19:37.399809100-05:00" level=error msg="pulling image failed" error="filesystem layer verification failed for digest sha256:cb4880ccba47d4c02e48ccface358a17b01ba6e3022717aac0c2979ddf07a809" module=node/agent/taskmanager node.id=qpyngwz7k8mb3801oiec3ws8x service.id=798f5fis09dprp8f7325ixlx6 task.id=wzbwgzkvzajhm3e0m6kacdv2j
+time="2020-05-27T22:19:37.402489836-05:00" level=error msg="fatal task error" error="No such image: csce-6snvrz2.cs.tamu.edu:5000/node:latest" module=node/agent/taskmanager node.id=qpyngwz7k8mb3801oiec3ws8x service.id=798f5fis09dprp8f7325ixlx6 task.id=wzbwgzkvzajhm3e0m6kacdv2j
+time="2020-05-27T22:19:37.510448960-05:00" level=info msg="initialized VXLAN UDP port to 4789 "
+time="2020-05-27T22:19:40.468663172-05:00" level=info msg="initialized VXLAN UDP port to 4789 "
+time="2020-05-27T22:19:41.062031157-05:00" level=warning msg="Error getting v2 registry: Get https://csce-6snvrz2.cs.tamu.edu:5000/v2/: http: server gave HTTP response to HTTPS client"
+time="2020-05-27T22:19:41.062118670-05:00" level=info msg="Attempting next endpoint for pull after error: Get https://csce-6snvrz2.cs.tamu.edu:5000/v2/: http: server gave HTTP response to HTTPS client"
+Current time:  2020-05-27 22:19:41.385726361 -0500 CDT m=+18.538205537, Starting the download of the layers.
+time="2020-05-27T22:19:43.796027690-05:00" level=info msg="Layer sha256:77cae8ab23bf486355d1b3191259705374f4a11d483b24964d2f729dd8c076a0 cleaned up"
+2020-05-27 22:19:43.796303166 -0500 CDT m=+20.948782300 --->	  Waiting for top download.
+2020-05-27 22:19:43.796442437 -0500 CDT m=+20.948921403 --->	 Start of download the layer with id sha256:89d9c30c1d48bac627e5c6cb0d1ed1eec28e7dbdfbcc04712e4c79c0f83faf17.
+2020-05-27 22:19:43.796461086 -0500 CDT m=+20.948940050 --->	 Start of download the layer with id sha256:cb4880ccba47d4c02e48ccface358a17b01ba6e3022717aac0c2979ddf07a809.
+2020-05-27 22:19:43.796471128 -0500 CDT m=+20.948950108 --->	 Start of download the layer with id sha256:abc31ffc07f9f6e65520ac5bf6c85a4928706600c1556fd47172130aca6f4938.
+perf. Current time: 2020-05-27 22:19:44.183464465 -0500 CDT m=+21.335943591. Log: Time to fetch remote layer sha256:abc31ffc07f9f6e65520ac5bf6c85a4928706600c1556fd47172130aca6f4938 is 386.979302ms, 
+perf. Current time: 2020-05-27 22:19:44.191902891 -0500 CDT m=+21.344381874. Log: Time to MGET all encodings is 7.492651ms, 
+perf. Current time: 2020-05-27 22:19:44.192086725 -0500 CDT m=+21.344565691. Log: Time to assembele remote layer sha256:abc31ffc07f9f6e65520ac5bf6c85a4928706600c1556fd47172130aca6f4938 is 8.560351ms, 
+2020-05-27 22:19:44.198478619 -0500 CDT m=+21.350957585 --->	 Time to download the layer with id sha256:abc31ffc07f9f6e65520ac5bf6c85a4928706600c1556fd47172130aca6f4938 is : 402.007527ms.
+2020-05-27 22:19:44.198496916 -0500 CDT m=+21.350975883 --->	 Start of download the layer with id sha256:2137f333b9e3af108d14099b8669c02b4d78277ed00938a18d441b87065ac596.
+perf. Current time: 2020-05-27 22:19:44.303840584 -0500 CDT m=+21.456319670. Log: Time to fetch remote layer sha256:89d9c30c1d48bac627e5c6cb0d1ed1eec28e7dbdfbcc04712e4c79c0f83faf17 is 507.381655ms, 
+perf. Current time: 2020-05-27 22:19:44.332500616 -0500 CDT m=+21.484979677. Log: Time to MGET all encodings is 26.821791ms, 
+perf. Current time: 2020-05-27 22:19:44.333799876 -0500 CDT m=+21.486278906. Log: Time to assembele remote layer sha256:89d9c30c1d48bac627e5c6cb0d1ed1eec28e7dbdfbcc04712e4c79c0f83faf17 is 29.890798ms, 
+perf. Current time: 2020-05-27 22:19:44.361228882 -0500 CDT m=+21.513707884. Log: Time to fetch remote layer sha256:2137f333b9e3af108d14099b8669c02b4d78277ed00938a18d441b87065ac596 is 162.727316ms, 
+perf. Current time: 2020-05-27 22:19:44.361389128 -0500 CDT m=+21.513868126. Log: Time to MGET all encodings is 134.399µs, 
+perf. Current time: 2020-05-27 22:19:44.361405458 -0500 CDT m=+21.513884430. Log: Time to assembele remote layer sha256:2137f333b9e3af108d14099b8669c02b4d78277ed00938a18d441b87065ac596 is 154.552µs, 
+2020-05-27 22:19:44.361546277 -0500 CDT m=+21.514025305 --->	 Time to download the layer with id sha256:2137f333b9e3af108d14099b8669c02b4d78277ed00938a18d441b87065ac596 is : 163.049525ms.
+2020-05-27 22:19:44.361567867 -0500 CDT m=+21.514046844 --->	 Start of download the layer with id sha256:6a9f8bb9e1edbcf6f5dae5575f402f3ccefa84275c0466955831b48aa7bbb54c.
+2020-05-27 22:19:44.362950958 -0500 CDT m=+21.515429931 --->	 Time to download the layer with id sha256:89d9c30c1d48bac627e5c6cb0d1ed1eec28e7dbdfbcc04712e4c79c0f83faf17 is : 566.508595ms.
+2020-05-27 22:19:44.36297886 -0500 CDT m=+21.515457834 --->	 Start of download the layer with id sha256:c8b05837884babc043d2e1eb8b00665a38e4a67dd94f7dcbb2be1edbac7b175a.
+perf. Current time: 2020-05-27 22:19:44.523095682 -0500 CDT m=+21.675574679. Log: Time to fetch remote layer sha256:c8b05837884babc043d2e1eb8b00665a38e4a67dd94f7dcbb2be1edbac7b175a is 160.111369ms, 
+perf. Current time: 2020-05-27 22:19:44.523256693 -0500 CDT m=+21.675735687. Log: Time to MGET all encodings is 138.295µs, 
+perf. Current time: 2020-05-27 22:19:44.523272792 -0500 CDT m=+21.675751763. Log: Time to assembele remote layer sha256:c8b05837884babc043d2e1eb8b00665a38e4a67dd94f7dcbb2be1edbac7b175a is 157.595µs, 
+2020-05-27 22:19:44.52343725 -0500 CDT m=+21.675916219 --->	 Time to download the layer with id sha256:c8b05837884babc043d2e1eb8b00665a38e4a67dd94f7dcbb2be1edbac7b175a is : 160.458526ms.
+2020-05-27 22:19:44.523451486 -0500 CDT m=+21.675930457 --->	 Start of download the layer with id sha256:621300d967fb034a05efad580c7024e2c8266bb479de3718667271db515017e6.
+perf. Current time: 2020-05-27 22:19:44.571905759 -0500 CDT m=+21.724384765. Log: Time to fetch remote layer sha256:cb4880ccba47d4c02e48ccface358a17b01ba6e3022717aac0c2979ddf07a809 is 775.437557ms, 
+perf. Current time: 2020-05-27 22:19:44.640985874 -0500 CDT m=+21.793464879. Log: Time to MGET all encodings is 62.52957ms, 
+perf. Current time: 2020-05-27 22:19:44.645237271 -0500 CDT m=+21.797716240. Log: Time to assembele remote layer sha256:cb4880ccba47d4c02e48ccface358a17b01ba6e3022717aac0c2979ddf07a809 is 73.298011ms, 
+perf. Current time: 2020-05-27 22:19:44.687019506 -0500 CDT m=+21.839498502. Log: Time to fetch remote layer sha256:621300d967fb034a05efad580c7024e2c8266bb479de3718667271db515017e6 is 163.560331ms, 
+perf. Current time: 2020-05-27 22:19:44.687509558 -0500 CDT m=+21.839988538. Log: Time to MGET all encodings is 163.648µs, 
+perf. Current time: 2020-05-27 22:19:44.687523657 -0500 CDT m=+21.840002624. Log: Time to assembele remote layer sha256:621300d967fb034a05efad580c7024e2c8266bb479de3718667271db515017e6 is 482.97µs, 
+2020-05-27 22:19:44.687738891 -0500 CDT m=+21.840217867 --->	 Time to download the layer with id sha256:621300d967fb034a05efad580c7024e2c8266bb479de3718667271db515017e6 is : 164.287512ms.
+2020-05-27 22:19:44.687780333 -0500 CDT m=+21.840259304 --->	 Start of download the layer with id sha256:6de444a12ba361bc45fbaa6789554d8fed9bdd5ad568109df824eee8d865b206.
+2020-05-27 22:19:44.762237767 -0500 CDT m=+21.914716757 --->	 Time to download the layer with id sha256:cb4880ccba47d4c02e48ccface358a17b01ba6e3022717aac0c2979ddf07a809 is : 965.776806ms.
+2020-05-27 22:19:44.762260562 -0500 CDT m=+21.914739526 --->	 Start of download the layer with id sha256:f27c123b4a59218a75757283b553eb75379f806ea411b6262d0b392ce260be78.
+perf. Current time: 2020-05-27 22:19:44.842860464 -0500 CDT m=+21.995339518. Log: Time to fetch remote layer sha256:6a9f8bb9e1edbcf6f5dae5575f402f3ccefa84275c0466955831b48aa7bbb54c is 481.282465ms, 
+perf. Current time: 2020-05-27 22:19:44.846243929 -0500 CDT m=+21.998723017. Log: Time to fetch remote layer sha256:6de444a12ba361bc45fbaa6789554d8fed9bdd5ad568109df824eee8d865b206 is 158.454519ms, 
+perf. Current time: 2020-05-27 22:19:44.846635977 -0500 CDT m=+21.999115020. Log: Time to MGET all encodings is 331.33µs, 
+perf. Current time: 2020-05-27 22:19:44.846668259 -0500 CDT m=+21.999147266. Log: Time to assembele remote layer sha256:6de444a12ba361bc45fbaa6789554d8fed9bdd5ad568109df824eee8d865b206 is 385.046µs, 
+2020-05-27 22:19:44.847060432 -0500 CDT m=+21.999539529 --->	 Time to download the layer with id sha256:6de444a12ba361bc45fbaa6789554d8fed9bdd5ad568109df824eee8d865b206 is : 159.280508ms.
+2020-05-27 22:19:44.847095301 -0500 CDT m=+21.999574309 --->	 Start of download the layer with id sha256:3d28998695ae48edbedb238377973bd0501e36847bdc6a8f68c6cf73653a1ea1.
+perf. Current time: 2020-05-27 22:19:44.854017267 -0500 CDT m=+22.006496251. Log: Time to MGET all encodings is 10.533177ms, 
+perf. Current time: 2020-05-27 22:19:44.854509353 -0500 CDT m=+22.006988322. Log: Time to assembele remote layer sha256:6a9f8bb9e1edbcf6f5dae5575f402f3ccefa84275c0466955831b48aa7bbb54c is 11.605731ms, 
+2020-05-27 22:19:44.873460007 -0500 CDT m=+22.025938979 --->	 Time to download the layer with id sha256:6a9f8bb9e1edbcf6f5dae5575f402f3ccefa84275c0466955831b48aa7bbb54c is : 511.892179ms.
+2020-05-27 22:19:44.873482411 -0500 CDT m=+22.025961379 --->	 Start of download the layer with id sha256:e176669b726c95a474a313895d07c643c0f9a7377582effd9264a0233419099f.
+perf. Current time: 2020-05-27 22:19:44.923209852 -0500 CDT m=+22.075688933. Log: Time to fetch remote layer sha256:f27c123b4a59218a75757283b553eb75379f806ea411b6262d0b392ce260be78 is 160.936153ms, 
+perf. Current time: 2020-05-27 22:19:44.923712973 -0500 CDT m=+22.076192100. Log: Time to MGET all encodings is 434.804µs, 
+perf. Current time: 2020-05-27 22:19:44.923766235 -0500 CDT m=+22.076245266. Log: Time to assembele remote layer sha256:f27c123b4a59218a75757283b553eb75379f806ea411b6262d0b392ce260be78 is 497.443µs, 
+2020-05-27 22:19:44.924091519 -0500 CDT m=+22.076570762 --->	 Time to download the layer with id sha256:f27c123b4a59218a75757283b553eb75379f806ea411b6262d0b392ce260be78 is : 161.831628ms.
+2020-05-27 22:19:44.924141493 -0500 CDT m=+22.076620531 --->	 Start of download the layer with id sha256:dba007a372ef77d51651bf1bc39e3b4b78ae3f1394ab0636aeb53e4963158ba5.
+perf. Current time: 2020-05-27 22:19:45.008840845 -0500 CDT m=+22.161319974. Log: Time to fetch remote layer sha256:3d28998695ae48edbedb238377973bd0501e36847bdc6a8f68c6cf73653a1ea1 is 161.731739ms, 
+perf. Current time: 2020-05-27 22:19:45.009415653 -0500 CDT m=+22.161894777. Log: Time to fetch remote layer sha256:e176669b726c95a474a313895d07c643c0f9a7377582effd9264a0233419099f is 135.920224ms, 
+perf. Current time: 2020-05-27 22:19:45.009493831 -0500 CDT m=+22.161972903. Log: Time to MGET all encodings is 2.035µs, 
+perf. Current time: 2020-05-27 22:19:45.009521133 -0500 CDT m=+22.162000165. Log: Time to assembele remote layer sha256:e176669b726c95a474a313895d07c643c0f9a7377582effd9264a0233419099f is 32.997µs, 
+perf. Current time: 2020-05-27 22:19:45.009427366 -0500 CDT m=+22.161906504. Log: Time to MGET all encodings is 497.546µs, 
+perf. Current time: 2020-05-27 22:19:45.009594806 -0500 CDT m=+22.162073871. Log: Time to assembele remote layer sha256:3d28998695ae48edbedb238377973bd0501e36847bdc6a8f68c6cf73653a1ea1 is 678.933µs, 
+2020-05-27 22:19:45.009846707 -0500 CDT m=+22.162325928 --->	 Time to download the layer with id sha256:e176669b726c95a474a313895d07c643c0f9a7377582effd9264a0233419099f is : 136.364941ms.
+2020-05-27 22:19:45.009887689 -0500 CDT m=+22.162366979 --->	 Time to download the layer with id sha256:3d28998695ae48edbedb238377973bd0501e36847bdc6a8f68c6cf73653a1ea1 is : 162.792959ms.
+2020-05-27 22:19:45.010001105 -0500 CDT m=+22.162480143 --->	 Start of download the layer with id sha256:e3b7c2a5717c6bc6308ac896ae8948c6b60b1a594f4b99b58bef970e8c4ce9d5.
+2020-05-27 22:19:45.009907815 -0500 CDT m=+22.162386862 --->	 Start of download the layer with id sha256:bce9664032291e77ebe155d01b7b26026fe2ceecb29a117d8c0b676f63b68d79.
+perf. Current time: 2020-05-27 22:19:45.084454354 -0500 CDT m=+22.236933481. Log: Time to fetch remote layer sha256:dba007a372ef77d51651bf1bc39e3b4b78ae3f1394ab0636aeb53e4963158ba5 is 160.302784ms, 
+perf. Current time: 2020-05-27 22:19:45.085167142 -0500 CDT m=+22.237646250. Log: Time to MGET all encodings is 645.3µs, 
+perf. Current time: 2020-05-27 22:19:45.085214585 -0500 CDT m=+22.237693617. Log: Time to assembele remote layer sha256:dba007a372ef77d51651bf1bc39e3b4b78ae3f1394ab0636aeb53e4963158ba5 is 701.131µs, 
+2020-05-27 22:19:45.085578759 -0500 CDT m=+22.238057800 --->	 Time to download the layer with id sha256:dba007a372ef77d51651bf1bc39e3b4b78ae3f1394ab0636aeb53e4963158ba5 is : 161.437573ms.
+2020-05-27 22:19:45.111443209 -0500 CDT m=+22.263922420 --->	  Wait for parent download lasted for: 349.187313ms
+perf. Current time: 2020-05-27 22:19:45.17599891 -0500 CDT m=+22.328477921. Log: Time to fetch remote layer sha256:e3b7c2a5717c6bc6308ac896ae8948c6b60b1a594f4b99b58bef970e8c4ce9d5 is 165.990923ms, 
+perf. Current time: 2020-05-27 22:19:45.176368511 -0500 CDT m=+22.328847528. Log: Time to fetch remote layer sha256:bce9664032291e77ebe155d01b7b26026fe2ceecb29a117d8c0b676f63b68d79 is 166.454948ms, 
+perf. Current time: 2020-05-27 22:19:45.176450842 -0500 CDT m=+22.328929838. Log: Time to MGET all encodings is 387.441µs, 
+perf. Current time: 2020-05-27 22:19:45.176474359 -0500 CDT m=+22.328953339. Log: Time to assembele remote layer sha256:e3b7c2a5717c6bc6308ac896ae8948c6b60b1a594f4b99b58bef970e8c4ce9d5 is 418.673µs, 
+perf. Current time: 2020-05-27 22:19:45.176729417 -0500 CDT m=+22.329208415. Log: Time to MGET all encodings is 335.936µs, 
+perf. Current time: 2020-05-27 22:19:45.176748259 -0500 CDT m=+22.329227241. Log: Time to assembele remote layer sha256:bce9664032291e77ebe155d01b7b26026fe2ceecb29a117d8c0b676f63b68d79 is 357.649µs, 
+2020-05-27 22:19:45.176782864 -0500 CDT m=+22.329261861 --->	 Time to download the layer with id sha256:e3b7c2a5717c6bc6308ac896ae8948c6b60b1a594f4b99b58bef970e8c4ce9d5 is : 166.781793ms.
+2020-05-27 22:19:45.177575799 -0500 CDT m=+22.330054778 --->	 Time to download the layer with id sha256:bce9664032291e77ebe155d01b7b26026fe2ceecb29a117d8c0b676f63b68d79 is : 167.667995ms.
+2020-05-27 22:19:46.265910409 -0500 CDT m=+23.418389626 --->	  Wait for parent download lasted for: 2.067416578s
+2020-05-27 22:19:46.660873643 -0500 CDT m=+23.813352835 --->	  Wait for parent download lasted for: 2.299309933s
+2020-05-27 22:19:47.13913197 -0500 CDT m=+24.291610970 --->	  Wait for parent download lasted for: 2.265653363s
+2020-05-27 22:19:49.76410672 -0500 CDT m=+26.916585929 --->	  Wait for parent download lasted for: 5.240658805s
+2020-05-27 22:19:50.249985922 -0500 CDT m=+27.402465121 --->	  Wait for parent download lasted for: 5.562236142s
+2020-05-27 22:19:50.627886784 -0500 CDT m=+27.780365960 --->	  Wait for parent download lasted for: 5.780798718s
+2020-05-27 22:19:51.023549563 -0500 CDT m=+28.176028751 --->	  Wait for parent download lasted for: 6.099417295s
+2020-05-27 22:19:51.493070567 -0500 CDT m=+28.645549748 --->	  Wait for parent download lasted for: 6.483078617s
+2020-05-27 22:19:51.987251255 -0500 CDT m=+29.139730448 --->	  Wait for parent download lasted for: 6.97735322s
+2020-05-27 22:19:52.432665528 -0500 CDT m=+29.585144705 --->	  Wait for parent download lasted for: 7.347027994s
+2020-05-27 22:19:52.977412053 -0500 CDT m=+30.129891053 --->	  Wait for parent download lasted for: 7.799816144s
+2020-05-27 22:19:53.422033012 -0500 CDT m=+30.574512198 --->	  Wait for parent download lasted for: 8.24523136s
+2020-05-27 22:19:53.850491408 -0500 CDT m=+31.002970580 --->	  Top download downlaoded.
+2020-05-27 22:19:53.851144103 -0500 CDT m=+31.003623302 --->	  Downlaoded image in time: 12.465336248s
+time="2020-05-27T22:19:56.402097067-05:00" level=info msg="shim containerd-shim started" address="/containerd-shim/moby/d9b0a472208635cc5836f1d175fa391d51a52e48d6b3be56d27bde8f41351f18/shim.sock" debug=false pid=9890 
+time="2020-05-27T22:24:29.005150354-05:00" level=info msg="NetworkDB stats singularity4.cs.tamu.edu(57183d6a3446) - netID:mvn3wrk1uf4jf0wubu0fayhnh leaving:false netPeers:2 entries:18 Queue qLen:0 netMsg/s:0"
+time="2020-05-27T22:24:29.005303594-05:00" level=info msg="NetworkDB stats singularity4.cs.tamu.edu(57183d6a3446) - netID:pj52d1c4x7eu0yni960aj7tog leaving:false netPeers:2 entries:8 Queue qLen:0 netMsg/s:0"
+time="2020-05-27T22:25:21.363877625-05:00" level=warning msg="failed to deactivate service binding for container node.1.ap54b5hsvylw4299a7ftfnhql" error="No such container: node.1.ap54b5hsvylw4299a7ftfnhql" module=node/agent node.id=qpyngwz7k8mb3801oiec3ws8x
+time="2020-05-27T22:25:21.363927250-05:00" level=warning msg="failed to deactivate service binding for container node.1.wzbwgzkvzajhm3e0m6kacdv2j" error="No such container: node.1.wzbwgzkvzajhm3e0m6kacdv2j" module=node/agent node.id=qpyngwz7k8mb3801oiec3ws8x
+time="2020-05-27T22:25:21.363985814-05:00" level=warning msg="failed to deactivate service binding for container node.1.h6zoal35bnnpfoqpt21pspf6a" error="No such container: node.1.h6zoal35bnnpfoqpt21pspf6a" module=node/agent node.id=qpyngwz7k8mb3801oiec3ws8x
+time="2020-05-27T22:25:21.364052368-05:00" level=warning msg="failed to deactivate service binding for container node.1.vn9f1r0v46lgi8utjkofmmbe6" error="No such container: node.1.vn9f1r0v46lgi8utjkofmmbe6" module=node/agent node.id=qpyngwz7k8mb3801oiec3ws8x
+time="2020-05-27T22:25:34.239495770-05:00" level=info msg="Container d9b0a472208635cc5836f1d175fa391d51a52e48d6b3be56d27bde8f41351f18 failed to exit within 10 seconds of signal 15 - using the force"
+time="2020-05-27T22:25:34.378656326-05:00" level=info msg="shim reaped" id=d9b0a472208635cc5836f1d175fa391d51a52e48d6b3be56d27bde8f41351f18 
+time="2020-05-27T22:25:34.389754973-05:00" level=info msg="ignoring event" module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+time="2020-05-27T22:25:34.391155960-05:00" level=warning msg="rmServiceBinding cfcc15a5d7d29a52da73711c442ad60234d6c73d25e46f9f7a80d9f46169b44a possible transient state ok:false entries:0 set:false "
+time="2020-05-27T22:25:36.290801629-05:00" level=warning msg="Error (Unable to complete atomic operation, key modified) deleting object [endpoint mvn3wrk1uf4jf0wubu0fayhnh f806ed63ced8b51f21c54b82b9d5bdbbe52b363d1fea42bf2c99e3932a93a8a3], retrying...."
+time="2020-05-27T22:25:36.491703200-05:00" level=info msg="initialized VXLAN UDP port to 4789 "
+time="2020-05-27T22:27:16.554098916-05:00" level=info msg="Layer sha256:18f92338e89e62df998ed1d4018a461fc90cdb869a397a135646be80851a07f3 cleaned up"
+time="2020-05-27T22:27:16.554125042-05:00" level=info msg="Layer sha256:69ef0d3a5e909d63fdc807bac7b38411d601a6888fa763275755192837bc9d0f cleaned up"
+time="2020-05-27T22:27:16.554132940-05:00" level=info msg="Layer sha256:7b0efe0862f08e66b935f01ea5238dc8cfee3327efc47f8c1e169196da8d30eb cleaned up"
+time="2020-05-27T22:27:16.554139048-05:00" level=info msg="Layer sha256:1b840c669713158d5ecc42f9b94f93568d7c0c656831e9fcbb62bf990267e6a7 cleaned up"
+time="2020-05-27T22:27:16.554145007-05:00" level=info msg="Layer sha256:a643e177971cff65725a038935fcdb0fda908588ee0d991a6d27433f7569af1a cleaned up"
+time="2020-05-27T22:27:16.554157281-05:00" level=info msg="Layer sha256:d6f9a4c535e046f3760ec2ddf36ac122c1c7cfb11045d3ae384e65e41f445478 cleaned up"
+time="2020-05-27T22:27:16.554163363-05:00" level=info msg="Layer sha256:69a10c10d9dfc004e1eb0e950c02a7a1863abf0cc9344dff4bd7e8770cbd9fe4 cleaned up"
+time="2020-05-27T22:27:16.554169587-05:00" level=info msg="Layer sha256:463ab97d7ba1db8f62a51c0ee9ce0120d3300a147191ae59b75877ebda871207 cleaned up"
+time="2020-05-27T22:27:16.554182893-05:00" level=info msg="Layer sha256:566d87e217f0a008f6d5f1f30295cdaaf8692749f75bbdb389bc097208a3b27b cleaned up"
+time="2020-05-27T22:27:16.554189861-05:00" level=info msg="Layer sha256:59b73c8ab37abb4904ba73532711009dbb53443e4df0b5003736fff539b3c352 cleaned up"
+time="2020-05-27T22:27:16.554195696-05:00" level=info msg="Layer sha256:005c9ee0819ca65b239152d4e2aaf72095fcb8339234de6d8c1fedb1cf945948 cleaned up"
+time="2020-05-27T22:27:16.554201262-05:00" level=info msg="Layer sha256:edad02f7dbd16f2256665cfdcb298d5850a17bf262d2f6806c5a8949ae9a9f58 cleaned up"
+time="2020-05-27T22:27:16.554207401-05:00" level=info msg="Layer sha256:9ea2239dea5ae98162e1640dd4aeba635ee3ce91b433351baa3f372ade61bfc0 cleaned up"
+time="2020-05-27T22:27:16.554212999-05:00" level=info msg="Layer sha256:4ed5c151d3d9ee1708355a9c56f85df79875481819c950ff348cd3c670e66cfd cleaned up"
+time="2020-05-27T22:27:16.554218551-05:00" level=info msg="Layer sha256:77cae8ab23bf486355d1b3191259705374f4a11d483b24964d2f729dd8c076a0 cleaned up"
+time="2020-05-27T22:29:29.205227079-05:00" level=info msg="NetworkDB stats singularity4.cs.tamu.edu(57183d6a3446) - netID:pj52d1c4x7eu0yni960aj7tog leaving:false netPeers:2 entries:8 Queue qLen:0 netMsg/s:0"
+time="2020-05-27T22:29:29.205378320-05:00" level=info msg="NetworkDB stats singularity4.cs.tamu.edu(57183d6a3446) - netID:mvn3wrk1uf4jf0wubu0fayhnh leaving:true netPeers:1 entries:3 Queue qLen:0 netMsg/s:0"
+time="2020-05-27T22:34:29.405107282-05:00" level=info msg="NetworkDB stats singularity4.cs.tamu.edu(57183d6a3446) - netID:mvn3wrk1uf4jf0wubu0fayhnh leaving:true netPeers:1 entries:3 Queue qLen:0 netMsg/s:0"
+time="2020-05-27T22:34:29.405314463-05:00" level=info msg="NetworkDB stats singularity4.cs.tamu.edu(57183d6a3446) - netID:pj52d1c4x7eu0yni960aj7tog leaving:false netPeers:2 entries:8 Queue qLen:0 netMsg/s:0"
+time="2020-05-27T22:39:29.605093673-05:00" level=info msg="NetworkDB stats singularity4.cs.tamu.edu(57183d6a3446) - netID:mvn3wrk1uf4jf0wubu0fayhnh leaving:true netPeers:1 entries:3 Queue qLen:0 netMsg/s:0"
+time="2020-05-27T22:39:29.605288344-05:00" level=info msg="NetworkDB stats singularity4.cs.tamu.edu(57183d6a3446) - netID:pj52d1c4x7eu0yni960aj7tog leaving:false netPeers:2 entries:8 Queue qLen:0 netMsg/s:0"
+time="2020-05-27T22:44:29.805089401-05:00" level=info msg="NetworkDB stats singularity4.cs.tamu.edu(57183d6a3446) - netID:mvn3wrk1uf4jf0wubu0fayhnh leaving:true netPeers:1 entries:3 Queue qLen:0 netMsg/s:0"
+time="2020-05-27T22:44:29.805281189-05:00" level=info msg="NetworkDB stats singularity4.cs.tamu.edu(57183d6a3446) - netID:pj52d1c4x7eu0yni960aj7tog leaving:false netPeers:2 entries:8 Queue qLen:0 netMsg/s:0"
+time="2020-05-27T22:49:30.005076940-05:00" level=info msg="NetworkDB stats singularity4.cs.tamu.edu(57183d6a3446) - netID:mvn3wrk1uf4jf0wubu0fayhnh leaving:true netPeers:1 entries:3 Queue qLen:0 netMsg/s:0"
+time="2020-05-27T22:49:30.005289787-05:00" level=info msg="NetworkDB stats singularity4.cs.tamu.edu(57183d6a3446) - netID:pj52d1c4x7eu0yni960aj7tog leaving:false netPeers:2 entries:8 Queue qLen:0 netMsg/s:0"
+time="2020-05-27T22:51:22.774715314-05:00" level=info msg="initialized VXLAN UDP port to 4789 "
+time="2020-05-27T22:51:25.279331878-05:00" level=warning msg="Error getting v2 registry: Get https://csce-6snvrz2.cs.tamu.edu:5000/v2/: http: server gave HTTP response to HTTPS client"
+time="2020-05-27T22:51:25.279401978-05:00" level=info msg="Attempting next endpoint for pull after error: Get https://csce-6snvrz2.cs.tamu.edu:5000/v2/: http: server gave HTTP response to HTTPS client"
+Current time:  2020-05-27 22:51:25.597813927 -0500 CDT m=+1922.750293105, Starting the download of the layers.
+2020-05-27 22:51:25.59826502 -0500 CDT m=+1922.750744272 --->	  Waiting for top download.
+2020-05-27 22:51:25.598251801 -0500 CDT m=+1922.750730986 --->	 Start of download the layer with id sha256:abc31ffc07f9f6e65520ac5bf6c85a4928706600c1556fd47172130aca6f4938.
+2020-05-27 22:51:25.598674545 -0500 CDT m=+1922.751153619 --->	 Start of download the layer with id sha256:89d9c30c1d48bac627e5c6cb0d1ed1eec28e7dbdfbcc04712e4c79c0f83faf17.
+2020-05-27 22:51:25.598757138 -0500 CDT m=+1922.751236166 --->	 Start of download the layer with id sha256:cb4880ccba47d4c02e48ccface358a17b01ba6e3022717aac0c2979ddf07a809.
+perf. Current time: 2020-05-27 22:51:25.866981935 -0500 CDT m=+1923.019461063. Log: Time to fetch remote layer sha256:cb4880ccba47d4c02e48ccface358a17b01ba6e3022717aac0c2979ddf07a809 is 268.206497ms, 
+perf. Current time: 2020-05-27 22:51:25.873588313 -0500 CDT m=+1923.026067286. Log: Time to MGET all encodings is 604ns, 
+perf. Current time: 2020-05-27 22:51:25.873609569 -0500 CDT m=+1923.026088534. Log: Time to assembele remote layer sha256:cb4880ccba47d4c02e48ccface358a17b01ba6e3022717aac0c2979ddf07a809 is 6.56571ms, 
+perf. Current time: 2020-05-27 22:51:25.958097747 -0500 CDT m=+1923.110576742. Log: Time to fetch remote layer sha256:abc31ffc07f9f6e65520ac5bf6c85a4928706600c1556fd47172130aca6f4938 is 359.839706ms, 
+perf. Current time: 2020-05-27 22:51:25.962995259 -0500 CDT m=+1923.115474244. Log: Time to MGET all encodings is 4.665803ms, 
+perf. Current time: 2020-05-27 22:51:25.9632071 -0500 CDT m=+1923.115686064. Log: Time to assembele remote layer sha256:abc31ffc07f9f6e65520ac5bf6c85a4928706600c1556fd47172130aca6f4938 is 5.08702ms, 
+2020-05-27 22:51:25.96963053 -0500 CDT m=+1923.122109495 --->	 Time to download the layer with id sha256:abc31ffc07f9f6e65520ac5bf6c85a4928706600c1556fd47172130aca6f4938 is : 371.378559ms.
+2020-05-27 22:51:25.969651325 -0500 CDT m=+1923.122130290 --->	 Start of download the layer with id sha256:2137f333b9e3af108d14099b8669c02b4d78277ed00938a18d441b87065ac596.
+time="2020-05-27T22:51:25.987737795-05:00" level=error msg="filesystem layer verification failed for digest sha256:cb4880ccba47d4c02e48ccface358a17b01ba6e3022717aac0c2979ddf07a809"
+time="2020-05-27T22:51:25.987761263-05:00" level=error msg="Download failed after 1 attempts: filesystem layer verification failed for digest sha256:cb4880ccba47d4c02e48ccface358a17b01ba6e3022717aac0c2979ddf07a809"
+2020-05-27 22:51:25.990333 -0500 CDT m=+1923.142811973 --->	  Wait for parent download lasted for: 20.684326ms
+2020-05-27 22:51:25.990331076 -0500 CDT m=+1923.142810042 --->	 Start of download the layer with id sha256:6a9f8bb9e1edbcf6f5dae5575f402f3ccefa84275c0466955831b48aa7bbb54c.
+perf. Current time: 2020-05-27 22:51:26.026251615 -0500 CDT m=+1923.178730729. Log: Time to fetch remote layer sha256:89d9c30c1d48bac627e5c6cb0d1ed1eec28e7dbdfbcc04712e4c79c0f83faf17 is 427.563731ms, 
+perf. Current time: 2020-05-27 22:51:26.063977749 -0500 CDT m=+1923.216456811. Log: Time to MGET all encodings is 36.411271ms, 
+perf. Current time: 2020-05-27 22:51:26.065104115 -0500 CDT m=+1923.217583118. Log: Time to assembele remote layer sha256:89d9c30c1d48bac627e5c6cb0d1ed1eec28e7dbdfbcc04712e4c79c0f83faf17 is 38.78521ms, 
+2020-05-27 22:51:26.101784936 -0500 CDT m=+1923.254263912 --->	 Time to download the layer with id sha256:89d9c30c1d48bac627e5c6cb0d1ed1eec28e7dbdfbcc04712e4c79c0f83faf17 is : 503.110472ms.
+2020-05-27 22:51:26.101824047 -0500 CDT m=+1923.254303038 --->	 Start of download the layer with id sha256:c8b05837884babc043d2e1eb8b00665a38e4a67dd94f7dcbb2be1edbac7b175a.
+perf. Current time: 2020-05-27 22:51:26.141304584 -0500 CDT m=+1923.293783575. Log: Time to fetch remote layer sha256:2137f333b9e3af108d14099b8669c02b4d78277ed00938a18d441b87065ac596 is 171.645131ms, 
+perf. Current time: 2020-05-27 22:51:26.141584682 -0500 CDT m=+1923.294063704. Log: Time to MGET all encodings is 246.301µs, 
+perf. Current time: 2020-05-27 22:51:26.141609676 -0500 CDT m=+1923.294088654. Log: Time to assembele remote layer sha256:2137f333b9e3af108d14099b8669c02b4d78277ed00938a18d441b87065ac596 is 276.125µs, 
+2020-05-27 22:51:26.141752022 -0500 CDT m=+1923.294231068 --->	 Time to download the layer with id sha256:2137f333b9e3af108d14099b8669c02b4d78277ed00938a18d441b87065ac596 is : 172.10101ms.
+2020-05-27 22:51:26.141770396 -0500 CDT m=+1923.294249374 --->	  Wait for parent download lasted for: 832ns
+2020-05-27 22:51:26.141865409 -0500 CDT m=+1923.294344429 --->	 Start of download the layer with id sha256:621300d967fb034a05efad580c7024e2c8266bb479de3718667271db515017e6.
+perf. Current time: 2020-05-27 22:51:26.262207621 -0500 CDT m=+1923.414686747. Log: Time to fetch remote layer sha256:c8b05837884babc043d2e1eb8b00665a38e4a67dd94f7dcbb2be1edbac7b175a is 160.345178ms, 
+perf. Current time: 2020-05-27 22:51:26.262481896 -0500 CDT m=+1923.414960983. Log: Time to fetch remote layer sha256:621300d967fb034a05efad580c7024e2c8266bb479de3718667271db515017e6 is 120.609112ms, 
+perf. Current time: 2020-05-27 22:51:26.262688288 -0500 CDT m=+1923.415167378. Log: Time to MGET all encodings is 384.907µs, 
+perf. Current time: 2020-05-27 22:51:26.262751531 -0500 CDT m=+1923.415230558. Log: Time to assembele remote layer sha256:c8b05837884babc043d2e1eb8b00665a38e4a67dd94f7dcbb2be1edbac7b175a is 464.024µs, 
+2020-05-27 22:51:26.263112742 -0500 CDT m=+1923.415591889 --->	 Time to download the layer with id sha256:c8b05837884babc043d2e1eb8b00665a38e4a67dd94f7dcbb2be1edbac7b175a is : 161.289296ms.
+2020-05-27 22:51:26.263158998 -0500 CDT m=+1923.415638028 --->	 Start of download the layer with id sha256:6de444a12ba361bc45fbaa6789554d8fed9bdd5ad568109df824eee8d865b206.
+perf. Current time: 2020-05-27 22:51:26.263487946 -0500 CDT m=+1923.415967111. Log: Time to MGET all encodings is 314.766µs, 
+perf. Current time: 2020-05-27 22:51:26.263541755 -0500 CDT m=+1923.416020779. Log: Time to assembele remote layer sha256:621300d967fb034a05efad580c7024e2c8266bb479de3718667271db515017e6 is 1.022057ms, 
+2020-05-27 22:51:26.263865107 -0500 CDT m=+1923.416344174 --->	 Time to download the layer with id sha256:621300d967fb034a05efad580c7024e2c8266bb479de3718667271db515017e6 is : 122.000023ms.
+2020-05-27 22:51:26.263914026 -0500 CDT m=+1923.416393055 --->	 Start of download the layer with id sha256:f27c123b4a59218a75757283b553eb75379f806ea411b6262d0b392ce260be78.
+perf. Current time: 2020-05-27 22:51:26.377638276 -0500 CDT m=+1923.530117389. Log: Time to fetch remote layer sha256:6a9f8bb9e1edbcf6f5dae5575f402f3ccefa84275c0466955831b48aa7bbb54c is 387.29457ms, 
+perf. Current time: 2020-05-27 22:51:26.426927454 -0500 CDT m=+1923.579406563. Log: Time to MGET all encodings is 45.903204ms, 
+perf. Current time: 2020-05-27 22:51:26.42853516 -0500 CDT m=+1923.581014190. Log: Time to assembele remote layer sha256:6a9f8bb9e1edbcf6f5dae5575f402f3ccefa84275c0466955831b48aa7bbb54c is 50.828375ms, 
+perf. Current time: 2020-05-27 22:51:26.42888396 -0500 CDT m=+1923.581363088. Log: Time to fetch remote layer sha256:f27c123b4a59218a75757283b553eb75379f806ea411b6262d0b392ce260be78 is 164.957883ms, 
+perf. Current time: 2020-05-27 22:51:26.42890414 -0500 CDT m=+1923.581383285. Log: Time to fetch remote layer sha256:6de444a12ba361bc45fbaa6789554d8fed9bdd5ad568109df824eee8d865b206 is 165.733878ms, 
+perf. Current time: 2020-05-27 22:51:26.429519025 -0500 CDT m=+1923.581998063. Log: Time to MGET all encodings is 566.362µs, 
+perf. Current time: 2020-05-27 22:51:26.429560001 -0500 CDT m=+1923.582039036. Log: Time to assembele remote layer sha256:f27c123b4a59218a75757283b553eb75379f806ea411b6262d0b392ce260be78 is 614.845µs, 
+perf. Current time: 2020-05-27 22:51:26.429736976 -0500 CDT m=+1923.582216016. Log: Time to MGET all encodings is 634.142µs, 
+perf. Current time: 2020-05-27 22:51:26.429782697 -0500 CDT m=+1923.582261734. Log: Time to assembele remote layer sha256:6de444a12ba361bc45fbaa6789554d8fed9bdd5ad568109df824eee8d865b206 is 705.195µs, 
+2020-05-27 22:51:26.430051337 -0500 CDT m=+1923.582530412 --->	 Time to download the layer with id sha256:f27c123b4a59218a75757283b553eb75379f806ea411b6262d0b392ce260be78 is : 166.137655ms.
+2020-05-27 22:51:26.430111073 -0500 CDT m=+1923.582590102 --->	 Start of download the layer with id sha256:3d28998695ae48edbedb238377973bd0501e36847bdc6a8f68c6cf73653a1ea1.
+2020-05-27 22:51:26.430398819 -0500 CDT m=+1923.582877851 --->	 Time to download the layer with id sha256:6de444a12ba361bc45fbaa6789554d8fed9bdd5ad568109df824eee8d865b206 is : 167.240076ms.
+2020-05-27 22:51:26.430447815 -0500 CDT m=+1923.582926854 --->	 Start of download the layer with id sha256:e176669b726c95a474a313895d07c643c0f9a7377582effd9264a0233419099f.
+2020-05-27 22:51:26.468164798 -0500 CDT m=+1923.620643786 --->	 Time to download the layer with id sha256:6a9f8bb9e1edbcf6f5dae5575f402f3ccefa84275c0466955831b48aa7bbb54c is : 477.833806ms.
+2020-05-27 22:51:26.468183862 -0500 CDT m=+1923.620662833 --->	  Wait for parent download lasted for: 935ns
+2020-05-27 22:51:26.46823056 -0500 CDT m=+1923.620709558 --->	 Start of download the layer with id sha256:dba007a372ef77d51651bf1bc39e3b4b78ae3f1394ab0636aeb53e4963158ba5.
+2020-05-27 22:51:26.468668404 -0500 CDT m=+1923.621147428 --->	  Wait for parent download lasted for: 205.518006ms
+2020-05-27 22:51:26.468725779 -0500 CDT m=+1923.621204796 --->	  Wait for parent download lasted for: 204.81831ms
+2020-05-27 22:51:26.468779156 -0500 CDT m=+1923.621258185 --->	  Wait for parent download lasted for: 38.338627ms
+2020-05-27 22:51:26.468830545 -0500 CDT m=+1923.621309572 --->	  Wait for parent download lasted for: 38.727792ms
+perf. Current time: 2020-05-27 22:51:26.593197782 -0500 CDT m=+1923.745676923. Log: Time to fetch remote layer sha256:dba007a372ef77d51651bf1bc39e3b4b78ae3f1394ab0636aeb53e4963158ba5 is 124.954382ms, 
+perf. Current time: 2020-05-27 22:51:26.593909505 -0500 CDT m=+1923.746388638. Log: Time to MGET all encodings is 626.664µs, 
+perf. Current time: 2020-05-27 22:51:26.59397399 -0500 CDT m=+1923.746453041. Log: Time to assembele remote layer sha256:dba007a372ef77d51651bf1bc39e3b4b78ae3f1394ab0636aeb53e4963158ba5 is 703.324µs, 
+2020-05-27 22:51:26.594350228 -0500 CDT m=+1923.746829413 --->	 Time to download the layer with id sha256:dba007a372ef77d51651bf1bc39e3b4b78ae3f1394ab0636aeb53e4963158ba5 is : 126.120225ms.
+perf. Current time: 2020-05-27 22:51:26.594375536 -0500 CDT m=+1923.746854686. Log: Time to fetch remote layer sha256:e176669b726c95a474a313895d07c643c0f9a7377582effd9264a0233419099f is 163.91816ms, 
+2020-05-27 22:51:26.59440853 -0500 CDT m=+1923.746887559 --->	 Start of download the layer with id sha256:bce9664032291e77ebe155d01b7b26026fe2ceecb29a117d8c0b676f63b68d79.
+perf. Current time: 2020-05-27 22:51:26.59474255 -0500 CDT m=+1923.747221612. Log: Time to MGET all encodings is 312.601µs, 
+perf. Current time: 2020-05-27 22:51:26.59478973 -0500 CDT m=+1923.747268757. Log: Time to assembele remote layer sha256:e176669b726c95a474a313895d07c643c0f9a7377582effd9264a0233419099f is 366.836µs, 
+perf. Current time: 2020-05-27 22:51:26.594797327 -0500 CDT m=+1923.747276391. Log: Time to fetch remote layer sha256:3d28998695ae48edbedb238377973bd0501e36847bdc6a8f68c6cf73653a1ea1 is 164.677089ms, 
+2020-05-27 22:51:26.595167934 -0500 CDT m=+1923.747647087 --->	 Time to download the layer with id sha256:e176669b726c95a474a313895d07c643c0f9a7377582effd9264a0233419099f is : 164.720553ms.
+perf. Current time: 2020-05-27 22:51:26.595214599 -0500 CDT m=+1923.747693661. Log: Time to MGET all encodings is 363.163µs, 
+perf. Current time: 2020-05-27 22:51:26.59524961 -0500 CDT m=+1923.747728637. Log: Time to assembele remote layer sha256:3d28998695ae48edbedb238377973bd0501e36847bdc6a8f68c6cf73653a1ea1 is 410.637µs, 
+2020-05-27 22:51:26.595238045 -0500 CDT m=+1923.747717082 --->	 Start of download the layer with id sha256:e3b7c2a5717c6bc6308ac896ae8948c6b60b1a594f4b99b58bef970e8c4ce9d5.
+2020-05-27 22:51:26.595494804 -0500 CDT m=+1923.747973843 --->	 Time to download the layer with id sha256:3d28998695ae48edbedb238377973bd0501e36847bdc6a8f68c6cf73653a1ea1 is : 165.383954ms.
+2020-05-27 22:51:26.595531442 -0500 CDT m=+1923.748010482 --->	  Wait for parent download lasted for: 1.369µs
+2020-05-27 22:51:26.595992225 -0500 CDT m=+1923.748471401 --->	  Wait for parent download lasted for: 763.038µs
+2020-05-27 22:51:26.596174193 -0500 CDT m=+1923.748653403 --->	  Wait for parent download lasted for: 1.785737ms
+perf. Current time: 2020-05-27 22:51:26.758215565 -0500 CDT m=+1923.910694691. Log: Time to fetch remote layer sha256:bce9664032291e77ebe155d01b7b26026fe2ceecb29a117d8c0b676f63b68d79 is 163.793422ms, 
+perf. Current time: 2020-05-27 22:51:26.758350732 -0500 CDT m=+1923.910829855. Log: Time to fetch remote layer sha256:e3b7c2a5717c6bc6308ac896ae8948c6b60b1a594f4b99b58bef970e8c4ce9d5 is 163.102115ms, 
+perf. Current time: 2020-05-27 22:51:26.758853999 -0500 CDT m=+1923.911333075. Log: Time to MGET all encodings is 559.465µs, 
+perf. Current time: 2020-05-27 22:51:26.75887171 -0500 CDT m=+1923.911350823. Log: Time to MGET all encodings is 450.652µs, 
+perf. Current time: 2020-05-27 22:51:26.758943687 -0500 CDT m=+1923.911422724. Log: Time to assembele remote layer sha256:e3b7c2a5717c6bc6308ac896ae8948c6b60b1a594f4b99b58bef970e8c4ce9d5 is 538.397µs, 
+perf. Current time: 2020-05-27 22:51:26.758898582 -0500 CDT m=+1923.911377606. Log: Time to assembele remote layer sha256:bce9664032291e77ebe155d01b7b26026fe2ceecb29a117d8c0b676f63b68d79 is 613.935µs, 
+2020-05-27 22:51:26.759320848 -0500 CDT m=+1923.911800105 --->	 Time to download the layer with id sha256:e3b7c2a5717c6bc6308ac896ae8948c6b60b1a594f4b99b58bef970e8c4ce9d5 is : 164.083403ms.
+2020-05-27 22:51:26.759554185 -0500 CDT m=+1923.912033246 --->	 Time to download the layer with id sha256:bce9664032291e77ebe155d01b7b26026fe2ceecb29a117d8c0b676f63b68d79 is : 165.145966ms.
+2020-05-27 22:51:26.759598407 -0500 CDT m=+1923.912077442 --->	  Wait for parent download lasted for: 2.056µs
+2020-05-27 22:51:26.760008317 -0500 CDT m=+1923.912487357 --->	  Wait for parent download lasted for: 643.465µs
+2020-05-27 22:51:26.760278537 -0500 CDT m=+1923.912757706 --->	  Top download downlaoded.
+time="2020-05-27T22:51:26.760355034-05:00" level=info msg="Attempting next endpoint for pull after error: filesystem layer verification failed for digest sha256:cb4880ccba47d4c02e48ccface358a17b01ba6e3022717aac0c2979ddf07a809"
+time="2020-05-27T22:51:26.760448633-05:00" level=error msg="pulling image failed" error="filesystem layer verification failed for digest sha256:cb4880ccba47d4c02e48ccface358a17b01ba6e3022717aac0c2979ddf07a809" module=node/agent/taskmanager node.id=qpyngwz7k8mb3801oiec3ws8x service.id=nliwkl5eok7eqyolhoqv2b5n5 task.id=gcl1duk1wp393452w9fzhyn8o
+time="2020-05-27T22:51:26.762853828-05:00" level=error msg="fatal task error" error="No such image: csce-6snvrz2.cs.tamu.edu:5000/node:latest" module=node/agent/taskmanager node.id=qpyngwz7k8mb3801oiec3ws8x service.id=nliwkl5eok7eqyolhoqv2b5n5 task.id=gcl1duk1wp393452w9fzhyn8o
+time="2020-05-27T22:51:26.994678752-05:00" level=info msg="initialized VXLAN UDP port to 4789 "
+time="2020-05-27T22:51:27.093357897-05:00" level=info msg="initialized VXLAN UDP port to 4789 "
+time="2020-05-27T22:51:27.747559459-05:00" level=warning msg="Error getting v2 registry: Get https://csce-6snvrz2.cs.tamu.edu:5000/v2/: http: server gave HTTP response to HTTPS client"
+time="2020-05-27T22:51:27.747648676-05:00" level=info msg="Attempting next endpoint for pull after error: Get https://csce-6snvrz2.cs.tamu.edu:5000/v2/: http: server gave HTTP response to HTTPS client"
+Current time:  2020-05-27 22:51:28.068765904 -0500 CDT m=+1925.221245128, Starting the download of the layers.
+time="2020-05-27T22:51:33.752983127-05:00" level=info msg="Layer sha256:77cae8ab23bf486355d1b3191259705374f4a11d483b24964d2f729dd8c076a0 cleaned up"
+2020-05-27 22:51:33.753116949 -0500 CDT m=+1930.905596178 --->	 Start of download the layer with id sha256:89d9c30c1d48bac627e5c6cb0d1ed1eec28e7dbdfbcc04712e4c79c0f83faf17.
+2020-05-27 22:51:33.75324264 -0500 CDT m=+1930.905721704 --->	  Waiting for top download.
+2020-05-27 22:51:33.753213886 -0500 CDT m=+1930.905693023 --->	 Start of download the layer with id sha256:cb4880ccba47d4c02e48ccface358a17b01ba6e3022717aac0c2979ddf07a809.
+2020-05-27 22:51:33.753282356 -0500 CDT m=+1930.905761547 --->	 Start of download the layer with id sha256:abc31ffc07f9f6e65520ac5bf6c85a4928706600c1556fd47172130aca6f4938.
+perf. Current time: 2020-05-27 22:51:34.078769316 -0500 CDT m=+1931.231248306. Log: Time to fetch remote layer sha256:abc31ffc07f9f6e65520ac5bf6c85a4928706600c1556fd47172130aca6f4938 is 325.460955ms, 
+perf. Current time: 2020-05-27 22:51:34.08414374 -0500 CDT m=+1931.236622729. Log: Time to MGET all encodings is 4.291124ms, 
+perf. Current time: 2020-05-27 22:51:34.084384446 -0500 CDT m=+1931.236863417. Log: Time to assembele remote layer sha256:abc31ffc07f9f6e65520ac5bf6c85a4928706600c1556fd47172130aca6f4938 is 5.588092ms, 
+2020-05-27 22:51:34.090857591 -0500 CDT m=+1931.243336555 --->	 Time to download the layer with id sha256:abc31ffc07f9f6e65520ac5bf6c85a4928706600c1556fd47172130aca6f4938 is : 337.575102ms.
+2020-05-27 22:51:34.09088165 -0500 CDT m=+1931.243360615 --->	 Start of download the layer with id sha256:2137f333b9e3af108d14099b8669c02b4d78277ed00938a18d441b87065ac596.
+perf. Current time: 2020-05-27 22:51:34.142784595 -0500 CDT m=+1931.295263732. Log: Time to fetch remote layer sha256:89d9c30c1d48bac627e5c6cb0d1ed1eec28e7dbdfbcc04712e4c79c0f83faf17 is 389.6535ms, 
+perf. Current time: 2020-05-27 22:51:34.182468283 -0500 CDT m=+1931.334947303. Log: Time to MGET all encodings is 35.514137ms, 
+perf. Current time: 2020-05-27 22:51:34.183346971 -0500 CDT m=+1931.335825974. Log: Time to assembele remote layer sha256:89d9c30c1d48bac627e5c6cb0d1ed1eec28e7dbdfbcc04712e4c79c0f83faf17 is 40.496364ms, 
+2020-05-27 22:51:34.205495638 -0500 CDT m=+1931.357974608 --->	 Time to download the layer with id sha256:89d9c30c1d48bac627e5c6cb0d1ed1eec28e7dbdfbcc04712e4c79c0f83faf17 is : 452.378499ms.
+2020-05-27 22:51:34.20555258 -0500 CDT m=+1931.358031593 --->	 Start of download the layer with id sha256:6a9f8bb9e1edbcf6f5dae5575f402f3ccefa84275c0466955831b48aa7bbb54c.
+perf. Current time: 2020-05-27 22:51:34.251475102 -0500 CDT m=+1931.403954215. Log: Time to fetch remote layer sha256:2137f333b9e3af108d14099b8669c02b4d78277ed00938a18d441b87065ac596 is 160.580656ms, 
+perf. Current time: 2020-05-27 22:51:34.252652447 -0500 CDT m=+1931.405131581. Log: Time to MGET all encodings is 1.101308ms, 
+perf. Current time: 2020-05-27 22:51:34.252697141 -0500 CDT m=+1931.405176173. Log: Time to assembele remote layer sha256:2137f333b9e3af108d14099b8669c02b4d78277ed00938a18d441b87065ac596 is 1.156303ms, 
+2020-05-27 22:51:34.253163014 -0500 CDT m=+1931.405642116 --->	 Time to download the layer with id sha256:2137f333b9e3af108d14099b8669c02b4d78277ed00938a18d441b87065ac596 is : 162.281771ms.
+2020-05-27 22:51:34.253217337 -0500 CDT m=+1931.405696363 --->	 Start of download the layer with id sha256:c8b05837884babc043d2e1eb8b00665a38e4a67dd94f7dcbb2be1edbac7b175a.
+perf. Current time: 2020-05-27 22:51:34.367784857 -0500 CDT m=+1931.520263845. Log: Time to fetch remote layer sha256:c8b05837884babc043d2e1eb8b00665a38e4a67dd94f7dcbb2be1edbac7b175a is 114.560209ms, 
+perf. Current time: 2020-05-27 22:51:34.367944686 -0500 CDT m=+1931.520423671. Log: Time to MGET all encodings is 135.731µs, 
+perf. Current time: 2020-05-27 22:51:34.367958192 -0500 CDT m=+1931.520437160. Log: Time to assembele remote layer sha256:c8b05837884babc043d2e1eb8b00665a38e4a67dd94f7dcbb2be1edbac7b175a is 153.631µs, 
+2020-05-27 22:51:34.368070521 -0500 CDT m=+1931.520549523 --->	 Time to download the layer with id sha256:c8b05837884babc043d2e1eb8b00665a38e4a67dd94f7dcbb2be1edbac7b175a is : 114.85323ms.
+2020-05-27 22:51:34.36808646 -0500 CDT m=+1931.520565453 --->	 Start of download the layer with id sha256:621300d967fb034a05efad580c7024e2c8266bb479de3718667271db515017e6.
+perf. Current time: 2020-05-27 22:51:34.410593868 -0500 CDT m=+1931.563072884. Log: Time to fetch remote layer sha256:cb4880ccba47d4c02e48ccface358a17b01ba6e3022717aac0c2979ddf07a809 is 657.367478ms, 
+perf. Current time: 2020-05-27 22:51:34.518604147 -0500 CDT m=+1931.671083125. Log: Time to MGET all encodings is 100.861234ms, 
+perf. Current time: 2020-05-27 22:51:34.523156408 -0500 CDT m=+1931.675635374. Log: Time to assembele remote layer sha256:cb4880ccba47d4c02e48ccface358a17b01ba6e3022717aac0c2979ddf07a809 is 112.520059ms, 
+perf. Current time: 2020-05-27 22:51:34.530949506 -0500 CDT m=+1931.683428503. Log: Time to fetch remote layer sha256:621300d967fb034a05efad580c7024e2c8266bb479de3718667271db515017e6 is 162.85941ms, 
+perf. Current time: 2020-05-27 22:51:34.531102684 -0500 CDT m=+1931.683581668. Log: Time to MGET all encodings is 113.325µs, 
+perf. Current time: 2020-05-27 22:51:34.531117067 -0500 CDT m=+1931.683596038. Log: Time to assembele remote layer sha256:621300d967fb034a05efad580c7024e2c8266bb479de3718667271db515017e6 is 130.273µs, 
+2020-05-27 22:51:34.531286482 -0500 CDT m=+1931.683765491 --->	 Time to download the layer with id sha256:621300d967fb034a05efad580c7024e2c8266bb479de3718667271db515017e6 is : 163.20012ms.
+2020-05-27 22:51:34.53130444 -0500 CDT m=+1931.683783404 --->	 Start of download the layer with id sha256:6de444a12ba361bc45fbaa6789554d8fed9bdd5ad568109df824eee8d865b206.
+perf. Current time: 2020-05-27 22:51:34.632259219 -0500 CDT m=+1931.784738208. Log: Time to fetch remote layer sha256:6a9f8bb9e1edbcf6f5dae5575f402f3ccefa84275c0466955831b48aa7bbb54c is 426.698005ms, 
+2020-05-27 22:51:34.63918597 -0500 CDT m=+1931.791664934 --->	 Time to download the layer with id sha256:cb4880ccba47d4c02e48ccface358a17b01ba6e3022717aac0c2979ddf07a809 is : 885.972026ms.
+2020-05-27 22:51:34.639208681 -0500 CDT m=+1931.791687646 --->	 Start of download the layer with id sha256:f27c123b4a59218a75757283b553eb75379f806ea411b6262d0b392ce260be78.
+perf. Current time: 2020-05-27 22:51:34.64442947 -0500 CDT m=+1931.796908457. Log: Time to MGET all encodings is 9.963843ms, 
+perf. Current time: 2020-05-27 22:51:34.644904702 -0500 CDT m=+1931.797383667. Log: Time to assembele remote layer sha256:6a9f8bb9e1edbcf6f5dae5575f402f3ccefa84275c0466955831b48aa7bbb54c is 12.397838ms, 
+2020-05-27 22:51:34.660254555 -0500 CDT m=+1931.812733523 --->	 Time to download the layer with id sha256:6a9f8bb9e1edbcf6f5dae5575f402f3ccefa84275c0466955831b48aa7bbb54c is : 454.702022ms.
+2020-05-27 22:51:34.66027241 -0500 CDT m=+1931.812751376 --->	 Start of download the layer with id sha256:3d28998695ae48edbedb238377973bd0501e36847bdc6a8f68c6cf73653a1ea1.
+perf. Current time: 2020-05-27 22:51:34.692788268 -0500 CDT m=+1931.845267263. Log: Time to fetch remote layer sha256:6de444a12ba361bc45fbaa6789554d8fed9bdd5ad568109df824eee8d865b206 is 161.480534ms, 
+perf. Current time: 2020-05-27 22:51:34.692983403 -0500 CDT m=+1931.845462392. Log: Time to MGET all encodings is 171.626µs, 
+perf. Current time: 2020-05-27 22:51:34.692999579 -0500 CDT m=+1931.845478549. Log: Time to assembele remote layer sha256:6de444a12ba361bc45fbaa6789554d8fed9bdd5ad568109df824eee8d865b206 is 195.338µs, 
+2020-05-27 22:51:34.693148586 -0500 CDT m=+1931.845627574 --->	 Time to download the layer with id sha256:6de444a12ba361bc45fbaa6789554d8fed9bdd5ad568109df824eee8d865b206 is : 161.844348ms.
+2020-05-27 22:51:34.693162657 -0500 CDT m=+1931.845641629 --->	 Start of download the layer with id sha256:e176669b726c95a474a313895d07c643c0f9a7377582effd9264a0233419099f.
+perf. Current time: 2020-05-27 22:51:34.797661058 -0500 CDT m=+1931.950140180. Log: Time to fetch remote layer sha256:3d28998695ae48edbedb238377973bd0501e36847bdc6a8f68c6cf73653a1ea1 is 137.377655ms, 
+perf. Current time: 2020-05-27 22:51:34.797671431 -0500 CDT m=+1931.950150570. Log: Time to fetch remote layer sha256:f27c123b4a59218a75757283b553eb75379f806ea411b6262d0b392ce260be78 is 158.452402ms, 
+perf. Current time: 2020-05-27 22:51:34.798096473 -0500 CDT m=+1931.950575526. Log: Time to MGET all encodings is 338.863µs, 
+perf. Current time: 2020-05-27 22:51:34.798136972 -0500 CDT m=+1931.950616018. Log: Time to assembele remote layer sha256:3d28998695ae48edbedb238377973bd0501e36847bdc6a8f68c6cf73653a1ea1 is 394.074µs, 
+2020-05-27 22:51:34.798639751 -0500 CDT m=+1931.951118790 --->	 Time to download the layer with id sha256:3d28998695ae48edbedb238377973bd0501e36847bdc6a8f68c6cf73653a1ea1 is : 138.367773ms.
+2020-05-27 22:51:34.798695841 -0500 CDT m=+1931.951174888 --->	 Start of download the layer with id sha256:dba007a372ef77d51651bf1bc39e3b4b78ae3f1394ab0636aeb53e4963158ba5.
+perf. Current time: 2020-05-27 22:51:34.798875523 -0500 CDT m=+1931.951354554. Log: Time to MGET all encodings is 523.633µs, 
+perf. Current time: 2020-05-27 22:51:34.798917802 -0500 CDT m=+1931.951396833. Log: Time to assembele remote layer sha256:f27c123b4a59218a75757283b553eb75379f806ea411b6262d0b392ce260be78 is 1.100731ms, 
+2020-05-27 22:51:34.79931471 -0500 CDT m=+1931.951793758 --->	 Time to download the layer with id sha256:f27c123b4a59218a75757283b553eb75379f806ea411b6262d0b392ce260be78 is : 160.106359ms.
+2020-05-27 22:51:34.799362376 -0500 CDT m=+1931.951841408 --->	 Start of download the layer with id sha256:bce9664032291e77ebe155d01b7b26026fe2ceecb29a117d8c0b676f63b68d79.
+perf. Current time: 2020-05-27 22:51:34.854364429 -0500 CDT m=+1932.006843452. Log: Time to fetch remote layer sha256:e176669b726c95a474a313895d07c643c0f9a7377582effd9264a0233419099f is 161.195372ms, 
+perf. Current time: 2020-05-27 22:51:34.854625239 -0500 CDT m=+1932.007104253. Log: Time to MGET all encodings is 225.32µs, 
+perf. Current time: 2020-05-27 22:51:34.85464945 -0500 CDT m=+1932.007128435. Log: Time to assembele remote layer sha256:e176669b726c95a474a313895d07c643c0f9a7377582effd9264a0233419099f is 254.644µs, 
+2020-05-27 22:51:34.854796916 -0500 CDT m=+1932.007275904 --->	 Time to download the layer with id sha256:e176669b726c95a474a313895d07c643c0f9a7377582effd9264a0233419099f is : 161.634487ms.
+2020-05-27 22:51:34.854822923 -0500 CDT m=+1932.007301906 --->	 Start of download the layer with id sha256:e3b7c2a5717c6bc6308ac896ae8948c6b60b1a594f4b99b58bef970e8c4ce9d5.
+2020-05-27 22:51:34.906766872 -0500 CDT m=+1932.059245866 --->	  Wait for parent download lasted for: 267.561826ms
+perf. Current time: 2020-05-27 22:51:34.95768764 -0500 CDT m=+1932.110166629. Log: Time to fetch remote layer sha256:dba007a372ef77d51651bf1bc39e3b4b78ae3f1394ab0636aeb53e4963158ba5 is 158.987684ms, 
+perf. Current time: 2020-05-27 22:51:34.957840374 -0500 CDT m=+1932.110319369. Log: Time to fetch remote layer sha256:bce9664032291e77ebe155d01b7b26026fe2ceecb29a117d8c0b676f63b68d79 is 158.475386ms, 
+perf. Current time: 2020-05-27 22:51:34.95918253 -0500 CDT m=+1932.111661498. Log: Time to MGET all encodings is 83.495µs, 
+perf. Current time: 2020-05-27 22:51:34.959192895 -0500 CDT m=+1932.111671860. Log: Time to assembele remote layer sha256:dba007a372ef77d51651bf1bc39e3b4b78ae3f1394ab0636aeb53e4963158ba5 is 97.845µs, 
+2020-05-27 22:51:34.959348941 -0500 CDT m=+1932.111827906 --->	 Time to download the layer with id sha256:dba007a372ef77d51651bf1bc39e3b4b78ae3f1394ab0636aeb53e4963158ba5 is : 160.653129ms.
+perf. Current time: 2020-05-27 22:51:34.959434406 -0500 CDT m=+1932.111913371. Log: Time to MGET all encodings is 287.609µs, 
+perf. Current time: 2020-05-27 22:51:34.959442097 -0500 CDT m=+1932.111921061. Log: Time to assembele remote layer sha256:bce9664032291e77ebe155d01b7b26026fe2ceecb29a117d8c0b676f63b68d79 is 296.315µs, 
+2020-05-27 22:51:34.959529147 -0500 CDT m=+1932.112008112 --->	 Time to download the layer with id sha256:bce9664032291e77ebe155d01b7b26026fe2ceecb29a117d8c0b676f63b68d79 is : 160.166757ms.
+perf. Current time: 2020-05-27 22:51:35.014865086 -0500 CDT m=+1932.167344062. Log: Time to fetch remote layer sha256:e3b7c2a5717c6bc6308ac896ae8948c6b60b1a594f4b99b58bef970e8c4ce9d5 is 160.037968ms, 
+perf. Current time: 2020-05-27 22:51:35.01505849 -0500 CDT m=+1932.167537457. Log: Time to MGET all encodings is 173.109µs, 
+perf. Current time: 2020-05-27 22:51:35.015069804 -0500 CDT m=+1932.167548768. Log: Time to assembele remote layer sha256:e3b7c2a5717c6bc6308ac896ae8948c6b60b1a594f4b99b58bef970e8c4ce9d5 is 189.528µs, 
+2020-05-27 22:51:35.015210187 -0500 CDT m=+1932.167689186 --->	 Time to download the layer with id sha256:e3b7c2a5717c6bc6308ac896ae8948c6b60b1a594f4b99b58bef970e8c4ce9d5 is : 160.387399ms.
+2020-05-27 22:51:35.874652698 -0500 CDT m=+1933.027131879 --->	  Wait for parent download lasted for: 1.783774927s
+2020-05-27 22:51:36.320015903 -0500 CDT m=+1933.472495104 --->	  Wait for parent download lasted for: 2.066812287s
+2020-05-27 22:51:36.706104378 -0500 CDT m=+1933.858583582 --->	  Wait for parent download lasted for: 2.045835638s
+2020-05-27 22:51:39.539190239 -0500 CDT m=+1936.691669411 --->	  Wait for parent download lasted for: 5.171107813s
+2020-05-27 22:51:40.000603851 -0500 CDT m=+1937.153082966 --->	  Wait for parent download lasted for: 5.469302787s
+2020-05-27 22:51:40.436783235 -0500 CDT m=+1937.589262411 --->	  Wait for parent download lasted for: 5.743624073s
+2020-05-27 22:51:40.915280026 -0500 CDT m=+1938.067759201 --->	  Wait for parent download lasted for: 6.115925635s
+2020-05-27 22:51:41.326931649 -0500 CDT m=+1938.479410825 --->	  Wait for parent download lasted for: 6.528244868s
+2020-05-27 22:51:41.813064323 -0500 CDT m=+1938.965543498 --->	  Wait for parent download lasted for: 6.958247186s
+2020-05-27 22:51:42.291130059 -0500 CDT m=+1939.443609249 --->	  Wait for parent download lasted for: 7.33177116s
+2020-05-27 22:51:42.727800134 -0500 CDT m=+1939.880279374 --->	  Wait for parent download lasted for: 7.768260348s
+2020-05-27 22:51:43.172444383 -0500 CDT m=+1940.324923564 --->	  Wait for parent download lasted for: 8.157224891s
+2020-05-27 22:51:43.592490887 -0500 CDT m=+1940.744970075 --->	  Top download downlaoded.
+2020-05-27 22:51:43.592582307 -0500 CDT m=+1940.745061428 --->	  Downlaoded image in time: 15.523724208s
+time="2020-05-27T22:51:46.035332132-05:00" level=info msg="shim containerd-shim started" address="/containerd-shim/moby/6bbc3b7b1e63304205ca2841c10d01a64164491a459248764257131ad2b9493f/shim.sock" debug=false pid=19982 
+time="2020-05-27T22:54:30.205117047-05:00" level=info msg="NetworkDB stats singularity4.cs.tamu.edu(57183d6a3446) - netID:pj52d1c4x7eu0yni960aj7tog leaving:false netPeers:2 entries:8 Queue qLen:0 netMsg/s:0"
+time="2020-05-27T22:54:30.205298436-05:00" level=info msg="NetworkDB stats singularity4.cs.tamu.edu(57183d6a3446) - netID:mvn3wrk1uf4jf0wubu0fayhnh leaving:false netPeers:2 entries:21 Queue qLen:0 netMsg/s:0"
+time="2020-05-27T22:59:30.404972166-05:00" level=info msg="NetworkDB stats singularity4.cs.tamu.edu(57183d6a3446) - netID:mvn3wrk1uf4jf0wubu0fayhnh leaving:false netPeers:2 entries:18 Queue qLen:0 netMsg/s:0"
+time="2020-05-27T22:59:30.405142284-05:00" level=info msg="NetworkDB stats singularity4.cs.tamu.edu(57183d6a3446) - netID:pj52d1c4x7eu0yni960aj7tog leaving:false netPeers:2 entries:8 Queue qLen:0 netMsg/s:0"
+time="2020-05-27T23:00:16.172842137-05:00" level=warning msg="failed to deactivate service binding for container node.1.gcl1duk1wp393452w9fzhyn8o" error="No such container: node.1.gcl1duk1wp393452w9fzhyn8o" module=node/agent node.id=qpyngwz7k8mb3801oiec3ws8x
+time="2020-05-27T23:00:29.123792799-05:00" level=info msg="Container 6bbc3b7b1e63304205ca2841c10d01a64164491a459248764257131ad2b9493f failed to exit within 10 seconds of signal 15 - using the force"
+time="2020-05-27T23:00:29.295936700-05:00" level=info msg="shim reaped" id=6bbc3b7b1e63304205ca2841c10d01a64164491a459248764257131ad2b9493f 
+time="2020-05-27T23:00:29.306394509-05:00" level=info msg="ignoring event" module=libcontainerd namespace=moby topic=/tasks/delete type="*events.TaskDelete"
+time="2020-05-27T23:00:29.306858471-05:00" level=warning msg="rmServiceBinding 1206f55c8da69bb91dce7177f50c755ec04d1db705697a5db0a3f79ed7c4ed95 possible transient state ok:false entries:0 set:false "
+time="2020-05-27T23:00:31.148388061-05:00" level=warning msg="Error (Unable to complete atomic operation, key modified) deleting object [endpoint mvn3wrk1uf4jf0wubu0fayhnh 2c8c77bf0f951d2f267d7ef32d6f428b0c5c7dcc48aab48eb1c17f5bb6e48d66], retrying...."
+time="2020-05-27T23:00:31.446908836-05:00" level=info msg="initialized VXLAN UDP port to 4789 "

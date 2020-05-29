@@ -354,6 +354,7 @@ func (ldm *LayerDownloadManager) makeDownloadFunc(descriptor DownloadDescriptor,
 			reader := progress.NewProgressReader(ioutils.NewCancelReadCloser(d.Transfer.Context(), downloadReader), progressOutput, size, descriptor.ID(), "Extracting")
 			defer reader.Close()
 
+			//Nikhil: Decompress layer
 			inflatedLayerData, err := archive.DecompressStream(reader)
 			if err != nil {
 				d.err = fmt.Errorf("could not get decompression stream: %v", err)

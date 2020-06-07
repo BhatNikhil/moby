@@ -184,7 +184,7 @@ func (ld *v2LayerDescriptor) Download(ctx context.Context, progressOutput progre
 	)
 
 	blocks := ld.repo.Blocks(ctx)
-	blockResponse, blockKeys, blockLength, checksum, _ := blocks.Exchange(ctx, ld.digest)
+	blockResponse, blockKeys, blockLength, _, _ := blocks.Exchange(ctx, ld.digest)
 	encode.PerfLog(fmt.Sprintf("Time to fetch remote layer %s is %s", ld.digest, time.Since(start)))
 
 	if encodeService.Debug == true {
@@ -199,16 +199,16 @@ func (ld *v2LayerDescriptor) Download(ctx context.Context, progressOutput progre
 		ld.encodeService.InsertMissingEncodings(ctx, blockKeys, blob)
 	}()
 
-	destinationChecksum := sha256.Sum256(blob)
+	// destinationChecksum := sha256.Sum256(blob)
 
-	if encodeService.Debug == true {
-		fmt.Println("For layer-->", ld.digest)
-		if checksum == hex.EncodeToString(destinationChecksum[:]) {
-			fmt.Println("Checksum matched. Congratulations!!")
-		} else {
-			fmt.Println("Checkum not matched. Go check youself.")
-		}
-	}
+	// if encodeService.Debug == true {
+	// 	fmt.Println("For layer-->", ld.digest)
+	// 	if checksum == hex.EncodeToString(destinationChecksum[:]) {
+	// 		fmt.Println("Checksum matched. Congratulations!!")
+	// 	} else {
+	// 		fmt.Println("Checkum not matched. Go check youself.")
+	// 	}
+	// }
 
 	if ld.tmpFile == nil {
 		ld.tmpFile, err = createDownloadFile()

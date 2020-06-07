@@ -2,8 +2,8 @@ package encode
 
 import (
 	"context"
-	"crypto/sha256"
-	"encoding/hex"
+	"crypto/md5"
+	"encoding/base64"
 	"fmt"
 
 	"github.com/docker/distribution/encode"
@@ -30,8 +30,9 @@ func (s *Service) InsertMissingEncodings(ctx context.Context, blockKeysInDB []st
 		if blockKey == "0" { // block key not in db
 			startIndex, endIndex := encode.BlockIndices(i, len(byteStream))
 			block := byteStream[startIndex:endIndex]
-			keyAsBytes := sha256.Sum256(block)
-			keys = append(keys, hex.EncodeToString(keyAsBytes[:]))
+			keyAsBytes := md5.Sum(block) //TODO: Move this code to the same place sevrer library and import it here
+			keyBase64 := base64.StdEncoding.EncodeToString(keyAsBytes[:])
+			keys = append(keys, keyBase64[0:len(keyBase64)-2])
 			blocks = append(blocks, block)
 		}
 	}

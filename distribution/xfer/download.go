@@ -107,7 +107,6 @@ type DownloadDescriptorWithRegistered interface {
 // registered in the appropriate order.  The caller must call the returned
 // release function once it is done with the returned RootFS object.
 func (ldm *LayerDownloadManager) Download(ctx context.Context, initialRootFS image.RootFS, os string, layers []DownloadDescriptor, progressOutput progress.Output) (image.RootFS, func(), error) {
-	fmt.Printf("Current time:  %s, Starting the download of the layers.\n", time.Now())
 	start := time.Now()
 
 	var (
@@ -204,7 +203,6 @@ func (ldm *LayerDownloadManager) Download(ctx context.Context, initialRootFS ima
 		}
 	}()
 
-	fmt.Printf("%s --->\t  Waiting for top download.\n", time.Now())
 	select {
 	case <-ctx.Done():
 		topDownload.Transfer.Release(watcher)
@@ -212,7 +210,6 @@ func (ldm *LayerDownloadManager) Download(ctx context.Context, initialRootFS ima
 	case <-topDownload.Done():
 		break
 	}
-	fmt.Printf("%s --->\t  Top download downlaoded.\n", time.Now())
 
 	l, err := topDownload.result()
 	if err != nil {
@@ -230,7 +227,7 @@ func (ldm *LayerDownloadManager) Download(ctx context.Context, initialRootFS ima
 		rootFS.DiffIDs = append([]layer.DiffID{l.DiffID()}, rootFS.DiffIDs...)
 		l = l.Parent()
 	}
-	fmt.Printf("%s --->\t  Downlaoded image in time: %s\n", time.Now(), time.Since(start))
+	fmt.Println("Downlaoded image in time: ", time.Since(start))
 	return rootFS, func() { topDownload.Transfer.Release(watcher) }, err
 }
 
@@ -247,7 +244,6 @@ func (ldm *LayerDownloadManager) makeDownloadFunc(descriptor DownloadDescriptor,
 		}
 
 		go func() {
-			startTime := time.Now()
 			defer func() {
 				close(progressChan)
 			}()
@@ -328,11 +324,10 @@ func (ldm *LayerDownloadManager) makeDownloadFunc(descriptor DownloadDescriptor,
 
 				}
 			}
-			fmt.Printf("%s --->\t Reporting from makeDownloadFunc. Time to download content: %s\n", time.Now(), time.Since(startTime))
+
 			close(inactive)
 
 			if parentDownload != nil {
-				now := time.Now()
 				select {
 				case <-d.Transfer.Context().Done():
 					d.err = errors.New("layer registration cancelled")
@@ -340,7 +335,6 @@ func (ldm *LayerDownloadManager) makeDownloadFunc(descriptor DownloadDescriptor,
 					return
 				case <-parentDownload.Done():
 				}
-				fmt.Printf("%s --->\t  Wait for parent download lasted for: %s\n", time.Now(), time.Since(now))
 
 				l, err := parentDownload.result()
 				if err != nil {
@@ -394,8 +388,6 @@ func (ldm *LayerDownloadManager) makeDownloadFunc(descriptor DownloadDescriptor,
 					layer.ReleaseAndLog(d.layerStore, d.layer)
 				}
 			}()
-
-			fmt.Printf("%s --->\t Reporting from makeDownloadFunc. Time to finish downloadFunc %s.\n", time.Now(), time.Since(startTime))
 		}()
 
 		return d

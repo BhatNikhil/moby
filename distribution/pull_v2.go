@@ -270,9 +270,8 @@ func (ld *v2LayerDescriptor) Download(ctx context.Context, progressOutput progre
 		return nil, 0, xfer.DoNotRetry{Err: err}
 	}
 
-	fmt.Printf("%s --->\t Time to download the layer: %s\n", time.Now(), time.Since(start))
+	fmt.Printf("perf. %s --->\t Time to download the layer: %s is %s\n", time.Now(), ld.digest, time.Since(start))
 	progress.Update(progressOutput, ld.ID(), "Download complete")
-
 	logrus.Debugf("Downloaded %s to tempfile %s", ld.ID(), tmpFile.Name())
 
 	_, err = tmpFile.Seek(0, io.SeekStart)
